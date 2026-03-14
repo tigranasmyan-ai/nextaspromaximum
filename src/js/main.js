@@ -151,7 +151,6 @@ $(document).ready(function () {
     $('.js-fixed-bar-menu__link').each(function () {
         const $subMenu = $(this).next('.fixed-bar-menu__sub-menu');
         if ($subMenu.length > 0) {
-            // Extract only the text from the link, ignoring span/svg children
             const title = $(this).contents().filter(function() {
                 return this.nodeType === 3;
             }).text().trim();
@@ -159,12 +158,18 @@ $(document).ready(function () {
             $subMenu.prepend(`
                 <div class="fixed-bar-menu__header">
                     <a href="#" class="fixed-bar-menu__back js-fixed-bar-back">
-                        <svg viewBox="0 0 3 5" width="6" height="10">
-                            <path d="M3 5L0 2.50006L3 3.57746e-08L3 5Z" fill="currentColor"/>
-                        </svg>
-                        Назад
+                       <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 3.42627L2 8.42627M2 8.42627L6 13.4263M2 8.42627H14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                       </svg>
                     </a>
-                    <div class="fixed-bar-menu__title">${title}</div>
+                    
+                    <span class="fixed-bar-menu__title">
+                        <span>${title}</span>
+                        
+                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 12" fill="none">
+                            <path d="M1 1L5 6L1 11" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
                 </div>
             `);
         }
@@ -172,9 +177,8 @@ $(document).ready(function () {
 
     $('.js-fixed-bar-menu__link').click(function (e) {
         if ($(this).next('.fixed-bar-menu__sub-menu').length > 0) {
-            e.preventDefault();
-            // Add is-frozen to ALL ancestor containers to prevent clipping
             const $parents = $(this).parents('.fixed-bar__content, .fixed-bar-menu__sub-menu');
+
             $parents.addClass('is-frozen');
             
             // Slide forward

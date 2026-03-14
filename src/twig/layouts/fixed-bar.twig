@@ -12,21 +12,23 @@
 ] %}
 
 <div class="offcanvas offcanvas-start fixed-bar" tabindex="-1" id="LeftMenu" aria-labelledby="LeftMenu">
+    <button type="button" class="fixed-bar__close" data-bs-dismiss="offcanvas" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L8 6.58579L14.2929 0.292893C14.6834 -0.0976311 15.3166 -0.0976311 15.7071 0.292893C16.0976 0.683417 16.0976 1.31658 15.7071 1.70711L9.41421 8L15.7071 14.2929C16.0976 14.6834 16.0976 15.3166 15.7071 15.7071C15.3166 16.0976 14.6834 16.0976 14.2929 15.7071L8 9.41421L1.70711 15.7071C1.31658 16.0976 0.683417 16.0976 0.292893 15.7071C-0.0976311 15.3166 -0.0976311 14.6834 0.292893 14.2929L6.58579 8L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"/>
+        </svg>
+    </button>
+
     <div class="fixed-bar__slide">
         <div class="fixed-bar__content">
-            {% if false %}
-                <div class="fixed-bar__top">
-                    <div class="fixed-bar__location fixed-bar-location">
-                        <svg class="fixed-bar-location__icon">
-                            <use xlink:href="img/svg-icons-final.svg#region"></use>
-                        </svg>
+            <div class="fixed-bar__location fixed-bar-location">
+                <svg class="fixed-bar-location__icon">
+                    <use xlink:href="img/svg-icons-final.svg#region"></use>
+                </svg>
 
-                        <span class="fixed-bar-location__value">
+                <span class="fixed-bar-location__value">
                         Челябинск
                     </span>
-                    </div>
-                </div>
-            {% endif %}
+            </div>
 
             <div class="fixed-bar__catalog">
                 <a href="" class="button button-default button-lg button-block js-fixed-bar-menu__link">
@@ -123,7 +125,7 @@
                                 <ul class="fixed-bar-menu__sub-menu">
                                     {% for sub1 in item.sub %}
                                         <li>
-                                            <a href="" class="fixed-bar-menu__link">
+                                            <a href="" class="js-fixed-bar-menu__link fixed-bar-menu__link">
                                                 {{ sub1.text|default(sub1) }}
                                                 {% if sub1.sub is defined and sub1.sub %}
                                                     <span class="fixed-bar-menu__chevron">
@@ -138,7 +140,7 @@
                                                 <ul class="fixed-bar-menu__sub-menu">
                                                     {% for sub2 in sub1.sub %}
                                                         <li>
-                                                            <a href="" class="fixed-bar-menu__link">
+                                                            <a href="" class="js-fixed-bar-menu__link fixed-bar-menu__link">
                                                                 {{ sub2 }}
                                                             </a>
                                                         </li>

@@ -9,6 +9,41 @@
     width: 100%;
   }
 
+  &__close {
+    width: 32px;
+    height: 32px;
+    border: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--settings-main-border-radius);
+    transition: background-color .3s ease, fill .3s ease;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    fill: rgb(var(--icon_on_card));
+    background-color: rgb(var(--black_bg_black));
+
+    z-index: 50;
+
+    svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    &:hover {
+      fill: rgb(var(--white_text_black));
+
+      background-color: rgb(var(--darkerblack_bg_black));
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__contacts {
     display: flex;
     gap: 20px;
@@ -93,15 +128,29 @@
   &__header {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-bottom: 24px;
+    gap: 30px;
+    margin-bottom: 15px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 
   &__title {
-    font-size: 24px;
-    font-weight: 700;
     color: rgb(var(--white_text_black));
-    line-height: 1.2;
+    font-size: clamp(1rem, 2vw, 1rem + 2px);
+    line-height: calc(1em + 8px);
+    font-weight: 500;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    gap: 15px;
+
+    stroke: rgb(var(--fill_dark_light));
+
+    svg {
+      width: 5px;
+      height: 10px;
+      transform: translateY(1px);
+    }
   }
 
   &__back {
@@ -113,11 +162,11 @@
     text-decoration: none;
     color: rgb(var(--secondary));
     transition: color 0.3s ease;
+    stroke: rgb(var(--icon_on_card));
 
     svg {
-      width: 6px;
-      height: 10px;
-      fill: currentColor;
+      width: 16px;
+      height: 17px;
     }
 
     &:hover {
@@ -229,5 +278,21 @@
     color: rgb(var(--secondary));
     font-size: calc(1rem - 3px);
     line-height: calc(1em + 5px);
+  }
+}
+
+.fixed-bar-location {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+
+  &__icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__value {
+    font-size: calc(1rem - 1px);
+    line-height: calc(1em + 7px);
   }
 }
