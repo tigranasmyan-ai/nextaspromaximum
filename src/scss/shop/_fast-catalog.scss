@@ -13,6 +13,14 @@
     gap: 32px 12px;
     grid-template-columns: repeat(6, 1fr);
     display: grid;
+
+    @media (max-width: 1600px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: 1199px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   &__col {

@@ -1,4 +1,11 @@
 .logo {
   color: rgb(var(--settings-theme-primary));
   fill: rgb(var(--basic_text_black));
+
+  @media (max-width: 991px) {
+    svg {
+      width: 126px;
+      height: 24px;
+    }
+  }
 }

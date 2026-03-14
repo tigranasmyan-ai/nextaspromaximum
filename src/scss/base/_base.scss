@@ -24,7 +24,7 @@
   --settigs-image-border-radius: 10px;
 
   // Основной цвет сайта
-  --settings-theme-primary: 37, 125, 277;
+  --settings-theme-primary: 10, 163, 96;
   --settings-theme-primary-text: 255, 255, 255;
 
   // Системные цвета
@@ -66,6 +66,10 @@
   --input_border_color: var(--stroke_input);
   --input_border_color-hover: var(--icon_on_card);
   --input_border_color-focus: var(--secondary);
+
+  @media (max-width: 991px) {
+    --settings-layout-container-indent: 16px;
+  }
 }
 
 [data-theme="dark"] {
