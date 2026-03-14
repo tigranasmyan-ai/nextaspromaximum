@@ -18,7 +18,7 @@ $button-themes: (
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: var(--button-height);
+  min-height: var(--button-height);
   padding: 0 var(--button-pr) 0 var(--button-pl);
 
   font-size: var(--button-font-size);

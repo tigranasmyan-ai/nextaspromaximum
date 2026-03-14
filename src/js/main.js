@@ -141,5 +141,68 @@ $(document).ready(function () {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
-    })
+    });
+
+    /**
+     * Fixed bar menu
+     */
+    let currentLevel = 0;
+
+    $('.js-fixed-bar-menu__link').each(function () {
+        const $subMenu = $(this).next('.fixed-bar-menu__sub-menu');
+        if ($subMenu.length > 0) {
+            // Extract only the text from the link, ignoring span/svg children
+            const title = $(this).contents().filter(function() {
+                return this.nodeType === 3;
+            }).text().trim();
+
+            $subMenu.prepend(`
+                <div class="fixed-bar-menu__header">
+                    <a href="#" class="fixed-bar-menu__back js-fixed-bar-back">
+                        <svg viewBox="0 0 3 5" width="6" height="10">
+                            <path d="M3 5L0 2.50006L3 3.57746e-08L3 5Z" fill="currentColor"/>
+                        </svg>
+                        Назад
+                    </a>
+                    <div class="fixed-bar-menu__title">${title}</div>
+                </div>
+            `);
+        }
+    });
+
+    $('.js-fixed-bar-menu__link').click(function (e) {
+        if ($(this).next('.fixed-bar-menu__sub-menu').length > 0) {
+            e.preventDefault();
+            // Add is-frozen to ALL ancestor containers to prevent clipping
+            const $parents = $(this).parents('.fixed-bar__content, .fixed-bar-menu__sub-menu');
+            $parents.addClass('is-frozen');
+            
+            // Slide forward
+            currentLevel++;
+            $('.fixed-bar__slide').css('transform', `translateX(-${currentLevel * 100}%)`);
+        }
+    });
+
+    $(document).on('click', '.js-fixed-bar-back', function (e) {
+        e.preventDefault();
+        const $subMenu = $(this).closest('.fixed-bar-menu__sub-menu');
+        const $parentContainer = $subMenu.parent().closest('.fixed-bar__content, .fixed-bar-menu__sub-menu');
+        
+        // Slide backward
+        currentLevel--;
+        $('.fixed-bar__slide').css('transform', `translateX(-${currentLevel * 100}%)`);
+
+        setTimeout(() => {
+            $parentContainer.removeClass('is-frozen');
+        }, 300);
+    });
+
+    const leftMenuOffcanvas = document.getElementById('LeftMenu');
+    if (leftMenuOffcanvas) {
+        leftMenuOffcanvas.addEventListener('hidden.bs.offcanvas', function () {
+            currentLevel = 0;
+            $('.fixed-bar__slide').css('transform', `translateX(0)`);
+            $('.fixed-bar__content, .fixed-bar-menu__sub-menu').removeClass('is-frozen');
+        });
+    }
 });

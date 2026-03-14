@@ -5,179 +5,203 @@
     { href: '', icon: 'cart', text: 'Корзина', width: 20, height: 20 }
 ] %}
 
-<div class="offcanvas offcanvas-start fixed-bar" tabindex="-1" id="LeftMenu" aria-labelledby="LeftMenu">
-    <div class="fixed-bar__content">
-        {% if false %}
-            <div class="fixed-bar__top">
-                <div class="fixed-bar__location fixed-bar-location">
-                    <svg class="fixed-bar-location__icon">
-                        <use xlink:href="img/svg-icons-final.svg#region"></use>
-                    </svg>
+{% set menus = [
+    { href: '', text: 'Акции', id: 'services', sub_menu: true },
+    { href: '', text: 'Блог', id: 'blog', sub_menu: true },
+    { href: '', text: 'Товары', id: 'products', sub_menu: false }
+] %}
 
-                    <span class="fixed-bar-location__value">
+<div class="offcanvas offcanvas-start fixed-bar" tabindex="-1" id="LeftMenu" aria-labelledby="LeftMenu">
+    <div class="fixed-bar__slide">
+        <div class="fixed-bar__content">
+            {% if false %}
+                <div class="fixed-bar__top">
+                    <div class="fixed-bar__location fixed-bar-location">
+                        <svg class="fixed-bar-location__icon">
+                            <use xlink:href="img/svg-icons-final.svg#region"></use>
+                        </svg>
+
+                        <span class="fixed-bar-location__value">
                         Челябинск
                     </span>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="fixed-bar__catalog">
+                <a href="" class="button button-default button-lg button-block js-fixed-bar-menu__link">
+                    Каталог
+                </a>
+
+                <ul class="fixed-bar-menu__sub-menu">
+                    {% set catalog_items = [
+                        { text: 'Строительные материалы', sub: ['Кирпич', 'Бетон', 'Арматура'] },
+                        { text: 'Инструменты', sub: ['Электроинструмент', 'Ручной инструмент'] },
+                        { text: 'Сантехника', sub: ['Смесители', 'Раковины', 'Ванны'] },
+                        { text: 'Электрика', sub: ['Кабель', 'Розетки', 'Освещение'] }
+                    ] %}
+
+                    {% for item in catalog_items %}
+                        <li>
+                            <a href="" class="fixed-bar-menu__link js-fixed-bar-menu__link">
+                                {{ item.text }}
+                                <span class="fixed-bar-menu__chevron">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 5">
+                                        <path d="M2.98043e-07 5L3 2.50006L0 3.57746e-08L2.98043e-07 5Z"/>
+                                    </svg>
+                                </span>
+                            </a>
+
+                            <ul class="fixed-bar-menu__sub-menu">
+                                {% for sub in item.sub %}
+                                    <li>
+                                        <a href="" class="fixed-bar-menu__link js-fixed-bar-menu__link">
+                                            {{ sub }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="fixed-bar__col">
+                <div class="fixed-bar-actions">
+                    {% for action in actions %}
+                        <a href="{{ action.href }}" class="fixed-bar-action">
+                            <svg class="fixed-bar-action__icon" width="{{ action.width }}"
+                                 height="{{ action.height }}">
+                                <use href="img/svg-icons-final.svg#{{ action.icon }}"></use>
+                            </svg>
+
+                            <span class="fixed-bar-action__text">{{ action.text }}</span>
+
+                            {% if loop.index != 1 %}
+                                <span class="fixed-bar-action__counter">12834</span>
+                            {% endif %}
+                        </a>
+                    {% endfor %}
                 </div>
             </div>
-        {% endif %}
 
-        <a href="" class="button button-default button-lg button-block">
-            Каталог
-        </a>
+            <span class="fixed-bar__divider"></span>
 
-        <div class="fixed-bar__col">
-            <div class="fixed-bar-actions">
-                {% for action in actions %}
-                    <a href="{{ action.href }}" class="fixed-bar-action">
-                        <svg class="fixed-bar-action__icon" width="{{ action.width }}"
-                             height="{{ action.height }}">
-                            <use href="img/svg-icons-final.svg#{{ action.icon }}"></use>
-                        </svg>
+            <div class="fixed-bar__col">
+                <ul class="fixed-bar-menu">
+                    {% set simulation_menu = [
+                        { text: 'Бренды', sub: false },
+                        { text: 'Акции', sub: false },
+                        { text: 'Конаткны', sub: false },
+                        { text: 'Каталог товаров', sub: [
+                            { text: 'Электроника', sub: ['Смартфоны', 'Ноутбуки', 'Телевизоры'] },
+                            { text: 'Одежда', sub: ['Мужская', 'Женская', 'Детская'] },
+                            { text: 'Дом и сад', sub: ['Мебель', 'Декор', 'Инструменты'] }
+                        ]},
+                        { text: 'Услуги компании', sub: [
+                            { text: 'Доставка', sub: ['Курьером', 'В пункт выдачи', 'Почтой'] },
+                            { text: 'Монтаж', sub: ['Установка техники', 'Сборка мебели'] },
+                            { text: 'Сервис', sub: ['Гарантия', 'Ремонт'] }
+                        ]},
+                        { text: 'Акции и скидки', sub: false }
+                    ] %}
 
-                        <span class="fixed-bar-action__text">{{ action.text }}</span>
+                    {% for item in simulation_menu %}
+                        <li>
+                            <a href="" class="fixed-bar-menu__link js-fixed-bar-menu__link">
+                                {{ item.text }}
+                                {% if item.sub %}
+                                    <span class="fixed-bar-menu__chevron">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 5">
+                                            <path d="M2.98043e-07 5L3 2.50006L0 3.57746e-08L2.98043e-07 5Z"/>
+                                        </svg>
+                                    </span>
+                                {% endif %}
+                            </a>
 
-                        {% if loop.index != 1 %}
-                            <span class="fixed-bar-action__counter">12834</span>
-                        {% endif %}
-                    </a>
-                {% endfor %}
+                            {% if item.sub %}
+                                <ul class="fixed-bar-menu__sub-menu">
+                                    {% for sub1 in item.sub %}
+                                        <li>
+                                            <a href="" class="fixed-bar-menu__link">
+                                                {{ sub1.text|default(sub1) }}
+                                                {% if sub1.sub is defined and sub1.sub %}
+                                                    <span class="fixed-bar-menu__chevron">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 5">
+                                                            <path d="M2.98043e-07 5L3 2.50006L0 3.57746e-08L2.98043e-07 5Z"/>
+                                                        </svg>
+                                                    </span>
+                                                {% endif %}
+                                            </a>
+
+                                            {% if sub1.sub is defined and sub1.sub %}
+                                                <ul class="fixed-bar-menu__sub-menu">
+                                                    {% for sub2 in sub1.sub %}
+                                                        <li>
+                                                            <a href="" class="fixed-bar-menu__link">
+                                                                {{ sub2 }}
+                                                            </a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
-        </div>
 
-        <span class="fixed-bar__divider"></span>
+            <span class="fixed-bar__divider"></span>
 
-        <div class="fixed-bar__col">
-            <div class="fixed-bar-menu">
-                <a href="" class="fixed-bar-menu__link">
-                    Акции
-
-                    <span class="fixed-bar-menu__chevron">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 5">
-                            <path d="M2.98043e-07 5L3 2.50006L0 3.57746e-08L2.98043e-07 5Z"/>
-                        </svg>
-                    </span>
-                </a>
-
-                <a href="" class="fixed-bar-menu__link">
-                    Новинки
-
-                    <span class="fixed-bar-menu__chevron">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 5">
-                            <path d="M2.98043e-07 5L3 2.50006L0 3.57746e-08L2.98043e-07 5Z"/>
-                        </svg>
-                    </span>
-                </a>
-
-                <a href="" class="fixed-bar-menu__link">
-                    Бренды
-
-                    <span class="fixed-bar-menu__chevron">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 5">
-                            <path d="M2.98043e-07 5L3 2.50006L0 3.57746e-08L2.98043e-07 5Z"/>
-                        </svg>
-                    </span>
-                </a>
-
-                <a href="" class="fixed-bar-menu__link">
-                    Контакты
-
-                    <span class="fixed-bar-menu__chevron">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 5">
-                            <path d="M2.98043e-07 5L3 2.50006L0 3.57746e-08L2.98043e-07 5Z"/>
-                        </svg>
-                    </span>
-                </a>
-            </div>
-        </div>
-
-        <span class="fixed-bar__divider"></span>
-
-        <div class="fixed-bar__col is-indent">
-            <div class="contacts-widget__col contacts-widget__col--first">
-                <a href="" class="contacts-widget__phone">
-                    <span class="contacts-widget__phone-info">
-                        <span class="contacts-widget__phone-value">
-                            +7 100 000-00-00
+            <div class="fixed-bar__col is-indent">
+                <a href="" class="fixed-bar-phone">
+                    <span>
+                        <span class="fixed-bar-phone__value">
+                             +7 100 000-00-00
                         </span>
 
-                        <span class="contacts-widget__phone-label">
+                        <span class="fixed-bar-phone__label">
                             Бухгалтерия
                         </span>
                     </span>
 
-                    <span class="contacts-widget__phone-icon">
-                        <img src="https://premier-demo.ru/bitrix/images/aspro.premier/iconset/header_phones/beeline.svg" alt="">
-                    </span>
-                </a>
-
-                <a href="" class="contacts-widget__phone">
-                    <span class="contacts-widget__phone-info">
-                        <span class="contacts-widget__phone-value">+7 100 000-00-00</span>
-
-                        <span class="contacts-widget__phone-label">
-                            Бухгалтерия
-                        </span>
-                    </span>
-
-                    <span class="contacts-widget__phone-icon">
-                        <img src="https://premier-demo.ru/bitrix/images/aspro.premier/iconset/header_phones/whatsapp.svg" alt="">
-                    </span>
-                </a>
-
-                <a href="" class="contacts-widget__phone">
-                    <span class="contacts-widget__phone-info">
-                        <span class="contacts-widget__phone-value">+7 100 000-00-00</span>
-                    </span>
-
-                    <span class="contacts-widget__phone-icon">
-                        <img src="https://premier-demo.ru/bitrix/images/aspro.premier/iconset/header_phones/tele2.svg" alt="">
-                    </span>
+                    <svg class="fixed-bar-phone__chevron">
+                        <use href="img/svg-icons-final.svg#down"></use>
+                    </svg>
                 </a>
             </div>
 
-            <div class="contacts-widget__col contacts-widget__col--last">
-                <div class="contacts-widget__contact">
-                <span class="contacts-widget__contact-label">
-                    E-mail
-                </span>
-
-                    <a href="mailto:no-reply@chel.premier-demo.ru"
-                       class="contacts-widget__contact-value contacts-widget__contact-value--link">
+            <div class="fixed-bar__col is-indent">
+                <div class="fixed-bar__contacts">
+                    <a href="" class="fixed-bar__contact">
                         no-reply@chel.premier-demo.ru
                     </a>
+
+                    <span class="fixed-bar__contact">
+                        Челябинск, ул. Лермонтова 21, <br> 3 этаж, офис 4
+                    </span>
+
+                    <span class="fixed-bar__contact">
+                        Пн - Вс: 11.00 - 19.00
+                    </span>
                 </div>
+            </div>
 
-                <div class="contacts-widget__contact">
-                <span class="contacts-widget__contact-label">
-                    Адрес
-                </span>
-
-                    <span class="contacts-widget__contact-value">
-                    Челябинск, ул. Лермонтова 21, 3 этаж, офис 4
-                </span>
-                </div>
-
-                <div class="contacts-widget__contact">
-                <span class="contacts-widget__contact-label">
-                    Режим работы
-                </span>
-
-                    <span class="contacts-widget__contact-value">
-                    Пн - Вс: 11.00 - 19.00
-                </span>
-                </div>
-
+            <div class="fixed-bar__col is-indent">
                 <div class="contacts-widget__socials">
                     <a href="" class="contacts-widget__social-item contacts-widget__social-item--viber" aria-label="Viber"></a>
                     <a href="" class="contacts-widget__social-item contacts-widget__social-item--vkontakte" aria-label="VKontakte"></a>
                 </div>
             </div>
-        </div>
 
-        <span class="fixed-bar__divider"></span>
+            <span class="fixed-bar__divider"></span>
 
-        <div class="fixed-bar__col is-indent">
-            asd
+            <div class="fixed-bar__col is-indent">
+                asd
+            </div>
         </div>
     </div>
 </div>
