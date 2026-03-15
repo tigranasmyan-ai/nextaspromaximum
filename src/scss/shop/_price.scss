@@ -1,0 +1,43 @@
+.price {
+  $self: &;
+
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  gap: 4px 8px;
+  flex-wrap: wrap;
+
+  &__old {
+    opacity: 0.4;
+    text-decoration: line-through;
+    display: block;
+
+    #{$self}-sm & {
+      font-size: 12px;
+    }
+
+    #{$self}-md & {
+      font-size: 12px;
+    }
+
+    #{$self}-lg & {
+      font-size: 14px;
+    }
+  }
+
+  &__now {
+    display: block;
+
+    #{$self}-sm & {
+      font-size: 14px;
+    }
+
+    #{$self}-md & {
+      font-size: 16px;
+    }
+
+    #{$self}-lg & {
+      font-size: 20px;
+    }
+  }
+}

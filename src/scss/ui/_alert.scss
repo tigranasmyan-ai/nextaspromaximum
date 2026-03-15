@@ -1,15 +1,13 @@
-@use "../../abstracts";
-
 .alert {
   padding: 20px;
 }
 
-.alert {
-  @each $name, $value in abstracts.$theme-colors {
-    &--theme-#{$name} {
-      color: rgb(var(--color-#{$name}));
-      background-color: rgb(var(--color-#{$name}) / 0.15);
-      border-color: rgb(var(--color-#{$name}) / 0.25);
-    }
-  }
-}
+//.alert {
+//  @each $name, $value in abstracts.$theme-colors {
+//    &--theme-#{$name} {
+//      color: rgb(var(--color-#{$name}));
+//      background-color: rgb(var(--color-#{$name}) / 0.15);
+//      border-color: rgb(var(--color-#{$name}) / 0.25);
+//    }
+//  }
+//}

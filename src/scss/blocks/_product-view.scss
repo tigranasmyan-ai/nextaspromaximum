@@ -1,0 +1,32 @@
+@use "../abstracts/mixins";
+
+.product-view {
+  $self: &;
+
+  border: 1px solid rgb(var(--stroke_black));
+  background: rgb(var(--card_bg_black));
+  padding: 20px;
+  border-radius: var(--settings-main-border-radius);
+  display: flex;
+  flex-direction: column;
+
+  gap: 15px;
+
+  &__title {
+    @include mixins.shorted_text(1);
+    font-size: 13px;
+    text-decoration: none;
+
+    transition: opacity 0.3s ease;
+
+    #{$self}:hover & {
+      opacity: 0.7;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}

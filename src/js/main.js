@@ -54,23 +54,34 @@ $(document).ready(function () {
     });
 
     /**
-     * Toogle theme
+     * Toggle theme
      */
-    let savedTheme = localStorage.getItem("theme");
+    const $html = $('html');
+    const themeToggleSelector = '.js-theme-toggle';
+    const themeTextSelector = '.theme-switch__text';
 
-    if (savedTheme) {
-        $("html").attr("data-theme", savedTheme);
+    function updateThemeText(theme) {
+        $(themeToggleSelector).each(function () {
+            const $toggle = $(this);
+            const $text = $toggle.find(themeTextSelector);
+            if ($text.length) {
+                const text = theme === 'dark' ? $text.data('dark-theme-text') : $text.data('light-theme-text');
+                $text.text(text);
+            }
+        });
     }
 
-    const html = 'html';
+    let savedTheme = localStorage.getItem("theme") || ($html.attr("data-theme") || "light");
+    $html.attr("data-theme", savedTheme);
+    updateThemeText(savedTheme);
 
-    $(".js-theme-toggle").click(function () {
-        let currentTheme = $(html).attr("data-theme");
+    $(document).on('click', themeToggleSelector, function () {
+        let currentTheme = $html.attr("data-theme");
         let newTheme = currentTheme === "dark" ? "light" : "dark";
 
-        $(html).attr("data-theme", newTheme);
-
+        $html.attr("data-theme", newTheme);
         localStorage.setItem("theme", newTheme);
+        updateThemeText(newTheme);
     });
 
     /**
@@ -134,7 +145,7 @@ $(document).ready(function () {
 
     $(window).trigger('scroll');
 
-    new Swiper('.js-header-catalog-slider', {
+    new Swiper('.js-header-catalog-card-slider', {
         slidesPerView: 'auto',
         spaceBetween: 24,
         navigation: {
@@ -215,7 +226,7 @@ $(document).ready(function () {
         });
     }
 
-    new Swiper('.js-catalog-slider', {
+    new Swiper('.js-catalog-card-slider', {
         slidesPerView: 'auto',
         spaceBetween: 12,
         navigation: {
@@ -245,12 +256,12 @@ $(document).ready(function () {
         }
     });
 
-    $('.js-product-item-gallery-dot').hover(function () {
-        $(this).closest('.js-product-item').find('.js-product-item-gallery-picture').removeClass('active').eq($(this).index()).addClass('active');
-        $(this).closest('.js-product-item').find('.js-product-item-gallery-bullet').removeClass('active').eq($(this).index()).addClass('active');
+    $('.js-product-card-gallery-dot').hover(function () {
+        $(this).closest('.js-product-card').find('.js-product-card-gallery-picture').removeClass('active').eq($(this).index()).addClass('active');
+        $(this).closest('.js-product-card').find('.js-product-card-gallery-bullet').removeClass('active').eq($(this).index()).addClass('active');
     }, function () {
-        $(this).closest('.js-product-item').find('.js-product-item-gallery-picture').removeClass('active').eq(0).addClass('active');
-        $(this).closest('.js-product-item').find('.js-product-item-gallery-bullet').removeClass('active').eq(0).addClass('active');
+        $(this).closest('.js-product-card').find('.js-product-card-gallery-picture').removeClass('active').eq(0).addClass('active');
+        $(this).closest('.js-product-card').find('.js-product-card-gallery-bullet').removeClass('active').eq(0).addClass('active');
     });
 
     new Swiper('.js-reviews-slider', {
@@ -264,4 +275,31 @@ $(document).ready(function () {
             },
         },
     });
+
+    new Swiper('.js-products-view-slider', {
+        spaceBetween: 15,
+        slidesPerView: 6,
+
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+
+        breakpoints: {
+            0: {
+                slidesPerView: 1,
+                spaceBetween: 10
+            },
+            480: {
+                slidesPerView: 2,
+                spaceBetween: 10
+            },
+            768: {
+                slidesPerView: 3
+            },
+            1024: {
+                slidesPerView: 5
+            }
+        }
+    })
 });

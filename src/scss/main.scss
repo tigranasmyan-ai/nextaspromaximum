@@ -1,12 +1,55 @@
 @use "base/base";
 @use "base/typography";
 
-@use "components";
+// Ui
+@use "ui/alert";
+@use "ui/button";
+@use "ui/badge";
+@use "ui/tabs";
+@use "ui/collapse";
+@use "ui/payments";
+@use "ui/theme-switch";
 
-@use "layout";
+// Shop
+@use "shop/info-box";
+@use "shop/actions";
+@use "shop/price";
+@use "shop/status";
+@use "shop/properties";
+@use "shop/variants";
+@use "shop/cashback";
 
-@use "shop";
+// Layout
+@use "layout/header";
+@use "layout/footer";
+@use "layout/container";
+@use "layout/fixed-bar";
 
-@use "pages";
+// Pages
+@use "pages/home";
 
-@use "items";
+// Blocks
+@use "blocks/categories";
+@use "blocks/catalog-banner";
+@use "blocks/post";
+@use "blocks/sale";
+@use "blocks/product";
+@use "blocks/product-view";
+@use "blocks/brand";
+@use "blocks/service";
+@use "blocks/review";
+
+// Forms
+@use "forms/input";
+
+// Sections
+@use "sections/jumbotron";
+@use "sections/about";
+
+// Modules
+@use "modules/swiper";
+@use "modules/float-cart";
+@use "modules/contacts-widget";
+@use "modules/mega-menu";
+@use "modules/fast-catalog";
+@use "modules/search";

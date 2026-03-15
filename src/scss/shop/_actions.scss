@@ -1,0 +1,28 @@
+.actions {
+  &__item {
+    border: none;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background: transparent;
+    position: relative;
+    z-index: 100;
+
+    svg {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 50%;
+      z-index: 50;
+
+      &:first-child {
+        fill: rgb(var(--icon_on_card));
+        z-index: 100;
+      }
+
+      &:last-child {
+        fill: white;
+      }
+    }
+  }
+}

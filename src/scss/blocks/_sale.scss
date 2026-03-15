@@ -1,43 +1,14 @@
 @use "../abstracts/mixins";
 
-.sales-grid {
-  @media (min-width: 992px) {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 16px;
-  }
-
-  @media (max-width: 991px) {
-    overflow: auto;
-    display: flex;
-    flex-wrap: nowrap;
-
-    margin-left: calc(var(--settings-layout-container-indent) * -1);
-    margin-right: calc(var(--settings-layout-container-indent) * -1);
-
-    padding-left: var(--settings-layout-container-indent);
-    padding-right: var(--settings-layout-container-indent);
-
-    .sale-item {
-      max-width: 260px;
-      width: 260px;
-      flex: 0 0 260px;
-
-      &:not(:first-child) {
-        margin-left: calc(var(--settings-layout-container-indent) / 2);
-      }
-    }
-  }
-}
-
-.sale-item {
+.sale-card {
   background-color: rgb(var(--black_bg_black));
   padding: 24px;
-  border: 1px solid rgb(var(--stroke_black));
   border-radius: var(--settings-main-border-radius);
   display: flex;
   gap: 32px;
   transition: box-shadow ease .3s, border ease .3s, background ease .3s;
+
+  @include mixins.card_hover_shadow_effect;
 
   @media (max-width: 991px) {
     flex-direction: column-reverse;
@@ -47,13 +18,6 @@
 
   @media (min-width: 992px) {
     height: 300px;
-  }
-
-  &:hover {
-    @media (min-width: 992px) {
-      border-color: transparent;
-      box-shadow: 0 5px 30px rgba(var(--black_bg_black), .08);
-    }
   }
 
   &__content {
@@ -102,16 +66,35 @@
 
   &__badge {
     margin-top: auto;
-    padding-left: 8px;
-    padding-right: 8px;
-    color: #fff;
-    background: #ff4f64;
-    border-radius: 3px;
-    font-weight: 500;
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    height: 18px;
-    font-size: calc(1rem - 4px);
+  }
+}
+
+.sale-card-grid {
+  @media (min-width: 992px) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  @media (max-width: 991px) {
+    overflow: auto;
+    display: flex;
+    flex-wrap: nowrap;
+
+    margin-left: calc(var(--settings-layout-container-indent) * -1);
+    margin-right: calc(var(--settings-layout-container-indent) * -1);
+
+    padding-left: var(--settings-layout-container-indent);
+    padding-right: var(--settings-layout-container-indent);
+
+    .sale-card {
+      max-width: 260px;
+      width: 260px;
+      flex: 0 0 260px;
+
+      &:not(:first-child) {
+        margin-left: calc(var(--settings-layout-container-indent) / 2);
+      }
+    }
   }
 }

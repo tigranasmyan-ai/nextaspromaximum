@@ -61,7 +61,7 @@ table {
 
   td,
   th {
-      border: 1px solid rgb(var(--white-100));
+    border: 1px solid rgb(var(--white-100));
     padding: 12px 16px;
   }
 
@@ -126,4 +126,12 @@ table {
       }
     }
   }
+}
+
+hr.divider {
+  margin: 0;
+  border: none;
+  opacity: 1;
+  height: 1px;
+  background-color: rgb(var(--stroke_black));
 }

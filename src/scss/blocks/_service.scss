@@ -1,3 +1,5 @@
+@use "../abstracts/mixins";
+
 .services-gird {
   @media (min-width: 992px) {
     display: grid;
@@ -16,7 +18,7 @@
     padding-left: var(--settings-layout-container-indent);
     padding-right: var(--settings-layout-container-indent);
 
-    .service-item {
+    .service-card {
       max-width: 260px;
       width: 260px;
       flex: 0 0 260px;
@@ -28,27 +30,20 @@
   }
 }
 
-.service-item {
+.service-card {
   $self: &;
 
   border-radius: var(--settings-main-border-radius);
   overflow: hidden;
-  border: 1px solid rgb(var(--stroke_black));
   height: 455px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: box-shadow .3s ease, border .3s ease;
+
+  @include mixins.card_hover_shadow_effect();
 
   @media (max-width: 991px) {
     height: 350px;
-  }
-
-  &:hover {
-    @media (min-width: 992px) {
-      box-shadow: 0 5px 30px rgba(34, 34, 40, .08);
-      border-color: transparent;
-    }
   }
 
   &__picture {
@@ -75,6 +70,10 @@
 
   &__title {
     text-decoration: none;
+  }
+
+  &__badge {
+    margin-left: 10px;
   }
 
   &__sale {

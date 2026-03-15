@@ -24,7 +24,7 @@
     border-radius: var(--settings-main-border-radius);
     overflow: hidden;
     color: #282828;
-    padding-top: 38%;
+    padding-top: 34%;
     position: relative;
 
     background-repeat: no-repeat;
@@ -76,8 +76,6 @@
   }
 
   &__text {
-    font-size: calc(1rem - 1px);
-    line-height: calc(1em + 7px);
     margin-top: 15px;
     margin-bottom: 35px;
 

@@ -1,0 +1,65 @@
+.payments {
+  display: flex;
+  gap: 8px 16px;
+  flex-wrap: wrap;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 24px;
+  }
+
+  &__icon {
+    vertical-align: middle;
+    background: url(../img/payment.svg) 0 0 no-repeat;
+  }
+
+  &__icon.visa {
+    width: 32px;
+    height: 20px;
+    background-position-x: -92px;
+  }
+
+  &__icon.mastercard {
+    width: 24px;
+    height: 20px;
+    background-position-x: -132px;
+  }
+
+  &__icon.maestro {
+    width: 24px;
+    height: 20px;
+    background-position-x: -164px;
+  }
+
+  &__icon.mir {
+    width: 33px;
+    height: 20px;
+    background-position-x: -236px;
+  }
+
+  &__icon.sbp {
+    width: 20px;
+    height: 20px;
+    background-position-x: -395px;
+  }
+
+  &__icon.tinkoff {
+    width: 16px;
+    height: 20px;
+    background-position-x: -453px;
+  }
+
+  &__icon.halva {
+    width: 18px;
+    height: 20px;
+    background-position-x: -814px;
+  }
+
+  &__icon.cash {
+    width: 20px;
+    height: 20px;
+    background-position-x: 0;
+  }
+}

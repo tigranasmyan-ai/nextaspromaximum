@@ -1,26 +1,39 @@
 .badge {
-  border-radius: 1px;
-  font-size: 11px;
-  font-weight: normal;
-  line-height: 14px;
-  height: 22px;
-  padding: .4em .6em;
-  display: inline-block;
-  vertical-align: top;
+  color: #fff;
+  background: var(--sticker_color);
+  font-weight: 500;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  font-size: calc(1rem - 4px);
+  border-radius: 4px;
+  height: 24px;
+  padding-left: 8px;
+  padding-right: 8px;
 
-  &-default {
-    background: rgb(var(--settings-theme-primary));
+  &-sm {
+    height: 18px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
-  @each $name, $color in (
-          "primary": var(--settings-button-theme-primary),
-          "success": var(--settings-button-theme-success),
-          "info": var(--settings-button-theme-info),
-          "warning": var(--settings-button-theme-warning),
-          "danger": var(--settings-button-theme-danger)
-  ) {
-    &-#{$name} {
-      background-color: rgb($color);
-    }
+  &-dark-opacity {
+    background-color: rgba(34, 34, 40, .32);
+  }
+
+  &-purple {
+    background: #a56ffd;
+  }
+
+  &-orange {
+    background: #ff7455;
+  }
+
+  &-green {
+    background: #32cb41;
+  }
+
+  &-red {
+    background: #ff4f64;
   }
 }

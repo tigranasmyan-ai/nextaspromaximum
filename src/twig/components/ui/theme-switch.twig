@@ -1,0 +1,15 @@
+<button type="button" class="theme-switch js-theme-toggle">
+    <span class="theme-switch__icon">
+        <svg width="16" height="16">
+            <use href="img/svg-icons-final.svg#theme-light"></use>
+        </svg>
+
+        <svg width="16" height="16">
+            <use href="img/svg-icons-final.svg#theme-dark"></use>
+        </svg>
+    </span>
+
+    {% if text %}
+        <span class="theme-switch__text" data-dark-theme-text="Темная тема" data-light-theme-text="Светлая тема"></span>
+    {% endif %}
+</button>

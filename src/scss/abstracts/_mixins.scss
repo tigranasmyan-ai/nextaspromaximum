@@ -1,5 +1,3 @@
-@use "vars";
-
 /**
  Установки основного цвета темы
  */
@@ -20,4 +18,17 @@
   -moz-line-clamp: #{$line_count};
   overflow: hidden;
   word-break: break-word;
+}
+
+@mixin card_hover_shadow_effect {
+  border: 1px solid rgb(var(--stroke_black));
+
+  transition: box-shadow .3s ease, border .3s ease;
+
+  &:hover {
+    @media (min-width: 992px) {
+      box-shadow: 0 5px 30px rgba(34, 34, 40, .08);
+      border-color: transparent;
+    }
+  }
 }

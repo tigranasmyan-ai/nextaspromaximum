@@ -1,13 +1,3 @@
-$button-themes: (
-        "primary": var(--settings-button-theme-primary),
-        "success": var(--settings-button-theme-success),
-        "info": var(--settings-button-theme-info),
-        "warning": var(--settings-button-theme-warning),
-        "danger": var(--settings-button-theme-danger)
-);
-
-@use "../../abstracts/index" as *;
-
 .button {
   --button-height: 38px;
   --button-font-size: .9375rem;
@@ -77,19 +67,6 @@ $button-themes: (
     &:hover {
       background-color: color-mix(in srgb, rgb(var(--settings-theme-primary)), black 20%);
       border-color: color-mix(in srgb, rgb(var(--settings-theme-primary)), black 20%);
-    }
-  }
-
-  @each $name, $color in $button-themes {
-    &-#{$name} {
-      background-color: rgb($color);
-      color: rgb(255, 255, 255);
-      border-color: rgb($color);
-
-      &:hover {
-        background-color: color-mix(in srgb, rgb($color), black 10%);
-        border-color: color-mix(in srgb, rgb($color), black 10%);
-      }
     }
   }
 

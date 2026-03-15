@@ -9,6 +9,7 @@ const browserSync = require("browser-sync").create();
 const sourcemaps = require("gulp-sourcemaps");
 const del = require("del");
 const esbuild = require("gulp-esbuild");
+const groupMediaQueries = require("gulp-group-css-media-queries");
 
 // Paths
 const paths = {
@@ -55,6 +56,7 @@ function styles() {
         cascade: false,
       }),
     )
+    .pipe(groupMediaQueries())
     .pipe(cleanCSS())
     .pipe(sourcemaps.write("."))
     .pipe(gulp.dest(paths.dist.css))

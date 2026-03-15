@@ -172,23 +172,3 @@
     background-color: rgb(var(--darkgrey_bg_black));
   }
 }
-
-.search-product-price {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-
-  &__now {
-    font-size: calc(1rem - 2px);
-    line-height: calc(1em + 6px);
-    font-weight: 500;
-  }
-
-  &__old {
-    font-size: 12px;
-    line-height: 1;
-    text-decoration: line-through;
-    color: #8D8D8D;
-    font-weight: 400;
-  }
-}

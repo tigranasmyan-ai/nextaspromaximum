@@ -1,6 +1,6 @@
 @use "../abstracts/mixins";
 
-.product-item {
+.product-card {
   $self: &;
 
   display: flex;
@@ -34,10 +34,6 @@
     }
   }
 
-  &__variants {
-    margin-bottom: 15px;
-  }
-
   & > * {
     position: relative;
     z-index: 50;
@@ -57,18 +53,16 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
-    @media (max-width: 991px) {
-      margin-top: 10px;
-    }
+    gap: 8px;
+    margin-top: 10px;
   }
 
   &__pagination {
     display: flex;
     gap: 3px;
-    margin-top: 10px;
     justify-content: center;
     align-items: center;
+    width: 100%;
 
     span {
       width: 2px;
@@ -82,7 +76,7 @@
         width: 8px;
       }
     }
-    
+
     @media (max-width: 991px) {
       display: none;
     }
@@ -143,19 +137,6 @@
     z-index: 50;
   }
 
-  &__price {
-    margin-bottom: 5px;
-  }
-
-  &__cashback {
-    margin-bottom: 5px;
-  }
-
-  &__info {
-    margin-top: 5px;
-    margin-bottom: 10px;
-  }
-
   &__title {
     text-decoration: none;
 
@@ -174,20 +155,22 @@
     right: -12px;
     left: -12px;
     padding: 12px;
+    flex-direction: column;
+    gap: 15px;
 
     @media (min-width: 992px) {
       #{$self}:hover & {
-        display: block;
+        display: flex;
       }
     }
-    
+
     @media (max-width: 991px) {
-      display: none!important;
+      display: none !important;
     }
   }
 }
 
-.product-item-gallery {
+.product-card-gallery {
   background-color: #F8F8FC;
   border-radius: var(--settigs-image-border-radius);
 
@@ -232,5 +215,40 @@
     flex-grow: 1;
     height: 100%;
     width: 20px;
+  }
+}
+
+.product-card-grid {
+  @media (min-width: 992px) {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+
+    @media (max-width: 1300px) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    }
+  }
+
+  @media (max-width: 991px) {
+    overflow: auto;
+    display: flex;
+    flex-wrap: nowrap;
+
+    margin-left: calc(var(--settings-layout-container-indent) * -1);
+    margin-right: calc(var(--settings-layout-container-indent) * -1);
+
+    padding-left: var(--settings-layout-container-indent);
+    padding-right: var(--settings-layout-container-indent);
+
+    .product-card {
+      max-width: 260px;
+      width: 260px;
+      flex: 0 0 260px;
+
+      &:not(:first-child) {
+        margin-left: calc(var(--settings-layout-container-indent) / 2);
+      }
+    }
   }
 }

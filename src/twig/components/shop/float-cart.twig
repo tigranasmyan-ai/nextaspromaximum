@@ -11,20 +11,20 @@
                 <a href="">
                     <picture class="float-cart-product__picture">
                         <img src="https://premier-demo.ru/upload/resize_cache/iblock/c28/64_64_1/uw5p61iophgtnli7sok77hrmswpg2924.jpg"
-                             alt="" class="float-cart-product__img">
+                             alt=""
+                             class="float-cart-product__img"
+                        >
                     </picture>
                 </a>
 
                 <div class="float-cart-product__info">
                     {% if cart %}
-                        <div class="float-cart-product__price float-cart-product-price">
-                            <div class="float-cart-product-price__now">
-                                600 ₽
-                            </div>
-                            <div class="float-cart-product-price__old">
-                                300 ₽
-                            </div>
-                        </div>
+                        {% include '../../shop/price.twig' with {
+                            class: 'float-cart-product__price',
+                            size: 'md',
+                            now: '600 ₽',
+                            old: '300 ₽'
+                        } %}
 
                         {% include './cashback.twig' %}
                     {% endif %}
@@ -45,15 +45,12 @@
                 </span>
 
                 <div class="float-cart-total__info">
-                    <div class="float-cart-total__price float-cart-total-price">
-                        <span class="float-cart-total-price__now">
-                            87 359 ₽
-                        </span>
-
-                        <span class="float-cart-total-price__old">
-                            87 359 ₽
-                        </span>
-                    </div>
+                    {% include '../../shop/price.twig' with {
+                        class: 'float-cart-total__price',
+                        size: 'lg',
+                        now: '600 ₽',
+                        old: '300 ₽'
+                    } %}
 
                     {% include './cashback.twig' %}
                 </div>

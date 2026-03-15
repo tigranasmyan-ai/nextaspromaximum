@@ -1,4 +1,4 @@
-.catalog-slider {
+.catalog-card-slider {
   position: relative;
 
   @media (max-width: 991px) {
@@ -70,7 +70,7 @@
   }
 }
 
-.catalog-slider-item {
+.catalog-card {
   $self: &;
 
   display: flex;

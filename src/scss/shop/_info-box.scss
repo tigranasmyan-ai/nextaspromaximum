@@ -1,0 +1,27 @@
+.info-box {
+  display: flex;
+  gap: 12px;
+
+  svg {
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__text {
+    font-size: 12px;
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.is-comment {
+      stroke: #b8b8b8;
+    }
+  }
+}

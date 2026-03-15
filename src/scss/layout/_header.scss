@@ -25,6 +25,9 @@
     height: 60px;
   }
 
+  .logo {
+
+  }
 
   &__catalog-btn {
     @media (min-width: 992px) {
@@ -159,39 +162,6 @@
           background-color: rgba(34, 34, 34, 0.8);
         }
       }
-    }
-  }
-
-  &__shine {
-    transition: opacity 0.3s ease;
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    width: 25px;
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    fill: rgb(var(--white_text_black));;
-
-    [data-theme="dark"] & {
-      svg {
-        &:last-child {
-          display: none;
-        }
-      }
-    }
-
-    [data-theme="light"] & {
-      svg {
-        &:first-child {
-          display: none;
-        }
-      }
-    }
-
-    &:hover {
-      opacity: 0.7;
     }
   }
 

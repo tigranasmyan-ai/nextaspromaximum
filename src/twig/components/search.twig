@@ -42,10 +42,12 @@
                             <span class="search-product__info">
                                 <span class="search-product__title">Спальный мешок-одеяло с капюшоном Snug</span>
 
-                                <span class="search-product__price search-product-price">
-                                    <span class="search-product-price__now">2000 ₽</span>
-                                    <span class="search-product-price__old">4000 ₽</span>
-                                </span>
+                               {% include '../shop/price.twig' with {
+                                    class: 'search-product__price',
+                                    size: 'sm',
+                                    now: '1 300 ₽/шт',
+                                    old: '1 600 ₽/шт'
+                               } %}
                             </span>
                         </a>
                     {% endfor %}

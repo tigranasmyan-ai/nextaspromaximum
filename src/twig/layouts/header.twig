@@ -31,15 +31,7 @@
                 <a href="" class="site-header-callback__value">Заказать звонок</a>
             </div>
 
-            <button type="button" class="site-header__shine js-theme-toggle">
-                <svg width="16" height="16">
-                    <use href="img/svg-icons-final.svg#theme-light"></use>
-                </svg>
-
-                <svg width="16" height="16">
-                    <use href="img/svg-icons-final.svg#theme-dark"></use>
-                </svg>
-            </button>
+            {% include '../components/ui/theme-switch.twig' %}
         </div>
     </div>
 
@@ -120,7 +112,7 @@
                 <span>Каталог</span>
             </button>
 
-            <div class="site-header__categories site-header-categories swiper js-header-catalog-slider">
+            <div class="site-header__categories site-header-categories swiper js-header-catalog-card-slider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <a href="" class="site-header-categories__main">Смартфоны</a>
