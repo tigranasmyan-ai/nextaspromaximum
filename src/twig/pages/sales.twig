@@ -1,0 +1,19 @@
+{% extends 'templates/page.twig' %}
+
+{% block title %}Акции - Aspro{% endblock %}
+
+{% block page_title %}Акции{% endblock %}
+
+{% block page_text %}
+    Следите за нашими специальными предложениями и скидками. Мы регулярно обновляем этот раздел, чтобы вы могли приобретать любимые товары по самым выгодным ценам.
+{% endblock %}
+
+{% block page_content %}
+    <div class="sale-card-grid">
+        {% for item in 1..4 %}
+            {% include '../components/sale-card.twig' with {
+                badge: true
+            } %}
+        {% endfor %}
+    </div>
+{% endblock %}

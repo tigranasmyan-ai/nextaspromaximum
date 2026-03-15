@@ -20,27 +20,37 @@
     </div>
 
     {% set letters_ru = ['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Э', 'Ю', 'Я'] %}
-    {% set letters_en = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'] %}
 
-    <div class="brands-navigation">
-        <ul class="nav nav-tabs" id="brandsTab" role="tablist">
-            {% for letter in letters_ru %}
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="tab-{{ letter }}-tab" data-bs-toggle="tab"
-                            data-bs-target="#tab-{{ letter }}" type="button" role="tab" aria-controls="{{ letter }}"
-                            aria-selected="false">{{ letter }}</button>
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
-
-    <div class="tab-content" id="brandsTabContent">
+    <nav class="brands-page__navigation" id="brandsPageLetters" role="tablist">
         {% for letter in letters_ru %}
-            <div class="tab-pane fade" id="tab-{{ letter }}" role="tabpanel" aria-labelledby="tab-{{ letter }}-tab">
-                <div class="brand-card-grid">
-                    {# Placeholder for brands starting with {{ letter }} #}
-                    <p>Бренды на букву {{ letter }} пока отсутствуют.</p>
-                </div>
+            <button class="{{ loop.first ? 'active' : '' }}" id="tab-{{ letter }}-tab" data-bs-toggle="tab"
+                    data-bs-target="#tab-{{ letter }}" type="button" role="tab" aria-controls="{{ letter }}"
+                    aria-selected="false">{{ letter }}</button>
+        {% endfor %}
+    </nav>
+
+    <div class="tab-content" id="brandsPageLettersContent">
+        {% for letter in letters_ru %}
+            <div class="tab-pane fade {{ loop.first ? 'active show' : '' }}" id="tab-{{ letter }}" role="tabpanel" aria-labelledby="tab-{{ letter }}-tab">
+                {% for item in 1..5 %}
+                    <div class="brands-page__brand">
+                        <div class="row g-3">
+                            <div class="col-lg-2">
+                                <span class="title title-h3">A</span>
+                            </div>
+
+                            <div class="col-lg-10">
+                                <div class="row row-cols-md-4 row-cols-2 g-4">
+                                    {% for item in 1..6 %}
+                                        <div class="col">
+                                            <a href="">Desti</a>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         {% endfor %}
     </div>

@@ -279,35 +279,7 @@
 
             <div class="sale-card-grid">
                 {% for item in 1..2 %}
-                    <div class="sale-card">
-                        <div class="sale-card__content">
-                        <span class="sale-card__category">
-                            Бессрочная акция
-                        </span>
-
-                            <a href="" class="sale-card__title title title-h6">
-                                Акция «2 по цене 1» за игры для консоли
-                            </a>
-
-                            <span class="sale-card__text">
-                            В преддверии киберспортивных соревнований запускаем акцию: 2 по цене 1. Подбирайте
-                            консольные игры на ваш вкус и наслаждайтесь атмосферным геймплеем.
-                        </span>
-
-                            {% include '../components/ui/badge.twig' with {
-                                text: '-10%',
-                                type: 'red',
-                                size: 'sm',
-                                class: 'sale-card__badge',
-                                tag: 'div'
-                            } %}
-                        </div>
-
-                        <a href="">
-                            <img src="https://premier-demo.ru/upload/iblock/1d3/hccjg6lv2pcekmizraow829mwp5adfkk.jpg"
-                                 alt="" class="sale-card__picture">
-                        </a>
-                    </div>
+                    {% include '../components/sale-card.twig' %}
                 {% endfor %}
             </div>
 
