@@ -37,11 +37,61 @@
                     </div>
 
                     <div class="filter-item">
-                        <div class="filter-item__title">Розничная цена</div>
+                        <a
+                                class="filter-item__head collapsed"
+                                data-bs-toggle="collapse"
+                                href="#FilterPriceRange"
+                                role="button"
+                                aria-expanded="false"
+                                aria-controls="FilterPriceRange"
+                        >
+                            <span>Розничная цена</span>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none" >
+                                <path d="M6 4L9 8L6 12" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+
+                        <div class="collapse" id="FilterPriceRange">
+                            <div class="filter-item__content">
+                                {% include '../components/ui/range-slider.twig' with {
+                                    min: 0,
+                                    max: 200000,
+                                    start_min: 1500,
+                                    start_max: 150000,
+                                    step: 100
+                                } %}
+                            </div>
+                        </div>
                     </div>
+
 
                     <div class="filter-item">
                         <div class="filter-item__title">Наши предложения</div>
+                        <div class="filter-item__content">
+                            {% include '../components/ui/checkbox.twig' with { label: 'Хит', id: 'prop-hit' } %}
+                            {% include '../components/ui/checkbox.twig' with { label: 'Новинка', id: 'prop-new', checked: true } %}
+                            {% include '../components/ui/checkbox.twig' with { label: 'Акция', id: 'prop-sale' } %}
+                        </div>
+                    </div>
+
+                    <div class="filter-item">
+                        <div class="filter-item__title">Наличие</div>
+                        <div class="filter-item__content">
+                            {% include '../components/ui/radio.twig' with { label: 'Все', name: 'stock', value: 'all', checked: true } %}
+                            {% include '../components/ui/radio.twig' with { label: 'В наличии', name: 'stock', value: 'in_stock' } %}
+                            {% include '../components/ui/radio.twig' with { label: 'Под заказ', name: 'stock', value: 'on_order' } %}
+                        </div>
+                    </div>
+
+                    <div class="filter-item">
+                        <div class="filter-item__title">Дополнительно</div>
+                        <div class="filter-item__content">
+                            <div class="filter-item__list">
+                                {% include '../components/ui/switch.twig' with { label: 'Только с фото', id: 'extra-photo', checked: true } %}
+                                {% include '../components/ui/switch.twig' with { label: 'С отзывами', id: 'extra-reviews' } %}
+                            </div>
+                        </div>
                     </div>
 
                     <div class="filter-item">

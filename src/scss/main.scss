@@ -11,10 +11,13 @@
 @use "ui/theme-switch";
 @use "ui/close";
 @use "ui/breadcrumbs";
+@use "ui/range-slider";
 
 // Forms
 @use "forms/input";
 @use "forms/checkbox";
+@use "forms/radio";
+@use "forms/switch";
 @use "forms/group";
 @use "forms/label";
 

@@ -356,4 +356,49 @@ $(document).ready(function () {
         $input.attr('type', isPassword ? 'text' : 'password');
         $btn.toggleClass('is-active', isPassword);
     });
+
+    /**
+     * Range
+     */
+
+    const sliders = document.querySelectorAll('.js-range-slider');
+
+    sliders.forEach(slider => {
+        const el = slider.querySelector('.js-range-slider__element');
+        const inputMin = slider.querySelector('.js-range-slider__input-min');
+        const inputMax = slider.querySelector('.js-range-slider__input-max');
+
+        const min = parseFloat(slider.dataset.min);
+        const max = parseFloat(slider.dataset.max);
+        const startMin = parseFloat(slider.dataset.startMin);
+        const startMax = parseFloat(slider.dataset.startMax);
+        const step = parseFloat(slider.dataset.step);
+
+        noUiSlider.create(el, {
+            start: [startMin, startMax],
+            connect: true,
+            step: step,
+            range: {
+                'min': min,
+                'max': max
+            }
+        });
+
+        el.noUiSlider.on('update', function (values, handle) {
+            const value = parseFloat(values[handle]);
+            if (handle) {
+                inputMax.value = value;
+            } else {
+                inputMin.value = value;
+            }
+        });
+
+        inputMin.addEventListener('change', function () {
+            el.noUiSlider.set([this.value, null]);
+        });
+
+        inputMax.addEventListener('change', function () {
+            el.noUiSlider.set([null, this.value]);
+        });
+    });
 });

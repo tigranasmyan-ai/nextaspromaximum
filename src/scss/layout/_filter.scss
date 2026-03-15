@@ -8,7 +8,7 @@
   &__head {
     display: flex;
     align-items: center;
-    stroke: white;
+    stroke: rgb(var(--white_text_black));
     gap: 8px;
     text-decoration: none;
 
@@ -25,5 +25,8 @@
 
   &__content {
     padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
   }
 }
