@@ -51,3 +51,8 @@
 
   @include mixins.card_hover_shadow_effect;
 }
+
+.brand-card-dark {
+  background-color: #f8f8fc;
+  border: none;
+}

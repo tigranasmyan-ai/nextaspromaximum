@@ -17,6 +17,12 @@
 .modal {
   background: rgba(var(--basic_text_black), 0.7);
 
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+
   &__layout {
     display: flex;
     flex-direction: column;

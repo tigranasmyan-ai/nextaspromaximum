@@ -8,9 +8,7 @@
     gap: 16px;
   }
 
-  .fixed-bar__close {
-    position: static;
-    
+  &__close {
     @media (min-width: 992px) {
       display: none;
     }

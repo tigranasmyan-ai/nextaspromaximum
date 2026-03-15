@@ -9,6 +9,8 @@
 @use "ui/collapse";
 @use "ui/payments";
 @use "ui/theme-switch";
+@use "ui/close";
+@use "ui/breadcrumbs";
 
 // Forms
 @use "forms/input";
@@ -33,6 +35,8 @@
 
 // Pages
 @use "pages/home";
+@use "pages/page";
+@use "pages/brands";
 
 // Blocks
 @use "blocks/categories";

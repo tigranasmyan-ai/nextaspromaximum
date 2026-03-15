@@ -1,0 +1,48 @@
+{% extends 'templates/page.twig' %}
+
+{% block title %}Home Page - Aspro{% endblock %}
+
+{% block page_title %}Бренды{% endblock %}
+
+{% block page_text %}
+    Наш сайт является официальным дилером представленных торговых марок. Это означает, что вся продукция фирменная, никакого «серого импорта». На все товары распространяется гарантия производителя, а цены на нашем сайте соответствуют рекомендованным производителем.
+{% endblock %}
+
+{% block page_content %}
+
+    <div class="brand-card-grid">
+        {% for item in 1..12 %}
+            <a href="" class="brand-card brand-card-dark">
+                <img src="https://premier-demo.ru/upload/iblock/0aa/etjlwqlggz5dpkqy92vy5dqbbfmk70mp.png"
+                     alt="">
+            </a>
+        {% endfor %}
+    </div>
+
+    {% set letters_ru = ['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ё', 'Ж', 'З', 'И', 'Й', 'К', 'Л', 'М', 'Н', 'О', 'П', 'Р', 'С', 'Т', 'У', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ', 'Э', 'Ю', 'Я'] %}
+    {% set letters_en = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'] %}
+
+    <div class="brands-navigation">
+        <ul class="nav nav-tabs" id="brandsTab" role="tablist">
+            {% for letter in letters_ru %}
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tab-{{ letter }}-tab" data-bs-toggle="tab"
+                            data-bs-target="#tab-{{ letter }}" type="button" role="tab" aria-controls="{{ letter }}"
+                            aria-selected="false">{{ letter }}</button>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="tab-content" id="brandsTabContent">
+        {% for letter in letters_ru %}
+            <div class="tab-pane fade" id="tab-{{ letter }}" role="tabpanel" aria-labelledby="tab-{{ letter }}-tab">
+                <div class="brand-card-grid">
+                    {# Placeholder for brands starting with {{ letter }} #}
+                    <p>Бренды на букву {{ letter }} пока отсутствуют.</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
