@@ -1,0 +1,52 @@
+{% extends 'templates/modal.twig' %}
+
+{% block id %}LoginModal{% endblock %}
+{% block modal_class %}modal-login{% endblock %}
+
+{% block content %}
+
+    <div>
+        <div class="title-h3 title">Вход в личный кабинет</div>
+    </div>
+
+    <form class="js-validation-form">
+        {% include '../components/ui/input.twig' with {
+            label: 'Логин *',
+            type: 'email',
+            id: 'LoginModalEmail',
+            required: true
+        } %}
+
+        {% include '../components/ui/input.twig' with {
+            label: 'Пароль *',
+            type: 'password',
+            id: 'LoginModalPassword',
+            required: true,
+        } %}
+
+        <div class="form-group">
+            <div class="modal-login__row">
+                {% include '../components/ui/checkbox.twig' with {
+                    label: 'Запомнить меня',
+                    id: 'LoginModalRemember',
+                    name: 'agreement',
+                    required: true,
+                    checked: true
+                } %}
+
+                <a href="">Забыли пароль?</a>
+            </div>
+        </div>
+
+        <button type="submit" class="button button-default button-block button-lg">
+            Войти
+        </button>
+
+        <div class="modal-login__reg">
+            Нет аккаунта?
+            <a href="">Зарегистрироваться</a>
+        </div>
+    </form>
+
+{% endblock %}
+

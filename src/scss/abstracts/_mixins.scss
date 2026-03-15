@@ -32,3 +32,18 @@
     }
   }
 }
+
+@mixin link_decoration {
+  --underline-opacity: 16%;
+
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color:  color-mix(in oklab, rgb(var(--white_text_black)) var(--underline-opacity), transparent);
+  text-underline-offset: .2em;
+
+  transition: text-decoration-color .3s ease, opacity .3s ease;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

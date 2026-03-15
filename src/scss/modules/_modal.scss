@@ -1,0 +1,70 @@
+@use '../abstracts/mixins';
+
+.modal-dialog-centered {
+  @media (max-width: 576px) {
+    display: block;
+    margin: 0;
+  }
+}
+
+.modal-content {
+  @media (max-width: 576px) {
+    height: 100vh;
+    width: 100%;
+  }
+}
+
+.modal {
+  background: rgba(var(--basic_text_black), 0.7);
+
+  &__layout {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    background-color: rgb(var(--black_bg_black));
+    padding: 32px;
+    border-radius: var(--settings-main-border-radius);
+
+    @media (max-width: 576px) {
+      height: 100%;
+      padding: 24px;
+      width: 100%;
+      border-radius: 0;
+    }
+  }
+
+  &__text {
+    font-size: calc(1rem - 1px);
+    line-height: calc(1em + 7px);
+    color: rgb(var(--basic_text_black));
+    margin-top: 15px;
+  }
+}
+
+.modal-login {
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      color: rgb(var(--white_text_black));
+      font-size: 13px;
+
+      @include mixins.link_decoration;
+    }
+  }
+
+  &__reg {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 25px;
+    font-size: 14px;
+
+
+    a  {
+      @include mixins.link_decoration;
+    }
+  }
+}

@@ -6,11 +6,13 @@
 
   color: white;
 
+  padding-top: 120%;
+
   position: relative;
-  height: 527px;
 
   @media (max-width: 991px) {
-    height: 360px;
+    padding-top: 50%;
+    min-height: calc(260px * 1.5);
   }
 
   &::before {
@@ -24,7 +26,6 @@
     z-index: 50;
   }
 
-
   &__img {
     position: absolute;
     top: 0;
@@ -33,6 +34,7 @@
     height: 100%;
     object-fit: cover;
     transition: scale .6s ease, opacity .3s ease;
+    z-index: 50;
 
     #{$self}:hover & {
       scale: 1.1;
@@ -67,17 +69,13 @@
   }
 
   &__content {
-    left: 24px;
-    right: 24px;
-    bottom: 24px;
+    --catalog-banner-content-padding: 8%;
+
+    left: var(--catalog-banner-content-padding);
+    right: var(--catalog-banner-content-padding);
+    bottom: var(--catalog-banner-content-padding);
     position: absolute;
     z-index: 100;
-
-    @media (max-width: 991px) {
-      left: 16px;
-      right: 16px;
-      bottom: 16px;
-    }
   }
 }
 

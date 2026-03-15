@@ -23,6 +23,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding-bottom: 20px;
 
     &:not(.collapsed) {
       svg {
@@ -33,7 +34,7 @@
     @media (max-width: 991px) {
       padding-bottom: var(--settings-layout-container-indent);
     }
-    
+
     svg {
       transition: transform 0.3s ease;
 

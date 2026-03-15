@@ -301,5 +301,42 @@ $(document).ready(function () {
                 slidesPerView: 5
             }
         }
+    });
+
+
+    const input = document.querySelectorAll(".phone");
+
+    input.forEach(function (item) {
+        window.intlTelInput(item);
+    });
+
+
+    $('.js-validation-form').each(function () {
+        $(this).validate({
+            errorPlacement: function (error, element) {
+                const $wrapper = element.closest('.form-input-wrapper');
+                const $checkboxLabel = element.closest('.checkbox');
+
+                if ($wrapper.length) {
+                    error.insertAfter($wrapper);
+                } else if ($checkboxLabel.length) {
+                    error.insertAfter($checkboxLabel);
+                } else {
+                    error.insertAfter(element);
+                }
+            }
+        });
     })
+
+    /**
+     * Password toggle
+     */
+    $(document).on('click', '.js-password-toggle', function () {
+        const $btn = $(this);
+        const $input = $btn.closest('.form-input-wrapper').find('.form-input');
+        const isPassword = $input.attr('type') === 'password';
+
+        $input.attr('type', isPassword ? 'text' : 'password');
+        $btn.toggleClass('is-active', isPassword);
+    });
 });

@@ -1,8 +1,10 @@
 {% set actions = [
-    { href: '', icon: 'log-out', text: 'Войти', width: 18, height: 18 },
-    { href: '', icon: 'compare', text: 'Сравнение', width: 20, height: 20 },
-    { href: '', icon: 'favorite', text: 'Избранное', width: 20, height: 20 },
-    { href: '', icon: 'cart', text: 'Корзина', width: 20, height: 20 }
+    { href: '', icon: 'phone-action', text: 'Звонок', width: 18, height: 18, counter: false, class: 'disabled-desktop' },
+    { href: '', icon: 'search-action', text: 'Поиск', width: 18, height: 18, counter: false, class: 'disabled-desktop' },
+    { href: '', icon: 'log-out', text: 'Войти', width: 18, height: 18, counter: false },
+    { href: '', icon: 'compare', text: 'Сравнение', width: 20, height: 20, counter: true, class: 'disabled-mobile' },
+    { href: '', icon: 'favorite', text: 'Избранное', width: 20, height: 20, counter: true, class: 'disabled-mobile' },
+    { href: '', icon: 'cart', text: 'Корзина', width: 20, height: 20, counter: true }
 ] %}
 
 <header class="site-header js-header">
@@ -28,7 +30,7 @@
             <div class="site-header__callback site-header-callback">
                 {% include '../components/contacts-widget.twig' %}
 
-                <a href="" class="site-header-callback__value">Заказать звонок</a>
+                <a data-bs-toggle="modal" data-bs-target="#CallbackModal" class="site-header-callback__value">Заказать звонок</a>
             </div>
 
             {% include '../components/ui/theme-switch.twig' %}
@@ -70,15 +72,15 @@
 
             <div class="site-header__actions">
                 {% for action in actions %}
-                    <div class="site-header-action js-header-action">
-                        <a href="{{ action.href }}" class="site-header-action__link">
+                    <div class="site-header-action js-header-action {{ action.class }}">
+                        <a href="{{ action.href }}" class="site-header-action__link" {% if loop.first %}data-bs-toggle="modal" data-bs-target="#LoginModal"{% endif %}>
                             <span class="site-header-action__top">
                                 <svg class="site-header-action__icon" width="{{ action.width }}"
                                      height="{{ action.height }}">
                                     <use href="img/svg-icons-final.svg#{{ action.icon }}"></use>
                                 </svg>
 
-                                {% if loop.index != 1 %}
+                                {% if action.counter %}
                                     <span class="site-header-action__counter">1</span>
                                 {% endif %}
                             </span>
@@ -86,7 +88,7 @@
                             <span class="site-header-action__text">{{ action.text }}</span>
                         </a>
 
-                        {% if loop.index != 1 %}
+                        {% if action.counter %}
                             {% include '../components/shop/float-cart.twig' with {
                                 cart: loop.last,
                                 class: 'js-header-action-dropdown'

@@ -26,7 +26,15 @@
   }
 
   .logo {
+    color: rgb(var(--settings-theme-primary));
+    fill: rgb(var(--fill_dark_light));
 
+    @media (max-width: 991px) {
+      svg {
+        width: 120px;
+        height: 24px;
+      }
+    }
   }
 
   &__catalog-btn {
@@ -68,7 +76,7 @@
         border-right: 1px solid rgba(var(--settings-theme-primary-text), 0.1);
       }
     }
-    
+
     @media (max-width: 991px) {
       display: none;
     }
@@ -81,6 +89,10 @@
 
     @media (max-width: 991px) {
       gap: 20px;
+    }
+
+    @media (max-width: 576px) {
+      gap: 10px;
     }
   }
 
@@ -118,7 +130,7 @@
     position: absolute;
     top: 100%;
     left: calc(var(--settings-layout-container-indent) / 2);
-    right:calc(var(--settings-layout-container-indent) / 2);
+    right: calc(var(--settings-layout-container-indent) / 2);
     height: calc(100vh - 200px);
     max-height: 800px;
 
@@ -137,6 +149,10 @@
       justify-content: space-between;
       align-items: center;
       gap: 32px;
+
+      @media (max-width: 991px) {
+        gap: 16px;
+      }
     }
 
     @media (min-width: 992px) {
@@ -169,7 +185,13 @@
     flex-grow: 1;
 
     @media (max-width: 991px) {
-      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      padding: calc(var(--settings-layout-container-indent) / 2 ) var(--settings-layout-container-indent);
+      transform: translateY(-100%);
     }
   }
 
@@ -212,6 +234,22 @@
     width: 35px;
   }
 
+  &.disabled-desktop {
+    display: none;
+
+    @media (max-width: 991px) {
+      display: block;
+    }
+  }
+
+  &.disabled-mobile {
+    display: block;
+
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
+
   &__link {
     display: flex;
     justify-content: center;
@@ -230,9 +268,9 @@
     background-color: rgb(var(--card_bg_black));
     min-width: 400px;
     display: none;
-    
+
     @media (max-width: 991px) {
-      display: none!important;
+      display: none !important;
     }
   }
 
@@ -323,9 +361,9 @@
   margin: 0;
   padding-left: 24px;
   padding-right: 24px;
-  
+
   .swiper-button-disabled {
-    display: none!important;
+    display: none !important;
   }
 
   .swiper-button-prev {
@@ -365,7 +403,7 @@
   }
 
   .swiper-slide {
-    width: initial!important;
+    width: initial !important;
     height: 50px;
     display: flex;
     align-items: center;

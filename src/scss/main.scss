@@ -10,6 +10,12 @@
 @use "ui/payments";
 @use "ui/theme-switch";
 
+// Forms
+@use "forms/input";
+@use "forms/checkbox";
+@use "forms/group";
+@use "forms/label";
+
 // Shop
 @use "shop/info-box";
 @use "shop/actions";
@@ -39,8 +45,6 @@
 @use "blocks/service";
 @use "blocks/review";
 
-// Forms
-@use "forms/input";
 
 // Sections
 @use "sections/jumbotron";
@@ -53,3 +57,4 @@
 @use "modules/mega-menu";
 @use "modules/fast-catalog";
 @use "modules/search";
+@use "modules/modal";

@@ -1,0 +1,50 @@
+{% extends 'templates/modal.twig' %}
+
+{% block id %}CallbackModal{% endblock %}
+
+{% block content %}
+
+    <div>
+        <div class="title-h3 title">Заказать звонок</div>
+        <div class="modal__text">Представьтесь, мы вам перезвоним.</div>
+    </div>
+
+    <form class="js-validation-form">
+        {% include '../components/ui/input.twig' with {
+            label: 'Ваше имя *',
+            type: 'email',
+            id: 'CallbackModalEmail',
+            required: true
+        } %}
+
+        {% include '../components/ui/input.twig' with {
+            label: 'Телефон *',
+            type: 'text',
+            id: 'CallbackModalPhone',
+            required: true,
+            class: 'phone'
+        } %}
+
+        {% include '../components/ui/input.twig' with {
+            label: 'Пароль (для проверки)',
+            type: 'password',
+            id: 'CallbackModalPassword',
+            name: 'password',
+            required: true
+        } %}
+
+        {% include '../components/ui/checkbox.twig' with {
+            label: 'Я согласен(а) с условиями обработки персональных данных',
+            id: 'CallbackModalAgreement',
+            name: 'agreement',
+            required: true,
+            checked: true
+        } %}
+
+        <button type="submit" class="button button-default button-block button-lg">
+            Отправить
+        </button>
+    </form>
+
+{% endblock %}
+
