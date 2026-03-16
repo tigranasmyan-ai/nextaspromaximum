@@ -1,0 +1,17 @@
+<nav class="fast-menu">
+    {% for item in [
+        'О компании',
+        'Сотрудники',
+        'Новости',
+        'Отзывы',
+        'Карьера',
+        'Лицензии',
+        'Документы',
+    ] %}
+        <div class="fast-menu__item">
+            <a href="" class="fast-menu-item__link {{ loop.last ? 'active' : '' }}">{{ item }}</a>
+        </div>
+    {% endfor %}
+</nav>
+
+

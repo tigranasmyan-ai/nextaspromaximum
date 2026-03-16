@@ -1,0 +1,25 @@
+{% extends 'templates/page.twig' %}
+
+{% block title %}Избранные товары{% endblock %}
+
+{% block page_title %}Избранные товары{% endblock %}
+
+{% set with_aside = true %}
+
+{% block page_content %}
+
+    <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-md-3 g-2">
+        {% for item in 1..10 %}
+            <div class="col">
+                {% include '../components/shop/product.twig' %}
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
+
+{% block page_aside %}
+
+    {% include '../components/fast-menu.twig' %}
+
+{% endblock %}

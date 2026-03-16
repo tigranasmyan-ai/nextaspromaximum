@@ -1,32 +1,90 @@
 .catalog-page {
-  &__wrapper {
-    display: flex;
-  }
-
-  &__content {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-
+  div.filter-offcanvas.offcanvas-start.offcanvas {
     @media (min-width: 992px) {
-      padding-left: 40px;
+      position: sticky;
+      top: 120px;
+      z-index: 0;
     }
   }
 
-  &__aside {
-    position: relative;
+  &__thead {
+    display: flex;
+    padding-bottom: 12px;
+    align-items: center;
+    gap: 12px;
 
-    & > div {
-      @media (min-width: 992px) {
-        position: sticky;
-        top: 120px;
-        z-index: 0;
+    .button {
+      width: initial;
+      margin-left: auto;
+    }
+    
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  &__sorting {
+    span:last-child {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 180px;
+
+      @media (max-width: 767px) {
+        max-width: 120px;
+      }
+
+      @media (max-width: 576px) {
+        max-width: 110px;
       }
     }
+  }
 
-    @media (min-width: 992px) {
-      flex: 0 0 260px;
-      max-width: 260px;
+  &__seo {
+    margin-top: 24px;
+
+    p {
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+
+  &__grid-type {
+    display: flex;
+    white-space: nowrap;
+    margin-left: auto;
+    gap: 4px;
+
+    @media (max-width: 576px) {
+      display: none;
+    }
+
+    a {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--settings-main-border-radius);
+      transition: background-color .3s ease;
+
+      &:hover,
+      &.active {
+        background-color: rgb(var(--card_bg_hover));
+      }
+    }
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    width: 100%;
+    gap: 8px;
+
+    @media (max-width: 576px) {
+      justify-content: space-between;
     }
   }
 }

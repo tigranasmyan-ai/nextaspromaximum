@@ -18,6 +18,34 @@
     }
   }
 
+  &__wrapper {
+    display: flex;
+
+    @media (min-width: 992px) {
+      gap: 40px;
+    }
+  }
+
+  &__aside {
+    position: relative;
+
+    & > div {
+      position: sticky;
+      top: 100px;
+    }
+
+    @media (min-width: 992px) {
+      flex: 0 0 260px;
+      max-width: 260px;
+    }
+
+    body:not(:has(.catalog-page)) & {
+      @media (max-width: 991px) {
+        display: none;
+      }
+    }
+  }
+
   &__description {
     color: rgb(var(--lite_basic_text_black));
     line-height: 1.6;

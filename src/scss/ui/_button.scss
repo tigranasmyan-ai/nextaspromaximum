@@ -20,6 +20,8 @@
   border: 1px solid transparent;
   border-radius: var(--settings-main-border-radius);
 
+  gap: 8px;
+
   cursor: pointer;
   user-select: none;
   appearance: none;
@@ -70,28 +72,13 @@
     }
   }
 
-  &-white {
-    background-color: #fff;
-    color: rgb(var(--settings-theme-primary));
-    border-color: #fff;
+  &-solid {
+    border: 1px solid rgb(var(--stroke_black));
+    background: transparent;
+    color: rgb(var(--white_text_black));
 
     &:hover {
-      background-color: rgb(var(--settings-theme-primary));
-      color: #fff;
-      border-color: rgb(var(--settings-theme-primary));
-    }
-  }
-
-  &-transparent {
-    $bg: color-mix(in srgb, rgb(var(--settings-theme-primary)), white 80%);
-    background-color: $bg;
-    color: rgb(var(--settings-theme-primary));
-    border-color: $bg;
-
-    &:hover {
-      background-color: rgb(var(--settings-theme-primary));
-      color: var(--button-text-color);
-      border-color: rgb(var(--settings-theme-primary));
+      background: rgb(var(--darkerblack_bg_black));
     }
   }
 
@@ -104,48 +91,6 @@
       background-color: rgb(var(--settings-theme-primary));
       color: var(--button-text-color);
       border-color: rgb(var(--settings-theme-primary));
-    }
-  }
-
-  &-transparent-border {
-    background-color: transparent;
-    color: rgb(var(--basic_text_black));
-    border-color: transparent;
-
-    &:hover {
-      background-color: rgb(var(--settings-theme-primary));
-      color: var(--button-text-color);
-      border-color: rgb(var(--settings-theme-primary));
-    }
-  }
-
-  &-secondary-dark {
-    background-color: rgb(var(--basic_text_black), 10%);
-    color: rgb(var(--basic_text_black));
-    border-color: transparent;
-
-    &:hover {
-      background-color: color-mix(in srgb, rgb(var(--basic_text_black)), white 80%);
-    }
-  }
-
-  &-black-opacity-blur {
-    background-color: color-mix(in srgb, rgb(var(--basic_text_black)), white 60%);
-    color: #fff;
-    border-color: transparent;
-
-    &:hover {
-      background-color: color-mix(in srgb, rgb(var(--basic_text_black)), white 50%);
-    }
-  }
-
-  &-link {
-    background-color: transparent;
-    color: rgb(var(--settings-theme-primary));
-    border-color: transparent;
-
-    &:hover {
-      color: color-mix(in srgb, rgb(var(--settings-theme-primary)), black 30%);
     }
   }
 
