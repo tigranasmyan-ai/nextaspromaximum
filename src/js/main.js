@@ -374,6 +374,16 @@ $(document).ready(function () {
         const startMax = parseFloat(slider.dataset.startMax);
         const step = parseFloat(slider.dataset.step);
 
+        function formatNumber(val) {
+            const parts = val.toString().split('.');
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+            return parts.join('.');
+        }
+
+        function parseNumber(val) {
+            return parseFloat(val.toString().replace(/\s/g, '')) || 0;
+        }
+
         noUiSlider.create(el, {
             start: [startMin, startMax],
             connect: true,
@@ -386,19 +396,40 @@ $(document).ready(function () {
 
         el.noUiSlider.on('update', function (values, handle) {
             const value = parseFloat(values[handle]);
+            const formattedValue = formatNumber(value);
             if (handle) {
-                inputMax.value = value;
+                inputMax.value = formattedValue;
             } else {
-                inputMin.value = value;
+                inputMin.value = formattedValue;
             }
         });
 
-        inputMin.addEventListener('change', function () {
-            el.noUiSlider.set([this.value, null]);
-        });
+        [inputMin, inputMax].forEach((input, index) => {
+            input.addEventListener('change', function () {
+                const val = parseNumber(this.value);
+                const setArr = [null, null];
+                setArr[index] = val;
+                el.noUiSlider.set(setArr);
+            });
 
-        inputMax.addEventListener('change', function () {
-            el.noUiSlider.set([null, this.value]);
+            input.addEventListener('input', function () {
+                // Allow only numbers, spaces, and dot
+                const selectionStart = this.selectionStart;
+                const originalLength = this.value.length;
+                
+                let val = this.value.replace(/[^\d.\s]/g, '');
+                const num = parseNumber(val);
+                
+                if (!isNaN(num)) {
+                    val = formatNumber(val.replace(/\s/g, ''));
+                }
+                
+                this.value = val;
+
+                // Simple cursor position height adjustment
+                const newLength = this.value.length;
+                this.setSelectionRange(selectionStart + (newLength - originalLength), selectionStart + (newLength - originalLength));
+            });
         });
     });
 });

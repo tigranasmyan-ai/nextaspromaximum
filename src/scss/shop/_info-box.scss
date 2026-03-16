@@ -1,6 +1,7 @@
 .info-box {
   display: flex;
-  gap: 12px;
+  gap: 6px 12px;
+  flex-wrap: wrap;
 
   svg {
   }

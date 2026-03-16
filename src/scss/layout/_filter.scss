@@ -1,7 +1,65 @@
+.filter-offcanvas.offcanvas-start.offcanvas {
+  @media (min-width: 992px) {
+    position: static;
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (max-width: 991px) {
+    background-color: rgb(var(--black_bg_black));
+    box-shadow: rgba(0, 0, 0, 0.45) 3px 0px 10px 0px;
+  }
+}
+
 .filter {
   display: flex;
   flex-direction: column;
   gap: 28px;
+
+  @media (max-width: 991px) {
+    overflow: auto;
+    padding: 20px 20px 170px 20px;
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    @media (min-width: 992px) {
+      display: none;
+    }
+  }
+
+  &__button {
+    &.is-apply {
+      @media (min-width: 992px) {
+        display: none;
+      }
+    }
+  }
+
+  &__bottom {
+    @media (max-width: 991px) {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      width: initial;
+      left: 0px;
+      background: rgb(var(--black_bg_black));
+
+      border-top: 1px solid rgb(var(--stroke_black));
+
+
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      padding: 20px;
+    }
+  }
 }
 
 .filter-item {
@@ -20,13 +78,80 @@
 
     span {
       line-height: 1;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+
+    &.is-single {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &:hover {
+      & > span {
+        opacity: 0.7;
+
+      }
     }
   }
 
   &__content {
-    padding-top: 16px;
+    margin-top: 16px;
     display: flex;
     flex-direction: column;
     gap: 12px;
+    max-height: 250px;
+    overflow: auto;
+  }
+}
+
+.filter-catalog {
+  &__main {
+    font-size: calc(1rem - 1px);
+    line-height: calc(1em + 7px);
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    stroke: rgb(var(--white_text_black));
+    text-decoration: none;
+
+    transition: opacity 0.2s ease-in-out;
+
+    &:not(.active):hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-left: 10px;
+
+    a {
+      height: 28px;
+      padding-left: 8px;
+      padding-right: 8px;
+      font-size: calc(1rem - 2px);
+      line-height: calc(1em + 6px);
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      transition: opacity 0.2s ease-in-out;
+
+      &:not(.active):hover {
+        opacity: 0.7;
+      }
+
+      &.active {
+        background-color: rgb(var(--card_bg_active));
+        font-weight: 500;
+        color: rgb(var(--white_text_black));
+        border-radius: 5px;
+      }
+    }
   }
 }

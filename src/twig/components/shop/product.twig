@@ -1,4 +1,4 @@
-<div class="product-card js-product-card">
+<div class="product-card js-product-card" data-view="grid">
     <div class="product-card__top">
         <div class="product-card__badges product-badges">
             {% include '../ui/badge.twig' with { text: 'Хит', type: 'green', tag: 'div' } %}
@@ -62,31 +62,31 @@
             </button>
         </div>
 
-        <div class="product-card__gallery product-card-gallery">
-            <div class="product-card-gallery__pictures">
+        <div class="product-card__gallery gallery">
+            <div class="gallery__pictures">
                 {% for item in [
                     'https://premier-demo.ru/upload/iblock/3d4/uyjic0vgy8mh1albyq5r2lx819li05tv.jpg',
                     'https://premier-demo.ru/upload/iblock/758/dt2wunwv2okax8uscj0hf1gf7exgbzos.jpg',
                     'https://premier-demo.ru/upload/iblock/cf4/m8koh4m75jq99ykk8l0wg2ohq2xu59f2.jpg',
                 ] %}
-                    <div class="product-card-gallery__picture js-product-card-gallery-picture {{ loop.first ? 'active' : '' }}">
+                    <div class="gallery__picture js-product-card-gallery-picture {{ loop.first ? 'active' : '' }}">
                         <img src="{{ item }}" alt="">
                     </div>
                 {% endfor %}
             </div>
 
-            <div class="product-card-gallery__dots">
+            <div class="gallery__dots">
                 {% for item in 1..3 %}
-                    <div class="product-card-gallery__dot js-product-card-gallery-dot"></div>
+                    <div class="gallery__dot js-product-card-gallery-dot"></div>
                 {% endfor %}
             </div>
         </div>
 
-        <a href="" class="product-card__fast-view">Быстрый просмотр</a>
+        <a href="" class="product-card__fast-view fast-view-button">Быстрый просмотр</a>
     </div>
 
     <div class="product-card__content">
-        <div class="product-card__pagination">
+        <div class="gallery__pagination">
             <span class="active js-product-card-gallery-bullet"></span>
             <span class="js-product-card-gallery-bullet"></span>
             <span class="js-product-card-gallery-bullet"></span>

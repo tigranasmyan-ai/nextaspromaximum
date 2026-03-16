@@ -97,8 +97,8 @@
 
   &-transparent-bg {
     background-color: transparent;
-    color: rgb(var(--gray-900));
-    border-color: rgba(var(--gray-900), 0.2);
+    color: rgb(var(--basic_text_black));
+    border-color: rgba(var(--basic_text_black), 0.2);
 
     &:hover {
       background-color: rgb(var(--settings-theme-primary));
@@ -109,7 +109,7 @@
 
   &-transparent-border {
     background-color: transparent;
-    color: rgb(var(--gray-900));
+    color: rgb(var(--basic_text_black));
     border-color: transparent;
 
     &:hover {
@@ -120,22 +120,22 @@
   }
 
   &-secondary-dark {
-    background-color: rgb(var(--gray-900), 10%);
-    color: rgb(var(--gray-900));
+    background-color: rgb(var(--basic_text_black), 10%);
+    color: rgb(var(--basic_text_black));
     border-color: transparent;
 
     &:hover {
-      background-color: color-mix(in srgb, rgb(var(--gray-900)), white 80%);
+      background-color: color-mix(in srgb, rgb(var(--basic_text_black)), white 80%);
     }
   }
 
   &-black-opacity-blur {
-    background-color: color-mix(in srgb, rgb(var(--gray-900)), white 60%);
+    background-color: color-mix(in srgb, rgb(var(--basic_text_black)), white 60%);
     color: #fff;
     border-color: transparent;
 
     &:hover {
-      background-color: color-mix(in srgb, rgb(var(--gray-900)), white 50%);
+      background-color: color-mix(in srgb, rgb(var(--basic_text_black)), white 50%);
     }
   }
 

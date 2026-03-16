@@ -5,6 +5,11 @@
   flex-direction: column;
   gap: 4px;
 
+  &-md {
+    font-size: calc(1rem - 3px);
+    line-height: calc(1em + 5px);
+  }
+
   a:hover {
     color: #8D8D8D;
     text-decoration: none;

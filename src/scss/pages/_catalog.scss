@@ -4,14 +4,29 @@
   }
 
   &__content {
-    padding-left: 40px;
     display: flex;
     flex-direction: column;
     gap: 40px;
+
+    @media (min-width: 992px) {
+      padding-left: 40px;
+    }
   }
 
   &__aside {
-    flex: 0 0 260px;
-    max-width: 260px;
+    position: relative;
+
+    & > div {
+      @media (min-width: 992px) {
+        position: sticky;
+        top: 120px;
+        z-index: 0;
+      }
+    }
+
+    @media (min-width: 992px) {
+      flex: 0 0 260px;
+      max-width: 260px;
+    }
   }
 }
