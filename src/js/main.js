@@ -71,9 +71,8 @@ $(document).ready(function () {
         });
     }
 
-    let savedTheme = localStorage.getItem("theme") || ($html.attr("data-theme") || "light");
-    $html.attr("data-theme", savedTheme);
-    updateThemeText(savedTheme);
+    // Initialize toggle text based on the theme already set in <head>
+    updateThemeText($html.attr("data-theme"));
 
     $(document).on('click', themeToggleSelector, function () {
         let currentTheme = $html.attr("data-theme");

@@ -74,7 +74,7 @@
             {'id': 'HomePageBestProductSales', 'label': 'Акция', 'active': false, 'disabled': false},
         ] %}
 
-        <div id="HomePageBestProducts" role="tablist" class="home-page__tabs tabs-head">
+        <div id="HomePageBestProducts" role="tablist" class="tabs-head is-scrollable-mobile">
             {% for tab in tabs %}
                 <button
                         class="tabs-head__link {% if tab.active %}active{% endif %}"
@@ -347,29 +347,7 @@
             <div class="col-lg-6">
                 <div class="post-card-grid">
                     {% for item in 1..2 %}
-                        <div class="post-card">
-                            {% include '../components/ui/badge.twig' with {
-                                text: 'Творчество',
-                                type: 'dark-opacity',
-                                class: 'post-card__badge',
-                                tag: 'div'
-                            } %}
-
-                            <div class="post-card__picture">
-                                <img src="https://premier-demo.ru/upload/iblock/c3d/os6fn6gr7erb2gdk1zioizm8ti4rysvw.jpg"
-                                     alt="">
-                            </div>
-
-                            <div class="post-card__content">
-                                <span class="post-card__title title title-h6">
-                                    Здоровое питание без глютена: как выбрать и приготовить?
-                                </span>
-
-                                <div class="post-card__date">
-                                    11 мая 2024
-                                </div>
-                            </div>
-                        </div>
+                        {% include '../components/post-card.twig' %}
                     {% endfor %}
                 </div>
             </div>

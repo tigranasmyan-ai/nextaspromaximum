@@ -1,0 +1,35 @@
+{% extends 'templates/modal.twig' %}
+
+{% block id %}SubscribeModal{% endblock %}
+
+{% block content %}
+
+    <div>
+        <div class="title-h3 title">Подписка на рассылку</div>
+    </div>
+
+    <form class="js-validation-form">
+        {% include '../components/ui/input.twig' with {
+            label: 'Email *',
+            type: 'email',
+            id: 'LoginModalEmail',
+            required: true
+        } %}
+
+        <div class="form-group">
+            {% include '../components/ui/checkbox.twig' with {
+                label: 'Запомнить меня',
+                id: 'LoginModalRemember',
+                name: 'agreement',
+                required: true,
+                checked: true
+            } %}
+        </div>
+
+        <button type="submit" class="button button-default button-block button-lg">
+            Подписаться
+        </button>
+    </form>
+
+{% endblock %}
+

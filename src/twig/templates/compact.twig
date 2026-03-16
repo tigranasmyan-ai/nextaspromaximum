@@ -29,21 +29,17 @@
 		<link rel="stylesheet" href="css/vendor/bootstrap.css">
 		<link rel="stylesheet" href="css/main.css">
 	</head>
-	<body class="{% block body_class %}{% endblock %}">
+	<body class="site-short {% block body_class %}{% endblock %}">
 
-		{% include 'layouts/header.twig' %}
+		{% include 'layouts/header-compact.twig' %}
 
 		<main class="site-main {% block main_class %}{% endblock %}">
 			{% block content %}{% endblock %}
 		</main>
 
-		{% include 'layouts/footer.twig' %}
+		{% include 'layouts/footer-compact.twig' %}
 
 		{% include 'layouts/fixed-bar.twig' %}
-
-		{% include 'modals/callback.twig' %}
-		{% include 'modals/login.twig' %}
-		{% include 'modals/subscribe.twig' %}
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/jquery.validate.min.js"></script>

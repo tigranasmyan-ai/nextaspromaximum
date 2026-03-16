@@ -1,4 +1,8 @@
 <nav class="fast-menu">
+    <div class="fast-menu__title">
+        Все публикации <span>22</span>
+    </div>
+
     {% for item in [
         'О компании',
         'Сотрудники',
@@ -8,8 +12,14 @@
         'Лицензии',
         'Документы',
     ] %}
-        <div class="fast-menu__item">
-            <a href="" class="fast-menu-item__link {{ loop.last ? 'active' : '' }}">{{ item }}</a>
+        <div class="fast-menu__item fast-menu-item {{ class }}">
+            <a href="" class="fast-menu-item__link {{ loop.last ? 'active' : '' }}">
+                {{ item }}
+
+                {% if counter %}
+                    <span>123</span>
+                {% endif %}
+            </a>
         </div>
     {% endfor %}
 </nav>

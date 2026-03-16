@@ -26,6 +26,10 @@
     }
   }
 
+  &__top {
+    margin-bottom: 32px;
+  }
+
   &__content {
     width: 100%;
   }
@@ -36,6 +40,9 @@
     & > div {
       position: sticky;
       top: 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
     }
 
     @media (min-width: 992px) {

@@ -1,0 +1,16 @@
+.widget-subscribe {
+  border: 1px solid rgb(var(--stroke_black));
+  border-radius: var(--settings-main-border-radius);
+  padding: 40px 20px 20px;
+  text-align: center;
+  stroke: rgb(var(--settings-theme-primary));
+
+  svg {
+    width: 40px;
+  }
+
+  &__title {
+    margin-top: 16px;
+    margin-bottom: 32px;
+  }
+}

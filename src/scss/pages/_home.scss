@@ -54,18 +54,6 @@
     }
   }
 
-  &__tabs {
-    @media (max-width: 991px) {
-      overflow: auto;
-
-      margin-left: calc(var(--settings-layout-container-indent) * -1);
-      margin-right: calc(var(--settings-layout-container-indent) * -1);
-
-      padding-left: var(--settings-layout-container-indent);
-      padding-right: var(--settings-layout-container-indent);
-    }
-  }
-
   &__seo,
   &__sale {
     padding-top: var(--home-page-indent);

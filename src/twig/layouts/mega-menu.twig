@@ -1,23 +1,24 @@
 <nav class="{{ class }} mega-menu">
-    {% for item in [
-        'Акции',
-        'Бренды',
-        'Услуги',
-        'Компания',
-        'Блог',
-        'Образы',
-        'Информация',
-        'Контакты',
+    {% set menu_items = [
+        { name: 'Акции', url: 'sales.html', icon: 'sale' },
+        { name: 'Бренды', url: 'brands.html' },
+        { name: 'Услуги', url: '#' },
+        { name: 'Компания', url: 'text.html' },
+        { name: 'Блог', url: 'blog.html' },
+        { name: 'Образы', url: '#' },
+        { name: 'Информация', url: '#' },
+        { name: 'Контакты', url: '#' },
     ] %}
+    {% for item in menu_items %}
         <div class="mega-menu__item js-mega-menu__item">
-            <a href="" class="mega-menu__link">
-                {% if loop.first %}
+            <a href="{{ item.url }}" class="mega-menu__link">
+                {% if item.icon %}
                     <svg class="mega-menu__icon">
-                        <use href="img/svg-icons-final.svg#sale"></use>
+                        <use href="img/svg-icons-final.svg#{{ item.icon }}"></use>
                     </svg>
                 {% endif %}
 
-                <span class="mega-menu__text">{{ item }}</span>
+                <span class="mega-menu__text">{{ item.name }}</span>
 
                 <svg class="mega-menu__chevron">
                     <use href="img/svg-icons-final.svg#down"></use>

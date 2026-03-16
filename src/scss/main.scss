@@ -46,6 +46,7 @@
 @use "pages/catalog";
 @use "pages/page-solid";
 @use "pages/compare-page";
+@use "pages/blog-page";
 
 // Blocks
 @use "blocks/categories";
@@ -75,3 +76,4 @@
 @use "modules/dropdown";
 @use "modules/fast-menu";
 @use "modules/compare";
+@use "modules/widget-subscribe";

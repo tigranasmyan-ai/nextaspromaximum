@@ -15,41 +15,20 @@
             {'id': 'SalesPageArchiveList', 'label': 'Архив', 'active': false, 'disabled': false},
         ] %}
 
-        <div id="SalesPageList" role="tablist" class="home-page__tabs tabs-head">
+        <div class="tabs-head is-scrollable-mobile ">
             {% for tab in tabs %}
-                <button
-                        class="tabs-head__link {% if tab.active %}active{% endif %}"
-                        id="{{ tab.id }}-tab"
-                        data-bs-toggle="tab"
-                        data-bs-target="#{{ tab.id }}-tab-pane"
-                        type="button"
-                        role="tab"
-                        aria-controls="{{ tab.id }}-tab-pane"
-                        aria-selected="{{ tab.active ? 'true' : 'false' }}"
-                >
+                <a href="" class="tabs-head__link {% if tab.active %}active{% endif %}">
                     {{ tab.label }}
-                </button>
+                </a>
             {% endfor %}
         </div>
 
-        <div class="tab-content tabs-content" id="HomePageBestProductsContent">
-            {% for tab in tabs %}
-                <div
-                        class="tabs-content__item tab-pane fade {% if tab.active %}show active{% endif %}"
-                        id="{{ tab.id }}-tab-pane"
-                        role="tabpanel"
-                        aria-labelledby="{{ tab.id }}-tab"
-                        tabindex="0"
-                >
-                    <div class="row row-cols-lg-2 row-cols-md-3 row-cols-2 g-md-3 g-2">
-                        {% for item in 1..4 %}
-                            <div class="col">
-                                {% include '../components/sale-card.twig' with {
-                                    badge: true
-                                } %}
-                            </div>
-                        {% endfor %}
-                    </div>
+        <div class="row row-cols-lg-2 row-cols-md-3 row-cols-2 g-md-3 g-2">
+            {% for item in 1..4 %}
+                <div class="col">
+                    {% include '../components/sale-card.twig' with {
+                        badge: true
+                    } %}
                 </div>
             {% endfor %}
         </div>

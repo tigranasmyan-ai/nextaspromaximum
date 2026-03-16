@@ -138,6 +138,20 @@ body {
   @media (max-width: 991px) {
     padding-top: 60px;
   }
+
+  &.site-short {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+
+    .site-main {
+      flex-grow: 1;
+
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+  }
 }
 
 .offcanvas-backdrop {

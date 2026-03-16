@@ -1,6 +1,8 @@
 @use "../abstracts/mixins";
 
 .post-card {
+  $self: &;
+
   height: 100%;
   border-radius: var(--settings-main-border-radius);
   overflow: hidden;
@@ -9,7 +11,9 @@
   flex-direction: column;
   transition: box-shadow ease .3s, border ease .3s, background ease .3s;
 
-  @include mixins.card_hover_shadow_effect;
+  &:not(.post-card--solid) {
+    @include mixins.card_hover_shadow_effect;
+  }
 
   &__title {
     @include mixins.shorted_text(3);
@@ -23,25 +27,48 @@
   }
 
   &__content {
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-grow: 1;
+    #{$self}:not(.post-card--solid) & {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
 
-    @media (max-width: 991px) {
-      padding: 16px;
+      @media (max-width: 991px) {
+        padding: 16px;
+      }
     }
+
+    .post-card--solid & {
+      padding-top: 16px;
+    }
+  }
+
+  &__link {
+    position: absolute;
+    inset: 0;
   }
 
   &__badge {
     position: absolute;
     top: 12px;
     left: 12px;
+    z-index: 50;
   }
 
   &__picture {
     height: 275px;
+
+    #{$self}:hover & {
+      img {
+        scale: 1.1;
+      }
+    }
+
+    #{$self}--solid & {
+      border-radius: var(--settings-main-border-radius);
+      overflow: hidden;
+    }
 
     @media (max-width: 991px) {
       height: 170px;
@@ -51,6 +78,7 @@
       height: 100%;
       width: 100%;
       object-fit: cover;
+      transition: scale .6s ease, opacity .3s ease;
     }
   }
 }
@@ -113,6 +141,10 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 16px;
     height: 100%;
+
+    &.is-three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
 
   @media (max-width: 991px) {
