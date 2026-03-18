@@ -2,14 +2,183 @@
 
 {% block content %}
 
-    <div class="container">
-        <div class="title title-h1">
-            Корзина
+    <div class="container cart-page">
+        <div class="cart-page__head">
+            <div class="title title-h1">
+                Корзина
+            </div>
+
         </div>
 
-        <div class="card-page">
-            <div class="cart-page__layout">
-                asdasd
+        <div class="cart-page__layout">
+            <div class="cart-page__wrapper">
+                <div class="cart-page__content">
+                    {% for item in 1..10 %}
+                        <div class="cart-product">
+                            <div class="cart-product__left">
+                                <div class="cart-product__image">
+                                    <a href="">
+                                        <img src="https://premier-demo.ru/upload/resize_cache/iblock/265/160_160_1/mpxajok3khi75blouh7qxgq4crqcewv1.jpg" alt="">
+                                    </a>
+                                </div>
+
+                                <div class="cart-product__wrapper">
+                                    <div class="cart-product__badges product-badges">
+                                        {% include '../components/ui/badge.twig' with { text: 'Хит', type: 'green', tag: 'div' } %}
+                                        {% include '../components/ui/badge.twig' with { text: 'Новинка', type: 'orange', tag: 'div' } %}
+                                        {% include '../components/ui/badge.twig' with { text: 'Советуем', type: 'purple', tag: 'div' } %}
+                                    </div>
+
+                                    <a href="" class="cart-product__title title title-h7">
+                                        Классическая помада Fior 133 Беспечный розовый
+                                    </a>
+
+                                    <div class="cart-product__props properties">
+                                        <div class="properties__item">
+                                            <span>Материал:</span>
+                                            <span><a href="">Дерево</a>, <a href="">Пластик</a></span>
+                                        </div>
+
+                                        <div class="properties__item">
+                                            <span>Общая мощность, Вт:</span>
+                                            <span>12</span>
+                                        </div>
+
+                                        <div class="properties__item">
+                                            <span>Габариты (ВхШхГ), см:</span>
+                                            <span>13х34х6</span>
+                                        </div>
+
+                                        <div class="properties__item">
+                                            <span>Дополнительно:</span>
+                                            <span>Кодирование звука в MP3 формат</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cart-product__bottom">
+                                <div class="cart-product__counter">
+                                    {% include '../components/ui/counter.twig' %}
+
+                                    <span>5 000 ₽/шт</span>
+                                </div>
+
+                                <div class="cart-product__prices">
+                                    {% include '../shop/price.twig' with {
+                                        size: 'md',
+                                        now: '1 300 ₽/шт',
+                                        old: '1 600 ₽/шт',
+                                        class: 'cart-product__price price'
+                                    } %}
+
+
+                                    {% include '../components/shop/cashback.twig' with {
+                                        class: 'cart-product__cashback'
+                                    } %}
+                                </div>
+                            </div>
+
+                            <div class="cart-product__actions actions">
+                                <button type="button" class="actions__item">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M6 3C3.79086 3 2 4.79086 2 7C2 8.21767 2.54286 9.30748 3.40329 10.0427L3.42165 10.0584L9.99989 16.2528L16.5824 10.0549L16.6003 10.0396C17.4586 9.30445 18 8.21598 18 7C18 4.79086 16.2091 3 14 3C12.6922 3 11.531 3.6266 10.7995 4.60019L10 5.66431L9.20051 4.60019C8.46903 3.6266 7.30784 3 6 3ZM0 7C0 3.68629 2.68629 1 6 1C7.53707 1 8.93917 1.57863 10 2.52791C11.0608 1.57863 12.4629 1 14 1C17.3137 1 20 3.68629 20 7C20 8.81571 19.1923 10.4438 17.9199 11.5426L9.99983 18.9998L2.0849 11.5468C0.809798 10.448 0 8.81802 0 7Z"
+                                              fill="rgb(var(--icon_on_card))"></path>
+                                    </svg>
+
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M10.9998 21.3734L2.41478 13.2893C0.938727 12.0089 0 10.1131 0 8C0 4.13401 3.13401 1 7 1C8.48691 1 9.86678 1.46494 11 2.25504C12.1332 1.46494 13.5131 1 15 1C18.866 1 22 4.13401 22 8C22 10.1106 21.0635 12.0045 19.5904 13.2848L10.9998 21.3734Z"
+                                              fill="rgb(var(--white_text_black_reverse))"></path>
+                                    </svg>
+                                </button>
+
+                                <button type="button" class="actions__item">
+                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M0 6C0 2.68629 2.68629 0 6 0H14C17.3137 0 20 2.68629 20 6V14C20 17.3137 17.3137 20 14 20H6C2.68629 20 0 17.3137 0 14V6ZM6 2H14C16.2091 2 18 3.79086 18 6V14C18 16.2091 16.2091 18 14 18H6C3.79086 18 2 16.2091 2 14V6C2 3.79086 3.79086 2 6 2Z"
+                                              fill="rgb(var(--icon_on_card))"></path>
+                                        <path d="M10 5C9.44771 5 9 5.44772 9 6V14C9 14.5523 9.44771 15 10 15C10.5523 15 11 14.5523 11 14V6C11 5.44772 10.5523 5 10 5Z"
+                                              fill="rgb(var(--icon_on_card))"></path>
+                                        <path d="M13 8C13 7.44772 13.4477 7 14 7C14.5523 7 15 7.44772 15 8V14C15 14.5523 14.5523 15 14 15C13.4477 15 13 14.5523 13 14V8Z"
+                                              fill="rgb(var(--icon_on_card))"></path>
+                                        <path d="M6 10C5.44772 10 5 10.4477 5 11V14C5 14.5523 5.44772 15 6 15C6.55228 15 7 14.5523 7 14V11C7 10.4477 6.55228 10 6 10Z"
+                                              fill="rgb(var(--icon_on_card))"></path>
+                                    </svg>
+
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M15 22H7C3.13401 22 0 18.866 0 15V7C0 3.13401 3.13401 0 7 0H15C18.866 0 22 3.13401 22 7V15C22 18.866 18.866 22 15 22Z"
+                                              fill="rgb(var(--white_text_black_reverse))"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="cart-page__aside">
+                    <div class="cart-page__totals">
+                        <div class="cart-page-totals__head">
+                            <div class="title title-h3">Итого</div>
+
+                            <div>
+                                {% include '../shop/price.twig' with {
+                                    size: 'xl',
+                                    now: '1 300 ₽/шт',
+                                    old: '1 600 ₽/шт',
+                                    class: 'price',
+                                } %}
+
+
+                                {% include '../components/shop/cashback.twig' with {
+                                    class: 'cart-product__cashback'
+                                } %}
+                            </div>
+                        </div>
+
+                        {% include '../components/ui/input.twig' with {
+                            type: 'password',
+                            id: 'LoginModalPassword',
+                            required: true,
+                        } %}
+
+                        <a href="" class="button button-default button-xl button-block">
+                            Перейти к оформлению
+                        </a>
+
+                        <a href="" class="button button-solid button-lg button-block">
+                            Купить в 1 клик
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section__main">
+                    <div class="title title-h2">
+                        Вам может понравиться
+                    </div>
+
+                    <div class="swiper js-products-view-slider">
+                        <div class="swiper-wrapper">
+                            {% for item in 1..10 %}
+                                <div class="swiper-slide">
+                                    {% include '../components/shop/product-view.twig' with {
+                                        badge: { text: '-10%', type: 'red' }
+                                    } %}
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="swiper-button-next swiper-arrow"></div>
+                        <div class="swiper-button-prev swiper-arrow"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

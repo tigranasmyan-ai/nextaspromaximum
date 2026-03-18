@@ -494,4 +494,47 @@ $(document).ready(function () {
         const $parents = $(this).closest('.js-compare-products-details');
         $parents.find('.compare-list-item').removeClass('is-hovered');
     });
+
+    /**
+     * Counter
+     */
+    $(document).on('click', '.js-counter__btn--plus', function() {
+        const $counter = $(this).closest('.js-counter');
+        const $input = $counter.find('.js-counter__input');
+        const max = parseFloat($counter.data('max'));
+        const step = parseFloat($counter.data('step')) || 1;
+        let val = parseFloat($input.val());
+
+        if (isNaN(max) || val + step <= max) {
+            $input.val(val + step).trigger('change');
+        }
+    });
+
+    $(document).on('click', '.js-counter__btn--minus', function() {
+        const $counter = $(this).closest('.js-counter');
+        const $input = $counter.find('.js-counter__input');
+        const min = parseFloat($counter.data('min')) || 1;
+        const step = parseFloat($counter.data('step')) || 1;
+        let val = parseFloat($input.val());
+
+        if (val - step >= min) {
+            $input.val(val - step).trigger('change');
+        }
+    });
+
+    $(document).on('change', '.js-counter__input', function() {
+        const $counter = $(this).closest('.js-counter');
+        const $minusBtn = $counter.find('.js-counter__btn--minus');
+        const $plusBtn = $counter.find('.js-counter__btn--plus');
+        const val = parseFloat($(this).val());
+        const min = parseFloat($counter.data('min')) || 1;
+        const max = parseFloat($counter.data('max'));
+
+        $minusBtn.prop('disabled', val <= min);
+        if (!isNaN(max)) {
+            $plusBtn.prop('disabled', val >= max);
+        }
+    });
+
+    $('.js-counter__input').trigger('change');
 });

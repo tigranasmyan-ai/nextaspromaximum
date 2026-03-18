@@ -39,5 +39,9 @@
     #{$self}-lg & {
       font-size: 20px;
     }
+
+    #{$self}-xl & {
+      font-size: 24px;
+    }
   }
 }

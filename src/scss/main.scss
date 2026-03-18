@@ -12,6 +12,7 @@
 @use "ui/close";
 @use "ui/breadcrumbs";
 @use "ui/range-slider";
+@use "ui/counter";
 
 // Forms
 @use "forms/input";
@@ -44,6 +45,7 @@
 @use "pages/page";
 @use "pages/brands";
 @use "pages/catalog";
+@use "pages/cart-page";
 @use "pages/page-solid";
 @use "pages/compare-page";
 @use "pages/blog-page";
@@ -58,6 +60,7 @@
 @use "blocks/brand";
 @use "blocks/service";
 @use "blocks/review";
+@use "blocks/cart-product";
 
 
 // Sections
