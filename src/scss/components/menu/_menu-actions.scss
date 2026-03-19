@@ -1,0 +1,100 @@
+@use "abstracts/mixins";
+
+.menu-actions-item {
+  $self: &;
+
+  position: relative;
+
+  &.disabled-desktop {
+    @media (min-width: 992px) {
+      display: none;
+    }
+  }
+
+  &.disabled-mobile {
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
+
+  &__link {
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+
+    #{$self}.is-list & {
+      min-height: 35px;
+      gap: 12px;
+    }
+
+    #{$self}.is-grid & {
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+
+      @media (max-width: 1199px) {
+        width: 50px;
+        height: 40px;
+      }
+
+      @media (max-width: 576px) {
+        width: 35px;
+      }
+    }
+  }
+
+  &__top {
+    position: relative;
+  }
+
+  &__icon {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    fill: rgb(var(--white_text_black));
+  }
+
+  &__counter {
+    font-size: 12px;
+    border-radius: 17px;
+    text-align: center;
+    line-height: 17px;
+    min-width: 19px;
+    padding: 0 6px;
+    white-space: nowrap;
+    z-index: 2;
+
+    #{$self}.is-grid & {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(57%, -31%);
+    }
+
+    #{$self}.is-list & {
+      margin-left: auto;
+    }
+
+    @include mixins.set_main_theme;
+  }
+
+  &__text {
+    font-size: .875rem;
+    line-height: calc(1rem + 3px);
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-shrink: 0;
+
+    #{$self}.is-grid & {
+      @media (max-width: 1199px) {
+        display: none;
+      }
+    }
+
+    #{$self}:hover & {
+      opacity: 0.7;
+    }
+  }
+}

@@ -1,0 +1,130 @@
+@use "abstracts/mixins";
+
+.catalog-item {
+  $self: &;
+
+  display: flex;
+  gap: 20px;
+
+  &__img {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: var(--settings-typography-weight);
+    text-decoration: none;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    display: block;
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-color: rgba(var(--white_text_black), 16%);
+      text-underline-offset: 0.2px;
+    }
+  }
+
+  &__dropdown {
+    margin-left: 8px;
+    padding-top: 8px;
+    flex-direction: column;
+    gap: 4px;
+    display: none;
+
+    a {
+      display: flex;
+
+      &:not(:last-child) {
+        margin-bottom: 4px;
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    & > div {
+      display: none;
+    }
+
+    &.show-all > div {
+      display: block;
+    }
+
+    &:not(.show-all) > div:nth-child(-n+5) {
+      display: block;
+    }
+  }
+
+  &__more {
+    @include mixins.link_decoration;
+    background-color: transparent;
+    border: none;
+    color: rgb(var(--white_text_black));
+    display: inline-flex;
+
+    font-size: calc(1rem - 2px);
+    line-height: calc(1em + 6px);
+    padding: 0;
+  }
+}
+
+.catalog-item-link {
+  text-decoration: none;
+
+  font-size: calc(1rem - 2px);
+  line-height: calc(1em + 6px);
+  color: rgb(var(--basic_text_black));
+
+  &:hover {
+    color: rgb(var(--white_text_black));
+  }
+
+  &__text {
+    @include mixins.link_decoration;
+  }
+
+  &__icon {
+    width: 10px;
+    height: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 6px;
+    transform: translateY(-2px);
+    transition: transform 0.3s ease;
+
+    stroke: rgb(var(--white_text_black));
+
+    &.active {
+      transform: rotate(180deg) translateY(1px);
+    }
+  }
+
+  &__link {
+    font-size: calc(1rem - 2px);
+    line-height: calc(1em + 6px);
+    color: rgb(var(--basic_text_black));
+
+    text-decoration: none;
+    stroke: rgb(var(--white_text_black));
+
+    &.is-button {
+      background-color: transparent;
+      border: none;
+      display: inline-flex;
+      padding: 0;
+      color: rgb(var(--white_text_black));
+      text-decoration-line: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: .2em;
+      text-decoration-style: dotted;
+    }
+  }
+}

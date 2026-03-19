@@ -1,0 +1,58 @@
+{% extends 'templates/page.twig' %}
+
+{% block title %}Home Page - Aspro{% endblock %}
+
+{% block page_title %}Блог{% endblock %}
+
+{% block page_content %}
+
+    {% set tabs = [
+        {'id': 'SalesPageActiveList', 'label': 'Активные акции', 'active': true, 'disabled': false},
+        {'id': 'SalesPageArchiveList', 'label': 'Архив', 'active': false, 'disabled': false},
+    ] %}
+
+    <div class="page__layout page__layout--default">
+        <div class="blog-page__top">
+            <div class="blog-page__tabs">
+                <div class="tabs-head is-scrollable-mobile">
+                    {% for tab in tabs %}
+                        <a href="" class="tabs-head__link {% if tab.active %}active{% endif %}">
+                            {{ tab.label }}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <a class="blog-page__tags-link" data-bs-toggle="collapse" href="#BlogPageTags" role="button" aria-expanded="false" aria-controls="BlogPageTags">
+                Теги
+            </a>
+        </div>
+
+        <div class="collapse" id="BlogPageTags">
+            <div class="blog-page__tags">
+                {% for item in 1..15 %}
+                    <div>
+                        <a href="" class="button button-sm button-solid">
+                            Тег {{ loop.index }}
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="row gx-3 gy-4">
+            {% for item in 1..9 %}
+                <div class="col-lg-3 col-md-6">
+                    {% include 'components/post-card.twig' with {
+                        badge: { text: 'Творчество', type: 'dark-opacity' },
+                        image: 'https://premier-demo.ru/upload/iblock/c3d/os6fn6gr7erb2gdk1zioizm8ti4rysvw.jpg',
+                        title: 'Здоровое питание без глютена: как выбрать и приготовить?',
+                        date: '11 мая 2024',
+                        single_type: true
+                    } %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

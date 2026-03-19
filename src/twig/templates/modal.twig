@@ -1,7 +1,7 @@
 <div class="modal fade" id="{% block id %}{% endblock %}" tabindex="-1" aria-labelledby="{% block id %}{% endblock %}Label" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content {% block modal_class %}{% endblock %}">
-            {% include '../components/ui/close.twig' with {
+            {% include '@components/ui/close.twig' with {
                 dismiss: 'modal'
             } %}
 

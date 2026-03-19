@@ -1,0 +1,28 @@
+<div class="sale-item {{ sale_class }}">
+    <div class="sale-item__content">
+        <span class="sale-item__category">
+            Бессрочная акция
+        </span>
+
+        <a href="{{ href|default('') }}" class="sale-item__title title title-h6">
+            Акция «2 по цене 1» за игры для консоли
+        </a>
+
+        <span class="sale-item__text">
+            В преддверии киберспортивных соревнований запускаем акцию: 2 по цене 1. Подбирайте консольные игры на ваш вкус и наслаждайтесь атмосферным геймплеем.
+        </span>
+
+        {% include '@components/ui/badge.twig' with {
+            badge_text: badge.text|default('-10%'),
+            badge_type: badge.type|default('red'),
+            badge_size: badge.size|default('sm'),
+            badge_class: 'sale-item__badge',
+            badge_tag: 'div'
+        } %}
+    </div>
+
+    <a href="{{ href|default('') }}">
+        <img src="{{ image|default('https://premier-demo.ru/upload/iblock/1d3/hccjg6lv2pcekmizraow829mwp5adfkk.jpg') }}"
+             alt="" class="sale-item__picture">
+    </a>
+</div>

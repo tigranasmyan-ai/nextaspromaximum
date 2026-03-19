@@ -1,8 +1,0 @@
-{% set classes = 'badge' %}
-{% if type %}{% set classes = classes ~ ' badge-' ~ type %}{% endif %}
-{% if size %}{% set classes = classes ~ ' badge-' ~ size %}{% endif %}
-{% if class %}{% set classes = classes ~ ' ' ~ class %}{% endif %}
-
-<{{ tag|default('span') }} class="{{ classes }}">
-    {{ text|default('') }}
-</{{ tag|default('span') }}>

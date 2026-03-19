@@ -1,0 +1,21 @@
+{% set tag = button_url ? 'a' : 'button' %}
+
+{% set classes = [
+    'button',
+    'button-' ~ (button_type|default('default')),
+    'button-' ~ (button_size|default('md')),
+    button_class|default(null)
+] %}
+
+<{{ tag }}
+    {% if url %}
+        href="{{ url }}"
+    {% else %}
+        type="{{ attr_type|default('button') }}"
+    {% endif %}
+class="{{ classes|join(' ') }}"
+{% if target and url %}target="{{ target }}"{% endif %}
+    {{ attributes|raw }}
+>
+{{ button_text|default('Click me') }}
+</{{ tag }}>

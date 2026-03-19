@@ -1,0 +1,52 @@
+@use 'abstracts/mixins';
+
+
+.tabs-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  &.is-scrollable-mobile {
+    @media (max-width: 991px) {
+      overflow: auto;
+      white-space: nowrap;
+
+      margin-left: calc(var(--settings-layout-container-indent) * -1);
+      margin-right: calc(var(--settings-layout-container-indent) * -1);
+
+      padding-left: var(--settings-layout-container-indent);
+      padding-right: var(--settings-layout-container-indent);
+    }
+  }
+
+  &__link {
+    background: rgb(var(--secondary-black-dark-light-bg));
+    color: rgb(var(--fill_dark_lite_white_hover));
+    border: none;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: calc(1rem - 2px);
+    text-decoration: none;
+    line-height: calc(1em + 6px);
+    border-radius: var(--settings-main-border-radius);
+    transition: background-color .3s ease, color .3s ease;
+
+    &.active {
+      @include mixins.set_main_theme();
+
+      cursor: default;
+    }
+
+    &-counter {
+      margin-left: 10px;
+
+      .tabs-head__link:not(.active) & {
+        color: rgb(var(--secondary));
+      }
+    }
+  }
+}

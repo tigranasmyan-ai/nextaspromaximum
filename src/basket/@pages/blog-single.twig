@@ -1,0 +1,165 @@
+{% extends 'templates/page.twig' %}
+
+{% block title %}Home Page - Aspro{% endblock %}
+
+{% block page_title %}Комфорт и стиль: как выбрать обувь для долгих рабочих дней?{% endblock %}
+
+ {% block page_top %}
+     <div class="blog-page-single__picture">
+         <img src="https://premier-demo.ru/upload/iblock/964/9x9ysmxoayvgcygjc5of0148n18wjqns.jpg" alt="" class="fluid">
+     </div>
+ {% endblock %}
+
+{% block page_content %}
+
+    <div class="blog-page-single__wrapper">
+        <div>
+            <div>Советы покупателям 8 мая 2024</div>
+
+            <div class="text-content">
+                {% for item in 1..6 %}
+                    <h{{ loop.index }}>Heading {{ loop.index }}</h{{ loop.index }}>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid atque commodi consectetur
+                        doloremque et, exercitationem harum, inventore laboriosam minus nam natus nulla obcaecati
+                        officiis
+                        possimus quidem soluta totam ullam voluptates.
+                    </p>
+
+                    <hr>
+                {% endfor %}
+
+                <ul>
+                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                    <li>
+                        Pellentesque pellentesque eget tempor tellus.
+
+                        <ul>
+                            <li>Pellentesque pellentesque eget tempor tellus.</li>
+                            <li>Pellentesque pellentesque eget tempor tellus.</li>
+                            <li>Pellentesque pellentesque eget tempor tellus.</li>
+                            <li>
+                                Pellentesque pellentesque eget tempor tellus.
+
+                                <ol>
+                                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                                </ol>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ol>
+                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                    <li>Pellentesque pellentesque eget tempor tellus.</li>
+                </ol>
+
+                <p>
+                    Pellentesque pellentesque eget tempor tellus. Fusce lacllentesque eget tempor tellus ellentesque
+                    pelleinia
+                    tempor malesuada. Pellentesque pellentesque eget tempor tellus ellentesque pellentesque eget tempor
+                    tellus.
+                    Fusce lacinia tempor malesuada.
+                </p>
+
+                <table>
+                    <thead>
+                    <tr>
+                        {% for item in 1..5 %}
+                            <th>item {{ loop.index }}</th>
+                        {% endfor %}
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        {% for item in 1..5 %}
+                            <td>item {{ loop.index }}</td>
+                        {% endfor %}
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section__main">
+                <div class="title title-h2">Дополнительно</div>
+
+                <div class="text-content">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda at doloremque eius esse,
+                        similique unde.
+                    </p>
+
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda at doloremque eius esse,
+                        similique unde.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section__main">
+                <div class="title title-h2">Другие статьи</div>
+                <div class="post-card-grid is-three">
+                    {% for item in 1..3 %}
+                        {% include 'components/post-card.twig' with { single_type: true } %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <div class="blog-page__tags">
+            {% for item in 1..15 %}
+                <div>
+                    <a href="" class="button button-sm button-solid">
+                        Тег {{ loop.index }}
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block page_aside %}
+    {% include 'components/fast-menu.twig' with { class: 'sm', counter: true } %}
+
+    <div class="blog-page__tags">
+        {% for item in 1..15 %}
+            <div>
+                <a href="" class="button button-sm button-solid">
+                    Тег {{ loop.index }}
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="widget-subscribe">
+        <div class="widget-subscribe__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" id="aside-subscribe" fill="none">
+                <path d="M1 8C1 4.68629 3.68629 2 7 2H33C36.3137 2 39 4.68629 39 8V26C39 29.3137 36.3137 32 33 32H9.24264C8.44699 32 7.68393 32.3161 7.12132 32.8787L2.70711 37.2929C2.07714 37.9229 1 37.4767 1 36.5858V8Z" stroke-width="2"/>
+                <path d="M10 12H30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10 17H30" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10 22H21" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+
+        <div class="widget-subscribe__title title title-h6">
+            Подпишитесь на рассылку наших новостей и акций
+        </div>
+
+        <button type="button" data-bs-toggle="modal" data-bs-target="#SubscribeModal" class="button button-default button-block">
+            Подписаться
+        </button>
+    </div>
+{% endblock %}

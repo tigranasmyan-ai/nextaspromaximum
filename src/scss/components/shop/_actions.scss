@@ -1,0 +1,61 @@
+.actions-item {
+  $self: &;
+
+  border: none;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: transparent;
+  position: relative;
+  z-index: 100;
+
+  &.active {
+    --icon_on_card: 0, 0, 0;
+  }
+
+  &__icon {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    z-index: 50;
+    width: 20px;
+    height: 20px;
+
+    #{$self}:hover & {
+      --icon_on_card: 85, 85, 88;
+    }
+
+    #{$self}.active & {
+      --icon_on_card: var(--settings-theme-primary);
+      --white_text_black_reverse: 255, 255, 255;
+    }
+
+    &:nth-child(1) {
+      fill: rgb(var(--icon_on_card));
+      z-index: 100;
+    }
+
+    &:nth-child(2) {
+      fill: white;
+      width: 22px;
+      height: 22px;
+    }
+
+    &:nth-child(3) {
+      fill: rgb(var(--settings-theme-primary));
+    }
+
+    #{$self}:not(.active) & {
+      &:nth-child(3) {
+        display: none;
+      }
+    }
+
+    #{$self}.active & {
+      &:first-child {
+        display: none;
+      }
+    }
+  }
+}

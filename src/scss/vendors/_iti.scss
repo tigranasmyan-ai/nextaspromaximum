@@ -1,0 +1,58 @@
+.iti--allow-dropdown {
+  width: 100%;
+}
+
+.iti--inline-dropdown .iti__dropdown-content {
+  background: rgb(var(--black_bg_black));
+  border-color: rgb(var(--stroke_black));
+}
+
+.iti__dropdown-content {
+  border-radius: var(--settings-main-border-radius);
+}
+
+.iti__search-input-wrapper {
+  border-color: rgb(var(--stroke_black));
+}
+
+.iti__country-name {
+  font-size: 14px;
+}
+
+.iti__search-input {
+  background: rgb(var(--black_bg_black));
+  outline: none;
+  border-radius: var(--settings-main-border-radius);
+  color: rgb(var(--white_text_black));
+}
+
+.invalid-feedback {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #ff4d4f;
+}
+
+.iti__selected-country {
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 46px;
+  background: rgb(var(--darkerblack_bg_black));
+  border-radius: var(--settings-main-border-radius) 0 0 var(--settings-main-border-radius);
+}
+
+.iti__globe .iti__globe-svg {
+  fill: rgb(var(--white_text_black));
+}
+
+.iti__arrow {
+  border-color: rgb(var(--white_text_black)) transparent transparent;
+}
+
+.iti__selected-country-primary {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

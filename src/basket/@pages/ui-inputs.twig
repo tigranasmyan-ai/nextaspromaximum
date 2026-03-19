@@ -1,0 +1,22 @@
+{% extends 'templates/page.twig' %}
+
+{% block title %}Акции - Aspro{% endblock %}
+
+{% block page_title %}Возможности темы{% endblock %}
+
+{% set page_class = "ui-page" %}
+
+{% block page_content %}
+
+    asdasd
+
+{% endblock %}
+
+{% block page_aside %}
+    {% include 'components/fast-menu.twig' with {
+        items: [
+            { text: 'Инпуты', href: 'ui-inputs.html' },
+            { text: 'Кнопки', href: 'ui-inputs.html' },
+        ]
+    } %}
+{% endblock %}

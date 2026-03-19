@@ -1,58 +1,63 @@
-{% extends 'templates/page.twig' %}
+{% embed 'templates/base.twig' with {
+    title: 'Главная',
+    class: {},
+} %}
+    {% block content %}
+        <section class="section">
+            <div class="container section__main">
+                {% include '@components/breadcrumbs.twig' with {
+                    items: [
+                        { text: 'Бренды' }
+                    ]
+                } %}
 
-{% block title %}Home Page - Aspro{% endblock %}
+                <div class="section__head">
+                    <div class="title title-h1">Блог</div>
+                </div>
 
-{% block page_title %}Блог{% endblock %}
+                <div class="blog-page__top">
+                    <div class="tabs-head is-scrollable-mobile">
+                        {% set tabs = [
+                            { id: 'popular', label: 'Популярные', active: true },
+                            { id: 'new', label: 'Новинки' },
+                            { id: 'sale', label: 'Акции' }
+                        ] %}
 
-{% block page_content %}
+                        {% for tab in tabs %}
+                            <a href="" class="tabs-head__link {% if tab.active %}active{% endif %}">
+                                {{ tab.label }}
+                            </a>
+                        {% endfor %}
+                    </div>
 
-    {% set tabs = [
-        {'id': 'SalesPageActiveList', 'label': 'Активные акции', 'active': true, 'disabled': false},
-        {'id': 'SalesPageArchiveList', 'label': 'Архив', 'active': false, 'disabled': false},
-    ] %}
+                    <a class="blog-page__tags-link" data-bs-toggle="collapse" href="#BlogPageTags" role="button"
+                       aria-expanded="false" aria-controls="BlogPageTags">
+                        Теги
+                    </a>
+                </div>
 
-    <div class="page__layout page__layout--default">
-        <div class="blog-page__top">
-            <div class="blog-page__tabs">
-                <div class="tabs-head is-scrollable-mobile">
-                    {% for tab in tabs %}
-                        <a href="" class="tabs-head__link {% if tab.active %}active{% endif %}">
-                            {{ tab.label }}
-                        </a>
+                <div class="collapse" id="BlogPageTags">
+                    <div class="blog-page__tags">
+                        {% for item in 1..15 %}
+                            <div>
+                                <a href="" class="button button-sm button-solid">
+                                    Тег {{ loop.index }}
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="row gx-3 gy-4">
+                    {% for item in 1..9 %}
+                        <div class="col-lg-3 col-md-6">
+                            {% include 'item/post/post-item-grid.twig' with {
+                                post_solid: true
+                            } %}
+                        </div>
                     {% endfor %}
                 </div>
             </div>
-
-            <a class="blog-page__tags-link" data-bs-toggle="collapse" href="#BlogPageTags" role="button" aria-expanded="false" aria-controls="BlogPageTags">
-                Теги
-            </a>
-        </div>
-
-        <div class="collapse" id="BlogPageTags">
-            <div class="blog-page__tags">
-                {% for item in 1..15 %}
-                    <div>
-                        <a href="" class="button button-sm button-solid">
-                            Тег {{ loop.index }}
-                        </a>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-
-        <div class="row gx-3 gy-4">
-            {% for item in 1..9 %}
-                <div class="col-lg-3 col-md-6">
-                    {% include 'components/post-card.twig' with {
-                        badge: { text: 'Творчество', type: 'dark-opacity' },
-                        image: 'https://premier-demo.ru/upload/iblock/c3d/os6fn6gr7erb2gdk1zioizm8ti4rysvw.jpg',
-                        title: 'Здоровое питание без глютена: как выбрать и приготовить?',
-                        date: '11 мая 2024',
-                        single_type: true
-                    } %}
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-
-{% endblock %}
+        </section>
+    {% endblock %}
+{% endembed %}

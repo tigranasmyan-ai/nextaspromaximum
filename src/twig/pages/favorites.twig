@@ -1,25 +1,43 @@
-{% extends 'templates/page.twig' %}
+{% embed 'templates/base.twig' with {
+    title: 'Главная',
+    class: {},
+} %}
+    {% block content %}
+        <section class="section">
+            <div class="container section__main">
+                {% include '@components/breadcrumbs.twig' with {
+                    items: [
+                        { text: 'Бренды' }
+                    ]
+                } %}
 
-{% block title %}Избранные товары{% endblock %}
+                <div class="title title-h1">Избранные товары</div>
 
-{% block page_title %}Избранные товары{% endblock %}
+                <div class="section__wrapper">
+                    <div class="section__aside">
+                        <div>
+                            {% include '@components/menu/menu-list.twig' with {
+                                items: [
+                                    { text: 'Подписки', href: '#' },
+                                    { text: ' Избранные товары', href: '#' },
+                                    { text: 'Помощь', href: '#' },
+                                    { text: 'Бонусы', href: '#' },
+                                ]
+                            } %}
+                        </div>
+                    </div>
 
-{% set with_aside = true %}
-
-{% block page_content %}
-
-    <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-md-3 g-2">
-        {% for item in 1..10 %}
-            <div class="col">
-                {% include '../components/shop/product.twig' %}
+                    <div class="section__content">
+                        <div class="row row-cols-2 row-cols-md-3 row-cols-xl-4 g-md-3 g-2">
+                            {% for item in 1..10 %}
+                                <div class="col">
+                                    {% include 'item/product/product-item.twig' %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
             </div>
-        {% endfor %}
-    </div>
-
-{% endblock %}
-
-{% block page_aside %}
-
-    {% include '../components/fast-menu.twig' %}
-
-{% endblock %}
+        </section>
+    {% endblock %}
+{% endembed %}

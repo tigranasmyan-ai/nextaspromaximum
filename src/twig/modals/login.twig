@@ -10,14 +10,14 @@
     </div>
 
     <form class="js-validation-form">
-        {% include '../components/ui/input.twig' with {
+        {% include '@components/forms/input.twig' with {
             label: 'Логин *',
             type: 'email',
             id: 'LoginModalEmail',
             required: true
         } %}
 
-        {% include '../components/ui/input.twig' with {
+        {% include '@components/forms/input.twig' with {
             label: 'Пароль *',
             type: 'password',
             id: 'LoginModalPassword',
@@ -26,7 +26,7 @@
 
         <div class="form-group">
             <div class="modal-login__row">
-                {% include '../components/ui/checkbox.twig' with {
+                {% include '@components/forms/checkbox.twig' with {
                     label: 'Запомнить меня',
                     id: 'LoginModalRemember',
                     name: 'agreement',

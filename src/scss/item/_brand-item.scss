@@ -1,0 +1,58 @@
+@use "abstracts/mixins";
+
+.brand-card-grid {
+  @media (min-width: 992px) {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 16px;
+
+    @media (max-width: 1199px) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    }
+  }
+
+  @media (max-width: 991px) {
+    overflow: auto;
+    display: flex;
+    flex-wrap: nowrap;
+
+    margin-left: calc(var(--settings-layout-container-indent) * -1);
+    margin-right: calc(var(--settings-layout-container-indent) * -1);
+
+    padding-left: var(--settings-layout-container-indent);
+    padding-right: var(--settings-layout-container-indent);
+
+    .brand-card {
+      max-width: 160px;
+      width: 160px;
+      flex: 0 0 160px;
+
+      &:not(:first-child) {
+        margin-left: calc(var(--settings-layout-container-indent) / 2);
+      }
+    }
+  }
+}
+
+.brand-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 32px;
+  background-color: #fff;
+  border-radius: var(--settings-main-border-radius);
+
+  img {
+    max-width: 100%;
+  }
+
+  @include mixins.card_hover_shadow_effect;
+}
+
+.brand-card-dark {
+  background-color: #f8f8fc;
+  border: none;
+}

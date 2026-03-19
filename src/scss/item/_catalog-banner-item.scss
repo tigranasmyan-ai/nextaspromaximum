@@ -1,0 +1,102 @@
+.catalog-banner-item {
+  $self: &;
+
+  overflow: hidden;
+  border-radius: var(--settings-main-border-radius);
+
+  color: white;
+
+  padding-top: 120%;
+
+  position: relative;
+
+  @media (max-width: 991px) {
+    padding-top: 50%;
+    min-height: calc(260px * 1.5);
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(0, 0, 0, .2) 0%, rgba(0, 0, 0, .2) 100%);
+    z-index: 50;
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: scale .6s ease, opacity .3s ease;
+    z-index: 50;
+
+    #{$self}:hover & {
+      scale: 1.1;
+    }
+  }
+
+  .button {
+    border: 1px solid rgba(255, 255, 255, .32);
+
+    &:hover {
+      background-color: color-mix(in oklab, #e8e9ed, transparent 32%);
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  &__value {
+    color: #fff;
+    opacity: .8;
+    font-size: calc(1rem - 3px);
+    line-height: calc(1em + 5px);
+    margin-bottom: 5px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    color: white;
+  }
+
+  &__content {
+    --catalog-banner-content-padding: 8%;
+
+    left: var(--catalog-banner-content-padding);
+    right: var(--catalog-banner-content-padding);
+    bottom: var(--catalog-banner-content-padding);
+    position: absolute;
+    z-index: 100;
+  }
+}
+
+.catalog-banners {
+  @media (min-width: 992px) {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  @media (max-width: 991px) {
+    display: flex;
+
+    .catalog-banner-item {
+      max-width: 260px;
+      width: 260px;
+      flex: 0 0 260px;
+
+      &:not(:first-child) {
+        margin-left: calc(var(--settings-layout-container-indent) / 2);
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+<nav class="{{ class }} menu-mega">
+    {% set menu_items = [
+        { name: 'Акции', url: 'sales.html', icon: 'sale' },
+        { name: 'Бренды', url: 'brands.html' },
+        { name: 'Услуги', url: '#' },
+        { name: 'Компания', url: 'text.html' },
+        { name: 'Блог', url: 'blog.html' },
+        { name: 'Образы', url: '#' },
+        { name: 'Информация', url: '#' },
+        { name: 'Контакты', url: '#' },
+    ] %}
+    {% for item in menu_items %}
+        <div class="menu-mega__item js-menu-mega__item">
+            <a href="{{ item.url }}" class="menu-mega__link">
+                {% if item.icon %}
+                    <svg class="menu-mega__icon">
+                        <use href="img/svg-icons-final.svg#{{ item.icon }}"></use>
+                    </svg>
+                {% endif %}
+
+                <span class="menu-mega__text">{{ item.name }}</span>
+
+                <svg class="menu-mega__chevron">
+                    <use href="img/svg-icons-final.svg#down"></use>
+                </svg>
+            </a>
+
+            <ul class="menu-mega__list menu-mega__list--first js-menu-mega__list">
+                {% for item in 1..5 %}
+                    <li class="menu-mega__item menu-mega__item--sub js-menu-mega__item">
+                        <a href="#" class="menu-mega__link menu-mega__link--sub">
+                            Настройка электроники
+
+                            <svg class="menu-mega__chevron menu-mega__chevron--sub">
+                                <use xlink:href="img/svg-icons.svg#down"></use>
+                            </svg>
+                        </a>
+
+                        <ul class="menu-mega__list menu-mega__list--sub js-menu-mega__list">
+                            {% for item in 1..2 %}
+                                <li class="menu-mega__item menu-mega__item--sub js-menu-mega__item">
+                                    <a href="#" class="menu-mega__link menu-mega__link--sub">
+                                        Настройка электроники
+
+                                        <svg class="menu-mega__chevron menu-mega__chevron--sub">
+                                            <use xlink:href="img/svg-icons.svg#down"></use>
+                                        </svg>
+                                    </a>
+
+                                    <ul class="menu-mega__list menu-mega__list--sub js-menu-mega__list">
+                                        {% for item in 1..5 %}
+                                            <li class="menu-mega__item menu-mega__item--sub">
+                                                <a href="#" class="menu-mega__link menu-mega__link--sub">
+                                                    Монтаж оборудования
+                                                </a>
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endfor %}
+</nav>

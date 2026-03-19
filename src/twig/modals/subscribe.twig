@@ -9,7 +9,7 @@
     </div>
 
     <form class="js-validation-form">
-        {% include '../components/ui/input.twig' with {
+        {% include '@components/forms/input.twig' with {
             label: 'Email *',
             type: 'email',
             id: 'LoginModalEmail',
@@ -17,7 +17,7 @@
         } %}
 
         <div class="form-group">
-            {% include '../components/ui/checkbox.twig' with {
+            {% include '@components/forms/checkbox.twig' with {
                 label: 'Запомнить меня',
                 id: 'LoginModalRemember',
                 name: 'agreement',

@@ -1,0 +1,15 @@
+<nav class="menu-list">
+    {% for item in items %}
+        <div class="menu-list__item menu-list-item">
+            <a href="" class="menu-list-item__link {{ loop.last ? 'active' : '' }}">
+                {{ item.text }}
+
+                {% if counter %}
+                    <span>123</span>
+                {% endif %}
+            </a>
+        </div>
+    {% endfor %}
+</nav>
+
+

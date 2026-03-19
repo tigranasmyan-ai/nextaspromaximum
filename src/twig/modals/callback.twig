@@ -10,14 +10,14 @@
     </div>
 
     <form class="js-validation-form">
-        {% include '../components/ui/input.twig' with {
+        {% include '@components/forms/input.twig' with {
             label: 'Ваше имя *',
             type: 'email',
             id: 'CallbackModalEmail',
             required: true
         } %}
 
-        {% include '../components/ui/input.twig' with {
+        {% include '@components/forms/input.twig' with {
             label: 'Телефон *',
             type: 'text',
             id: 'CallbackModalPhone',
@@ -25,7 +25,7 @@
             class: 'phone'
         } %}
 
-        {% include '../components/ui/input.twig' with {
+        {% include '@components/forms/input.twig' with {
             label: 'Пароль (для проверки)',
             type: 'password',
             id: 'CallbackModalPassword',
@@ -33,13 +33,15 @@
             required: true
         } %}
 
-        {% include '../components/ui/checkbox.twig' with {
-            label: 'Я согласен(а) с условиями обработки персональных данных',
-            id: 'CallbackModalAgreement',
-            name: 'agreement',
-            required: true,
-            checked: true
-        } %}
+        <div class="form-group">
+            {% include '@components/forms/checkbox.twig' with {
+                label: 'Я согласен(а) с условиями обработки персональных данных',
+                id: 'CallbackModalAgreement',
+                name: 'agreement',
+                required: true,
+                checked: true
+            } %}
+        </div>
 
         <button type="submit" class="button button-default button-block button-lg">
             Отправить

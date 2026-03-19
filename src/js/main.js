@@ -32,8 +32,8 @@ $(document).ready(function () {
     /**
      * Mega menu dropdown
      */
-    const megaMenuItem = '.js-mega-menu__item';
-    const megaMenuList = '.js-mega-menu__list';
+    const megaMenuItem = '.js-menu-mega__item';
+    const megaMenuList = '.js-menu-mega__list';
 
     $(megaMenuItem).hover(function () {
         $(this).find(`> ${megaMenuList}`).stop().fadeIn(animationDuration);
@@ -88,10 +88,11 @@ $(document).ready(function () {
      */
     const fastCatalogToggleButton = '.js-fast-catalog__toggle';
     const fastCatalog = '.js-fast-catalog';
-    const fastCatalogList = '.js-fast-catalog__list';
-    const fastCatalogShowMoreSubMenu = '.js-fast-catalog__show-more-submenu';
-    const fasCatalogShowMenu = '.js-fast-catalog__show-more';
-    const fastCatalogLink = '.js-fast-catalog__link';
+
+    const fastCatalogList = '.js-catalog-item__list';
+    const fastCatalogShowMoreSubMenu = '.js-catalog-item__show-more-submenu';
+    const fasCatalogShowMenu = '.js-catalog-item__show-more';
+    const fastCatalogLink = '.js-catalog-item__link';
 
     $(fasCatalogShowMenu).on('click', function () {
         const $btn = $(this);

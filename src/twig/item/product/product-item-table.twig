@@ -1,0 +1,146 @@
+<div class="product-card js-product-card" data-view="table">
+    <div class="product-card__checkbox">
+        {% include '@components/forms/checkbox.twig' with { id: 'prop-hit' } %}
+    </div>
+
+    <div class="product-card__image">
+        <a href="">
+            <img src="https://premier-demo.ru/upload/iblock/3d4/uyjic0vgy8mh1albyq5r2lx819li05tv.jpg" alt="">
+        </a>
+    </div>
+
+    <div class="product-card__wrapper">
+        <div class="product-card__top">
+            <div class="product-card__left">
+                <a href="" class="product-card__title title-h6 title">
+                    Комплект ванна K-Rossei + смеситель Cателия
+                </a>
+
+                <div class="product-card__info info-box">
+                    <div class="info-box__item">
+                        <div class="info-box__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15"
+                                 fill="none">
+                                <path d="M6.47327 0.596967C6.64254 0.0676935 7.35746 0.0676942 7.52673 0.596967L8.82832 4.66666C8.90357 4.90195 9.11308 5.06135 9.35005 5.06359L13.4485 5.10223C13.9815 5.10726 14.2024 5.81924 13.774 6.15137L10.48 8.70522C10.2896 8.85288 10.2095 9.11079 10.2807 9.34747L11.5121 13.441C11.6723 13.9734 11.0939 14.4135 10.6598 14.0894L7.32245 11.5981C7.12949 11.4541 6.87051 11.4541 6.67755 11.5981L3.34015 14.0895C2.90612 14.4135 2.32774 13.9734 2.48789 13.441L3.71927 9.34747C3.79047 9.11079 3.71044 8.85288 3.51999 8.70522L0.225976 6.15137C-0.202419 5.81924 0.0185023 5.10726 0.551515 5.10223L4.64995 5.06359C4.88691 5.06135 5.09643 4.90195 5.17168 4.66666L6.47327 0.596967Z"
+                                      fill="#E6AC1A"/>
+                            </svg>
+                        </div>
+
+                        <span class="info-box__text">9</span>
+                    </div>
+
+                    <div class="info-box__item">
+                        <div class="info-box__icon is-comment">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12"
+                                 fill="none">
+                                <path d="M2.5 10C2.5 10.5523 2.94772 11 3.5 11H7C9.48528 11 11.5 8.98528 11.5 6.5C11.5 4.01472 9.48528 2 7 2C4.51472 2 2.5 4.01472 2.5 6.5V10Z"
+                                      stroke-width="2"/>
+                            </svg>
+                        </div>
+
+                        <span class="info-box__text">0</span>
+                    </div>
+
+                    <div class="info-box__item">
+                        <div class="status">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12" fill="none">
+                                <rect x="1.5" y="1" width="10" height="10" rx="4" fill="#32CB41" stroke="#32CB41"
+                                      stroke-width="2"/>
+                                <path d="M3.30469 5.80469L5.51172 8.20312L9.70312 3.80469" stroke="white"
+                                      stroke-width="1.6"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+
+                            <span class="status__text">В наличии</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card__right">
+                <div>
+                    <div class="product-card__prices">
+                        {% include '@components/@shop/price.twig' with {
+                        } %}
+
+                        {% include '@components/ui/badge.twig' with {
+                            text: badge.text|default('-10%'),
+                            type: badge.type|default('red'),
+                            size: badge.size|default('sm'),
+                            tag: 'div'
+                        } %}
+                    </div>
+
+                    {% include '@components/@shop/price.twig' with {
+                        class: 'product-card__cashback',
+                    } %}
+                </div>
+
+                <div>
+                    <button class="button button-default button-block button-sm">В корзину</button>
+
+                    <div class="product-card__actions">
+                        <button type="button" class="actions__item">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M6 3C3.79086 3 2 4.79086 2 7C2 8.21767 2.54286 9.30748 3.40329 10.0427L3.42165 10.0584L9.99989 16.2528L16.5824 10.0549L16.6003 10.0396C17.4586 9.30445 18 8.21598 18 7C18 4.79086 16.2091 3 14 3C12.6922 3 11.531 3.6266 10.7995 4.60019L10 5.66431L9.20051 4.60019C8.46903 3.6266 7.30784 3 6 3ZM0 7C0 3.68629 2.68629 1 6 1C7.53707 1 8.93917 1.57863 10 2.52791C11.0608 1.57863 12.4629 1 14 1C17.3137 1 20 3.68629 20 7C20 8.81571 19.1923 10.4438 17.9199 11.5426L9.99983 18.9998L2.0849 11.5468C0.809798 10.448 0 8.81802 0 7Z"
+                                      fill="rgb(var(--icon_on_card))"></path>
+                            </svg>
+
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M10.9998 21.3734L2.41478 13.2893C0.938727 12.0089 0 10.1131 0 8C0 4.13401 3.13401 1 7 1C8.48691 1 9.86678 1.46494 11 2.25504C12.1332 1.46494 13.5131 1 15 1C18.866 1 22 4.13401 22 8C22 10.1106 21.0635 12.0045 19.5904 13.2848L10.9998 21.3734Z"
+                                      fill="rgb(var(--white_text_black_reverse))"></path>
+                            </svg>
+                        </button>
+
+                        <button type="button" class="actions__item">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                      d="M0 6C0 2.68629 2.68629 0 6 0H14C17.3137 0 20 2.68629 20 6V14C20 17.3137 17.3137 20 14 20H6C2.68629 20 0 17.3137 0 14V6ZM6 2H14C16.2091 2 18 3.79086 18 6V14C18 16.2091 16.2091 18 14 18H6C3.79086 18 2 16.2091 2 14V6C2 3.79086 3.79086 2 6 2Z"
+                                      fill="rgb(var(--icon_on_card))"></path>
+                                <path d="M10 5C9.44771 5 9 5.44772 9 6V14C9 14.5523 9.44771 15 10 15C10.5523 15 11 14.5523 11 14V6C11 5.44772 10.5523 5 10 5Z"
+                                      fill="rgb(var(--icon_on_card))"></path>
+                                <path d="M13 8C13 7.44772 13.4477 7 14 7C14.5523 7 15 7.44772 15 8V14C15 14.5523 14.5523 15 14 15C13.4477 15 13 14.5523 13 14V8Z"
+                                      fill="rgb(var(--icon_on_card))"></path>
+                                <path d="M6 10C5.44772 10 5 10.4477 5 11V14C5 14.5523 5.44772 15 6 15C6.55228 15 7 14.5523 7 14V11C7 10.4477 6.55228 10 6 10Z"
+                                      fill="rgb(var(--icon_on_card))"></path>
+                            </svg>
+
+                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 22H7C3.13401 22 0 18.866 0 15V7C0 3.13401 3.13401 0 7 0H15C18.866 0 22 3.13401 22 7V15C22 18.866 18.866 22 15 22Z"
+                                      fill="rgb(var(--white_text_black_reverse))"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-card__properties properties properties-md">
+            <div class="properties__item">
+                <span>Материал:</span>
+                <span><a href="">Дерево</a>, <a href="">Пластик</a></span>
+            </div>
+
+            <div class="properties__item">
+                <span>Общая мощность, Вт:</span>
+                <span>12</span>
+            </div>
+
+            <div class="properties__item">
+                <span>Габариты (ВхШхГ), см:</span>
+                <span>13х34х6</span>
+            </div>
+
+            <div class="properties__item">
+                <span>Дополнительно:</span>
+                <span>Кодирование звука в MP3 формат</span>
+            </div>
+        </div>
+    </div>
+</div>

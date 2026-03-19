@@ -1,6 +1,6 @@
-<div class="site-footer">
+<div class="site-footer {{ compact ? 'compact' : '' }}">
     <div class="container site-footer__layout">
-        <div class="row row-cols-lg-5 row-cols-1">
+        <div class="site-footer__top row row-cols-lg-5 row-cols-1">
             {% for item in 1..4 %}
                 <div class="col">
                     <div class="site-footer__col">
@@ -38,7 +38,7 @@
 
             <div class="col">
                 <div class="site-footer__list site-footer-list">
-                    {% include '../components/contacts-widget.twig' %}
+                    {% include '@components/contacts-widget.twig' %}
 
                     <a href="" class="site-footer-list__link">no-reply@chel.premier-demo.ru</a>
 
@@ -48,7 +48,7 @@
         </div>
 
         <div class="site-footer__logos">
-            {% include '../components/ui/payments.twig' with {} %}
+            {% include '@components/payments.twig' with {} %}
 
             <div class="contacts-widget__socials">
                 <a href="" class="contacts-widget__social-item contacts-widget__social-item--viber" aria-label="Viber"></a>
@@ -62,7 +62,7 @@
             <span>© 2026 Аспро: Премьер</span>
 
             <div class="site-footer__links">
-                {% include '../components/ui/theme-switch.twig' with {text: true} %}
+                {% include '@components/theme-switch.twig' with {text: true} %}
 
                 <a href="" class="site-footer__link">Конфиденциальность</a>
 

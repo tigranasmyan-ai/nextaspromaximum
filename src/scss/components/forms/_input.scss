@@ -1,0 +1,175 @@
+.form-input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border-radius: var(--settings-main-border-radius);
+  border: 1px solid rgb(var(--input_border_color));
+  background-color: rgb(var(--input_bg_color));
+  color: rgb(var(--input_color));
+  font-size: 16px;
+  transition: border-color 0.2s, background-color 0.2s;
+  overflow: hidden;
+
+  &::placeholder {
+    color: rgb(var(--secondary));
+    opacity: 0.6;
+  }
+
+  &:hover {
+    border-color: rgb(var(--input_border_color-hover));
+  }
+
+  &:focus {
+    outline: none;
+    border-color: rgb(var(--input_border_color-focus));
+    background-color: rgb(var(--input_bg_color-focus));
+  }
+
+  &.is-invalid {
+    border-color: #ff4d4f;
+  }
+
+  // Sizes
+  &--sm {
+    height: 40px;
+    padding: 0 12px;
+    font-size: 14px;
+  }
+
+  &--lg {
+    height: 56px;
+    padding: 0 20px;
+    font-size: 18px;
+  }
+}
+
+.form-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  .form-input {
+    margin-bottom: 0; // Reset margin if it's in a group
+  }
+
+  &.has-icon-left .form-input {
+    padding-left: 44px;
+  }
+
+  &.has-icon-right .form-input {
+    padding-right: 44px;
+  }
+
+  &.is-password .form-input {
+    padding-right: 48px;
+  }
+
+  &.has-icon-left {
+    .form-input--sm { padding-left: 38px; }
+    .form-input--lg { padding-left: 50px; }
+  }
+
+  &.has-icon-right {
+    .form-input--sm { padding-right: 38px; }
+    .form-input--lg { padding-right: 50px; }
+  }
+}
+
+.form-input-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  color: rgb(var(--secondary));
+  pointer-events: none;
+  z-index: 2;
+
+  &--left {
+    left: 14px;
+
+    .form-input--sm ~ & {
+        left: 10px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .form-input--lg ~ & {
+        left: 18px;
+        width: 22px;
+        height: 22px;
+    }
+  }
+
+  &--right {
+    right: 14px;
+
+    .form-input--sm ~ & {
+        right: 10px;
+        width: 18px;
+        height: 18px;
+    }
+
+    .form-input--lg ~ & {
+        right: 18px;
+        width: 22px;
+        height: 22px;
+    }
+  }
+}
+
+.form-input-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(var(--secondary));
+  transition: color 0.2s;
+  z-index: 2;
+
+  &:hover {
+    color: rgb(var(--white_text_black));
+  }
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+
+  .icon-eye-hide {
+    display: none;
+  }
+
+  &.is-active {
+    .icon-eye {
+      display: none;
+    }
+    .icon-eye-hide {
+      display: block;
+    }
+  }
+}
+
+// Adjust padding for input when toggle is present
+.is-password .form-input {
+  padding-right: 48px;
+}
+
+label.error {
+  color: #ff4f64 !important;
+  margin: 4px 0 0 0 !important;
+  padding: 0;
+  position: relative;
+  font-size: 13px;
+  line-height: calc(1em + 5px);
+  white-space: nowrap;
+  display: block;
+}

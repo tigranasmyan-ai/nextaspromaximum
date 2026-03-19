@@ -1,0 +1,75 @@
+{% set type = type|default('text') %}
+{% set label = label|default(null) %}
+{% set id = id|default(null) %}
+{% set name = name|default(null) %}
+{% set value = value|default(null) %}
+{% set placeholder = placeholder|default(null) %}
+{% set required = required|default(false) %}
+{% set disabled = disabled|default(false) %}
+{% set error = error|default(null) %}
+{% set class = class|default(null) %}
+{% set icon_left = icon_left|default(null) %}
+{% set icon_right = icon_right|default(null) %}
+{% set size = size|default(null) %}
+{% set theme = theme|default(null) %}
+
+{% set input_classes = 'form-input' %}
+{% if size %}{% set input_classes = input_classes ~ ' form-input--' ~ size %}{% endif %}
+{% if theme %}{% set input_classes = input_classes ~ ' form-input--theme-' ~ theme %}{% endif %}
+{% if error %}{% set input_classes = input_classes ~ ' is-invalid' %}{% endif %}
+{% if class %}{% set input_classes = input_classes ~ ' ' ~ class %}{% endif %}
+
+{% set wrapper_classes = 'form-input-wrapper' %}
+{% if type == 'password' %}{% set wrapper_classes = wrapper_classes ~ ' is-password' %}{% endif %}
+{% if icon_left %}{% set wrapper_classes = wrapper_classes ~ ' has-icon-left' %}{% endif %}
+{% if icon_right %}{% set wrapper_classes = wrapper_classes ~ ' has-icon-right' %}{% endif %}
+
+<div class="form-group">
+    {% if label %}
+        <label {% if id %}for="{{ id }}"{% endif %} class="form-label">{{ label }}</label>
+    {% endif %}
+    
+    <div class="{{ wrapper_classes }}">
+        {% if icon_left %}
+            {% include '@components/ui/icon.twig' with {
+                name: icon_left,
+                class: 'form-input-icon form-input-icon--left'
+            } %}
+        {% endif %}
+
+        <input 
+            type="{{ type }}"
+            class="{{ input_classes }}"
+            {% if id %}id="{{ id }}"{% endif %}
+            {% if name %}name="{{ name }}"{% endif %}
+            {% if value %}value="{{ value }}"{% endif %}
+            {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
+            {% if required %}required{% endif %}
+            {% if disabled %}disabled{% endif %}
+        >
+
+        {% if icon_right and type != 'password' %}
+            {% include '@components/ui/icon.twig' with {
+                name: icon_right,
+                class: 'form-input-icon form-input-icon--right'
+            } %}
+        {% endif %}
+
+        {% if type == 'password' %}
+            <button type="button" class="form-input-toggle js-password-toggle">
+                {% include '@components/ui/icon.twig' with {
+                    name: 'eye',
+                    class: 'form-input-toggle__icon icon-eye'
+                } %}
+                {% include '@components/ui/icon.twig' with {
+                    name: 'eye-hide',
+                    class: 'form-input-toggle__icon icon-eye-hide'
+                } %}
+            </button>
+        {% endif %}
+    </div>
+
+    {% if error %}
+        <div class="invalid-feedback">{{ error }}</div>
+    {% endif %}
+</div>

@@ -1,0 +1,112 @@
+@use "abstracts/mixins";
+
+.posts[data-view="grid"] {
+  @media (min-width: 992px) {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    height: 100%;
+
+    &.is-three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 991px) {
+    display: flex;
+    flex-wrap: nowrap;
+
+    .post-item-grid {
+      max-width: 260px;
+      width: 260px;
+      flex: 0 0 260px;
+
+      &:not(:first-child) {
+        margin-left: calc(var(--settings-layout-container-indent) / 2);
+      }
+    }
+  }
+}
+
+.post-item-grid {
+  $self: &;
+
+  height: 100%;
+  border-radius: var(--settings-main-border-radius);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow ease .3s, border ease .3s, background ease .3s;
+
+  &:not(.post-item-grid--solid) {
+    @include mixins.card_hover_shadow_effect;
+  }
+
+  &__title {
+    @include mixins.shorted_text(3);
+  }
+
+  &__date {
+    font-size: calc(1rem - 3px);
+    line-height: calc(1em + 5px);
+    color: #8D8D8D;
+    margin-top: 15px;
+  }
+
+  &__content {
+    #{$self}:not(.post-item-grid--solid) & {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+
+      @media (max-width: 991px) {
+        padding: 16px;
+      }
+    }
+
+    .post-item-grid--solid & {
+      padding-top: 16px;
+    }
+  }
+
+  &__link {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__badge.badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 50;
+  }
+
+  &__picture {
+    height: 275px;
+
+    #{$self}:hover & {
+      img {
+        scale: 1.1;
+      }
+    }
+
+    #{$self}--solid & {
+      border-radius: var(--settings-main-border-radius);
+      overflow: hidden;
+    }
+
+    @media (max-width: 991px) {
+      height: 170px;
+    }
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      transition: scale .6s ease, opacity .3s ease;
+    }
+  }
+}

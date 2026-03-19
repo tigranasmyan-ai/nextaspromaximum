@@ -1,36 +1,39 @@
-{% extends 'templates/page.twig' %}
+{% embed 'templates/base.twig' with {
+    title: 'Главная',
+    class: {},
+} %}
+    {% block content %}
+        <section class="section">
+            <div class="container section__main">
+                {% include '@components/breadcrumbs.twig' with {
+                    items: [
+                        { text: 'Бренды' }
+                    ]
+                } %}
 
-{% block title %}Акции - Aspro{% endblock %}
+                {% set tabs = [
+                    {'id': 'SalesPageActiveList', 'label': 'Активные акции', 'active': true, 'disabled': false},
+                    {'id': 'SalesPageArchiveList', 'label': 'Архив', 'active': false, 'disabled': false},
+                ] %}
 
-{% block page_title %}Акции{% endblock %}
-
-{% block page_text %}
-    Следите за нашими специальными предложениями и скидками. Мы регулярно обновляем этот раздел, чтобы вы могли приобретать любимые товары по самым выгодным ценам.
-{% endblock %}
-
-{% block page_content %}
-    <div class="page__layout page__layout--default">
-        {% set tabs = [
-            {'id': 'SalesPageActiveList', 'label': 'Активные акции', 'active': true, 'disabled': false},
-            {'id': 'SalesPageArchiveList', 'label': 'Архив', 'active': false, 'disabled': false},
-        ] %}
-
-        <div class="tabs-head is-scrollable-mobile ">
-            {% for tab in tabs %}
-                <a href="" class="tabs-head__link {% if tab.active %}active{% endif %}">
-                    {{ tab.label }}
-                </a>
-            {% endfor %}
-        </div>
-
-        <div class="row row-cols-lg-2 row-cols-md-3 row-cols-2 g-md-3 g-2">
-            {% for item in 1..4 %}
-                <div class="col">
-                    {% include '../components/sale-card.twig' with {
-                        badge: true
-                    } %}
+                <div class="tabs-head is-scrollable-mobile ">
+                    {% for tab in tabs %}
+                        <a href="" class="tabs-head__link {% if tab.active %}active{% endif %}">
+                            {{ tab.label }}
+                        </a>
+                    {% endfor %}
                 </div>
-            {% endfor %}
-        </div>
-    </div>
-{% endblock %}
+
+                <div class="row row-cols-lg-2 row-cols-md-3 row-cols-2 g-md-3 g-2">
+                    {% for item in 1..4 %}
+                        <div class="col">
+                            {% include 'item/sale-item.twig' with {
+                                badge: true
+                            } %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    {% endblock %}
+{% endembed %}

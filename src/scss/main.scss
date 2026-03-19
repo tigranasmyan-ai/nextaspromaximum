@@ -1,82 +1,89 @@
 @use "base/base";
 @use "base/typography";
+@use "base/utils";
 
-// Ui
-@use "ui/alert";
-@use "ui/button";
-@use "ui/badge";
-@use "ui/tabs";
-@use "ui/collapse";
-@use "ui/payments";
-@use "ui/theme-switch";
-@use "ui/close";
-@use "ui/breadcrumbs";
-@use "ui/range-slider";
-@use "ui/counter";
+// Bootstrap overrides
+@use "vendors/bootstrap/modal";
+@use "vendors/bootstrap/offcanvas";
+@use "vendors/bootstrap/dropdown";
+@use "vendors/bootstrap/collapse";
+@use "vendors/swiper";
+@use "vendors/iti";
 
-// Forms
-@use "forms/input";
-@use "forms/checkbox";
-@use "forms/radio";
-@use "forms/switch";
-@use "forms/group";
-@use "forms/label";
+// Product
+@use "item/product/product-item-table";
+@use "item/product/product-item-list";
+@use "item/product/product-item";
+@use "item/product/product-item-basket";
+@use "item/product/product-item-viewed";
+@use "item/product/product-item-short";
 
-// Shop
-@use "shop/info-box";
-@use "shop/actions";
-@use "shop/price";
-@use "shop/status";
-@use "shop/properties";
-@use "shop/variants";
-@use "shop/cashback";
-@use "shop/gallery";
-@use "shop/fast-view";
+// Post
+@use "item/post/post-item-bg";
+@use "item/post/post-item";
+
+// Items
+@use "item/brand-item";
+@use "item/jumbotron-item";
+@use "item/catalog-banner-item";
+@use "item/sale-item";
+@use "item/review-item";
+@use "item/service-item";
+@use "item/category-item";
+@use "item/catalog-item";
+@use "item/compare-item";
 
 // Layout
 @use "layout/header";
 @use "layout/footer";
 @use "layout/container";
-@use "layout/filter";
-@use "layout/fixed-bar";
+@use "layout/main";
+
+// Menu
+@use "components/menu/menu-list";
+@use "components/menu/menu-mega";
+@use "components/menu/menu-actions";
+
+// Components
+@use "components/contacts";
+@use "components/search";
+@use "components/gallery";
+@use "components/panel";
+@use "components/breadcrumbs";
+@use "components/counter";
+@use "components/filter";
+@use "components/bar";
+
+// Shop
+@use "components/shop/variants";
+@use "components/shop/properties";
+@use "components/shop/price";
+@use "components/shop/fast-view";
+@use "components/shop/cashback";
+@use "components/shop/info-box";
+@use "components/shop/status";
+@use "components/shop/actions";
+
+// UI
+@use "components/tabs";
+@use "components/button";
+@use "components/section";
+@use "components/badge";
+@use "components/theme-switch";
+
+// Forms
+@use "components/forms/input";
+@use "components/forms/checkbox";
+@use "components/forms/switch";
+@use "components/forms/radio";
+@use "components/forms/label";
+@use "components/forms/group";
+@use "components/forms/range-slider";
 
 // Pages
 @use "pages/home";
-@use "pages/page";
-@use "pages/brands";
-@use "pages/catalog";
-@use "pages/cart-page";
-@use "pages/page-solid";
-@use "pages/compare-page";
 @use "pages/blog-page";
-
-// Blocks
-@use "blocks/categories";
-@use "blocks/catalog-banner";
-@use "blocks/post";
-@use "blocks/sale";
-@use "blocks/product";
-@use "blocks/product-view";
-@use "blocks/brand";
-@use "blocks/service";
-@use "blocks/review";
-@use "blocks/cart-product";
-
-
-// Sections
-@use "sections/jumbotron";
-@use "sections/about";
-@use "sections/default";
-
-// Modules
-@use "modules/swiper";
-@use "modules/float-cart";
-@use "modules/contacts-widget";
-@use "modules/mega-menu";
-@use "modules/fast-catalog";
-@use "modules/search";
-@use "modules/modal";
-@use "modules/dropdown";
-@use "modules/fast-menu";
-@use "modules/compare";
-@use "modules/widget-subscribe";
+@use "pages/compare-page";
+@use "pages/brands";
+@use "pages/page";
+@use "pages/catalog";

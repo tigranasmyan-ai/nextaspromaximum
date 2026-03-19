@@ -1,0 +1,212 @@
+{% set actions = [
+    { href: '', icon: 'log-out', text: 'Войти', width: 18, height: 18 },
+    { href: 'compare.html', icon: 'compare', text: 'Сравнение', width: 20, height: 20 },
+    { href: 'favorites.html', icon: 'favorite', text: 'Избранное', width: 20, height: 20 },
+    { href: '', icon: 'cart', text: 'Корзина', width: 20, height: 20 }
+] %}
+
+{% set menus = [
+    { href: '', text: 'Акции', id: 'services', sub_menu: true },
+    { href: '', text: 'Блог', id: 'blog', sub_menu: true },
+    { href: '', text: 'Товары', id: 'products', sub_menu: false }
+] %}
+
+<div class="offcanvas offcanvas-start bar" tabindex="-1" id="LeftMenu" aria-labelledby="LeftMenu">
+    {% include '@components/ui/close.twig' with {
+        class: 'bar__close',
+        dismiss: 'offcanvas'
+    } %}
+
+    <div class="bar__slide">
+        <div class="bar__content">
+            <div class="bar__location bar-location">
+                <svg class="bar-location__icon">
+                    <use xlink:href="img/svg-icons-final.svg#region"></use>
+                </svg>
+
+                <span class="bar-location__value">
+                    Челябинск
+                </span>
+            </div>
+
+            <div class="bar__catalog">
+                <a href="" class="button button-default button-lg button-block js-bar-menu__link">
+                    Каталог
+                </a>
+
+                <ul class="bar-menu__sub-menu">
+                    {% set catalog_items = [
+                        { text: 'Строительные материалы', sub: ['Кирпич', 'Бетон', 'Арматура'] },
+                        { text: 'Инструменты', sub: ['Электроинструмент', 'Ручной инструмент'] },
+                        { text: 'Сантехника', sub: ['Смесители', 'Раковины', 'Ванны'] },
+                        { text: 'Электрика', sub: ['Кабель', 'Розетки', 'Освещение'] }
+                    ] %}
+
+                    {% for item in catalog_items %}
+                        <li>
+                            <a href="" class="bar-menu__link js-bar-menu__link">
+                                {{ item.text }}
+                                <span class="bar-menu__chevron js-bar-menu__chevron">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 5">
+                                        <path d="M2.98043e-07 5L3 2.50006L0 3.57746e-08L2.98043e-07 5Z"/>
+                                    </svg>
+                                </span>
+                            </a>
+
+                            <ul class="bar-menu__sub-menu">
+                                {% for sub in item.sub %}
+                                    <li>
+                                        <a href="" class="bar-menu__link js-bar-menu__link">
+                                            {{ sub }}
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="bar__col">
+                <div class="bar__actions menu-actions is-list">
+                    {% for action in actions %}
+                        <div class="menu-actions-item is-list js-header-action {{ action.class }} {{ action.icon == 'search-action' ? 'js-search-mobile-opener' : '' }}">
+                            <a href="{{ action.href }}" class="menu-actions-item__link">
+                                <svg class="menu-actions-item__icon" width="{{ action.width }}"
+                                     height="{{ action.height }}">
+                                    <use href="img/svg-icons-final.svg#{{ action.icon }}"></use>
+                                </svg>
+
+                                <span class="menu-actions-item__text">
+                                    {{ action.text }}
+                                </span>
+
+                                {% if loop.index != 1 %}
+                                    <span class="menu-actions-item__counter">1</span>
+                                {% endif %}
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <span class="bar__divider"></span>
+
+            <div class="bar__col">
+                <ul class="bar-menu">
+                    {% set simulation_menu = [
+                        { text: 'Бренды', sub: false },
+                        { text: 'Акции', sub: false },
+                        { text: 'Конаткны', sub: false },
+                        { text: 'Каталог товаров', sub: [
+                            { text: 'Электроника', sub: ['Смартфоны', 'Ноутбуки', 'Телевизоры'] },
+                            { text: 'Одежда', sub: ['Мужская', 'Женская', 'Детская'] },
+                            { text: 'Дом и сад', sub: ['Мебель', 'Декор', 'Инструменты'] }
+                        ]},
+                        { text: 'Услуги компании', sub: [
+                            { text: 'Доставка', sub: ['Курьером', 'В пункт выдачи', 'Почтой'] },
+                            { text: 'Монтаж', sub: ['Установка техники', 'Сборка мебели'] },
+                            { text: 'Сервис', sub: ['Гарантия', 'Ремонт'] }
+                        ]},
+                        { text: 'Акции и скидки', sub: false }
+                    ] %}
+
+                    {% for item in simulation_menu %}
+                        <li>
+                            <a href="" class="bar-menu__link js-bar-menu__link">
+                                {{ item.text }}
+                                {% if item.sub %}
+                                    <span class="bar-menu__chevron js-bar-menu__chevron">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 5">
+                                            <path d="M2.98043e-07 5L3 2.50006L0 3.57746e-08L2.98043e-07 5Z"/>
+                                        </svg>
+                                    </span>
+                                {% endif %}
+                            </a>
+
+                            {% if item.sub %}
+                                <ul class="bar-menu__sub-menu">
+                                    {% for sub1 in item.sub %}
+                                        <li>
+                                            <a href="" class="js-bar-menu__link bar-menu__link">
+                                                {{ sub1.text|default(sub1) }}
+                                                {% if sub1.sub is defined and sub1.sub %}
+                                                    <span class="bar-menu__chevron js-bar-menu__chevron">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 5">
+                                                            <path d="M2.98043e-07 5L3 2.50006L0 3.57746e-08L2.98043e-07 5Z"/>
+                                                        </svg>
+                                                    </span>
+                                                {% endif %}
+                                            </a>
+
+                                            {% if sub1.sub is defined and sub1.sub %}
+                                                <ul class="bar-menu__sub-menu">
+                                                    {% for sub2 in sub1.sub %}
+                                                        <li>
+                                                            <a href="" class="js-bar-menu__link bar-menu__link">
+                                                                {{ sub2 }}
+                                                            </a>
+                                                        </li>
+                                                    {% endfor %}
+                                                </ul>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <span class="bar__divider"></span>
+
+            <div class="bar__col is-indent">
+                <a href="" class="bar-phone">
+                    <span>
+                        <span class="bar-phone__value">
+                             +7 100 000-00-00
+                        </span>
+
+                        <span class="bar-phone__label">
+                            Бухгалтерия
+                        </span>
+                    </span>
+
+                    <svg class="bar-phone__chevron">
+                        <use href="img/svg-icons-final.svg#down"></use>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="bar__col is-indent">
+                <div class="bar__contacts">
+                    <a href="" class="bar__contact">
+                        no-reply@chel.premier-demo.ru
+                    </a>
+
+                    <span class="bar__contact">
+                        Челябинск, ул. Лермонтова 21, <br> 3 этаж, офис 4
+                    </span>
+
+                    <span class="bar__contact">
+                        Пн - Вс: 11.00 - 19.00
+                    </span>
+                </div>
+            </div>
+
+            <div class="bar__col is-indent">
+                <div class="contacts-widget__socials">
+                    <a href="" class="contacts-widget__social-item contacts-widget__social-item--viber" aria-label="Viber"></a>
+                    <a href="" class="contacts-widget__social-item contacts-widget__social-item--vkontakte" aria-label="VKontakte"></a>
+                </div>
+            </div>
+
+            <span class="bar__divider"></span>
+
+            <div class="bar__col is-indent">
+                {% include '@components/theme-switch.twig' with {text: true} %}
+            </div>
+        </div>
+    </div>
+</div>

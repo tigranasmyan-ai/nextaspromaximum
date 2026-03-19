@@ -6,7 +6,7 @@
   --settings-typography-font-family-primary: 'Golos Text';
 
   // Лей аут
-  --settings-layout-container-width: 1760px;
+  --settings-layout-container-width: 1600px;
   --settings-layout-container-indent: 30px;
 
   // Основные настройки
@@ -152,9 +152,4 @@ body {
       padding-bottom: 48px;
     }
   }
-}
-
-.offcanvas-backdrop {
-  background-color: rgba(58, 63, 68, 0.6);
-  backdrop-filter: blur(5px);
 }

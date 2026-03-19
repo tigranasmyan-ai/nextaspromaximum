@@ -1,0 +1,33 @@
+<div class="service-item">
+    <a href="" class="service-item__picture">
+        <img src="https://premier-demo.ru/upload/iblock/b45/gtswttsrxl4gv7ku38e9id772k0f7j2a.jpg"
+             alt="">
+    </a>
+
+    <div class="service-item__content">
+        <a href="" class="service-item__title title title-h6">Монтаж оборудования</a>
+
+        <div class="service-item__info">
+            {% include '@components/@shop/price.twig' with {
+                class: 'service-item__price',
+                size: 'md',
+                now: '1 300 ₽/шт',
+                old: '1 600 ₽/шт'
+            } %}
+
+            {% include '@components/ui/badge.twig' with {
+                text: '-50%',
+                type: 'red',
+                size: 'sm',
+                class: 'service-item__badge',
+                tag: 'div'
+            } %}
+        </div>
+
+        {% include '@components/@shop/cashback.twig' %}
+
+        <a href="" class="button button-sm button-default">
+            Заказать услугу
+        </a>
+    </div>
+</div>

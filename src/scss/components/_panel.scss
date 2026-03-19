@@ -1,0 +1,13 @@
+.panel {
+  padding: 32px;
+  border: 1px solid rgb(var(--stroke_black));
+  border-radius: var(--settings-main-border-radius);
+
+  @media (max-width: 991px) {
+    padding: 24px;
+  }
+
+  &-sm {
+    padding: 24px;
+  }
+}

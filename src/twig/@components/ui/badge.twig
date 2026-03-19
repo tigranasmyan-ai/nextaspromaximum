@@ -1,0 +1,8 @@
+{% set classes = 'badge' %}
+{% if badge_type %}{% set classes = classes ~ ' badge-' ~ badge_type %}{% endif %}
+{% if badge_size %}{% set classes = classes ~ ' badge-' ~ badge_size %}{% endif %}
+{% if badge_class %}{% set classes = classes ~ ' ' ~ badge_class %}{% endif %}
+
+<{{ tag|default('span') }} class="{{ classes }}">
+    {{ badge_text|default('') }}
+</{{ tag|default('span') }}>

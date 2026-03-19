@@ -1,56 +1,69 @@
 <!DOCTYPE html>
 <html lang="{{ lang|default('ru') }}">
-	<head>
-		<meta charset="UTF-8">
-		<script>
-			(function() {
-				var savedTheme = localStorage.getItem("theme") || "light";
-				document.documentElement.setAttribute("data-theme", savedTheme);
-			})();
-		</script>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>
-			{% block title %}Aspro Gulp Template
-			{% endblock %}
-		</title>
+<head>
+    <meta charset="UTF-8">
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+    <script>
+        (function () {
+            var savedTheme = localStorage.getItem("theme") || "light";
+            document.documentElement.setAttribute("data-theme", savedTheme);
+        })();
+    </script>
 
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@26.8.1/build/css/intlTelInput.css">
+    <title>{{ title }}</title>
 
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.css" />
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.8.1/nouislider.min.css" />
-		<link rel="stylesheet" href="css/vendor/bootstrap.css">
-		<link rel="stylesheet" href="css/main.css">
-	</head>
-	<body class="{% block body_class %}{% endblock %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
 
-		{% include 'layouts/header.twig' %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
 
-		<main class="site-main {% block main_class %}{% endblock %}">
-			{% block content %}{% endblock %}
-		</main>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@26.8.1/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.8.1/nouislider.min.css"/>
 
-		{% include 'layouts/footer.twig' %}
+    <link rel="stylesheet" href="css/vendor/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
 
-		{% include 'layouts/fixed-bar.twig' %}
+<body class="{{ class.body }}">
 
-		{% include 'modals/callback.twig' %}
-		{% include 'modals/login.twig' %}
-		{% include 'modals/subscribe.twig' %}
+{# Header #}
+{% include 'layouts/header.twig' with {
+    class: class.header,
+    compact: header_compact,
+} %}
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/jquery.validate.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@26.8.1/build/js/intlTelInput.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.8.1/nouislider.min.js"></script>
-		<script src="js/vendor/bootstrap.js"></script>
-		<script src="js/main.js"></script>
-	</body>
+{# Main #}
+<main class="site-main {{ class.main }}">
+    {% block content %}{% endblock %}
+</main>
+
+{# Footer #}
+{% include 'layouts/footer.twig' with {
+    class: class.header,
+    compact: footer_compact
+} %}
+
+{# Layout items #}
+{% include '@components/fixed-bar.twig' %}
+
+{# Modals #}
+{% include 'modals/callback.twig' %}
+{% include 'modals/login.twig' %}
+{% include 'modals/subscribe.twig' %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.21.0/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@26.8.1/build/js/intlTelInput.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.8.1/nouislider.min.js"></script>
+
+<script src="js/vendor/bootstrap.js"></script>
+<script src="js/main.js"></script>
+</body>
 </html>

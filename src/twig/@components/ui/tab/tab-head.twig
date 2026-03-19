@@ -1,0 +1,14 @@
+<div class="tabs-head is-scrollable-mobile" role="tablist">
+    {% for tab in tabs %}
+        <button
+                class="tabs-head__link {{ tab.active ? 'active' }}"
+                id="{{ tab.id }}-tab"
+                data-bs-toggle="tab"
+                data-bs-target="#{{ tab.id }}"
+                type="button"
+                role="tab"
+        >
+            {{ tab.label }}
+        </button>
+    {% endfor %}
+</div>
