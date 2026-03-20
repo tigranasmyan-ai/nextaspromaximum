@@ -29,6 +29,20 @@
     border-color: #ff4d4f;
   }
 
+  &:disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    background-color: rgb(var(--lite_bg_black));
+    color: rgb(var(--secondary));
+    border-color: rgb(var(--stroke_black));
+    opacity: 0.8;
+
+    &::placeholder {
+      color: rgb(var(--secondary));
+      opacity: 0.4;
+    }
+  }
+
   // Sizes
   &--sm {
     height: 40px;
@@ -41,13 +55,25 @@
     padding: 0 20px;
     font-size: 18px;
   }
+
+  &--theme-darken {
+    background-color: rgb(var(--darkerblack_bg_black));
+
+    &:hover {
+      background-color: rgb(var(--grey_bg));
+    }
+
+    &:focus {
+      background-color: rgb(var(--black_bg_black));
+      border-color: rgb(var(--input_border_color-focus));
+    }
+  }
 }
 
 .form-textarea {
   height: auto;
   min-height: 120px;
   padding: 12px 16px;
-  resize: vertical;
   font-size: 14px;
   resize: none;
 
@@ -59,6 +85,20 @@
   &--lg {
     min-height: 180px;
     padding: 16px 20px;
+  }
+
+  &:disabled,
+  &[disabled] {
+    cursor: not-allowed;
+    background-color: rgb(var(--lite_bg_black));
+    color: rgb(var(--secondary));
+    border-color: rgb(var(--stroke_black));
+    opacity: 0.8;
+
+    &::placeholder {
+      color: rgb(var(--secondary));
+      opacity: 0.4;
+    }
   }
 }
 
@@ -84,13 +124,23 @@
   }
 
   &.has-icon-left {
-    .form-input--sm { padding-left: 38px; }
-    .form-input--lg { padding-left: 50px; }
+    .form-input--sm {
+      padding-left: 38px;
+    }
+
+    .form-input--lg {
+      padding-left: 50px;
+    }
   }
 
   &.has-icon-right {
-    .form-input--sm { padding-right: 38px; }
-    .form-input--lg { padding-right: 50px; }
+    .form-input--sm {
+      padding-right: 38px;
+    }
+
+    .form-input--lg {
+      padding-right: 50px;
+    }
   }
 }
 
@@ -115,15 +165,15 @@
     left: 14px;
 
     .form-input--sm ~ & {
-        left: 10px;
-        width: 18px;
-        height: 18px;
+      left: 10px;
+      width: 18px;
+      height: 18px;
     }
 
     .form-input--lg ~ & {
-        left: 18px;
-        width: 22px;
-        height: 22px;
+      left: 18px;
+      width: 22px;
+      height: 22px;
     }
   }
 
@@ -131,15 +181,15 @@
     right: 14px;
 
     .form-input--sm ~ & {
-        right: 10px;
-        width: 18px;
-        height: 18px;
+      right: 10px;
+      width: 18px;
+      height: 18px;
     }
 
     .form-input--lg ~ & {
-        right: 18px;
-        width: 22px;
-        height: 22px;
+      right: 18px;
+      width: 22px;
+      height: 22px;
     }
   }
 }
@@ -178,6 +228,7 @@
     .icon-eye {
       display: none;
     }
+
     .icon-eye-hide {
       display: block;
     }

@@ -159,22 +159,23 @@ $(document).ready(function () {
      */
     let currentLevel = 0;
 
-    $('.js-fixed-bar-menu__link').each(function () {
-        const $subMenu = $(this).next('.fixed-bar-menu__sub-menu');
+    $('.js-bar-menu__link').each(function () {
+        const $subMenu = $(this).next('.bar-menu__sub-menu');
+
         if ($subMenu.length > 0) {
             const title = $(this).contents().filter(function () {
                 return this.nodeType === 3;
             }).text().trim();
 
             $subMenu.prepend(`
-                <div class="fixed-bar-menu__header">
-                    <a href="#" class="fixed-bar-menu__back js-fixed-bar-back">
+                <div class="bar-menu__header">
+                    <a href="#" class="bar-menu__back js-bar-back">
                        <svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M6 3.42627L2 8.42627M2 8.42627L6 13.4263M2 8.42627H14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                        </svg>
                     </a>
                     
-                    <span class="fixed-bar-menu__title">
+                    <span class="bar-menu__title">
                         <span>${title}</span>
                         
                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6 12" fill="none">
@@ -186,31 +187,31 @@ $(document).ready(function () {
         }
     });
 
-    $('.js-fixed-bar-menu__chevron').click(function (e) {
+    $('.js-bar-menu__chevron').click(function (e) {
         e.preventDefault();
         e.stopPropagation();
 
-        const $link = $(this).closest('.js-fixed-bar-menu__link');
-        const $subMenu = $link.next('.fixed-bar-menu__sub-menu');
+        const $link = $(this).closest('.js-bar-menu__link');
+        const $subMenu = $link.next('.bar-menu__sub-menu');
 
         if ($subMenu.length > 0) {
-            const $parents = $link.parents('.fixed-bar__content, .fixed-bar-menu__sub-menu');
+            const $parents = $link.parents('.bar__content, .bar-menu__sub-menu');
             $parents.addClass('is-frozen');
 
             // Slide forward
             currentLevel++;
-            $('.fixed-bar__slide').css('transform', `translateX(-${currentLevel * 100}%)`);
+            $('.bar__slide').css('transform', `translateX(-${currentLevel * 100}%)`);
         }
     });
 
-    $(document).on('click', '.js-fixed-bar-back', function (e) {
+    $(document).on('click', '.js-bar-back', function (e) {
         e.preventDefault();
-        const $subMenu = $(this).closest('.fixed-bar-menu__sub-menu');
-        const $parentContainer = $subMenu.parent().closest('.fixed-bar__content, .fixed-bar-menu__sub-menu');
+        const $subMenu = $(this).closest('.bar-menu__sub-menu');
+        const $parentContainer = $subMenu.parent().closest('.bar__content, .bar-menu__sub-menu');
 
         // Slide backward
         currentLevel--;
-        $('.fixed-bar__slide').css('transform', `translateX(-${currentLevel * 100}%)`);
+        $('.bar__slide').css('transform', `translateX(-${currentLevel * 100}%)`);
 
         setTimeout(() => {
             $parentContainer.removeClass('is-frozen');
@@ -221,8 +222,8 @@ $(document).ready(function () {
     if (leftMenuOffcanvas) {
         leftMenuOffcanvas.addEventListener('hidden.bs.offcanvas', function () {
             currentLevel = 0;
-            $('.fixed-bar__slide').css('transform', `translateX(0)`);
-            $('.fixed-bar__content, .fixed-bar-menu__sub-menu').removeClass('is-frozen');
+            $('.bar__slide').css('transform', `translateX(0)`);
+            $('.bar__content, .bar-menu__sub-menu').removeClass('is-frozen');
         });
     }
 

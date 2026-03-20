@@ -15,50 +15,70 @@
         <div class="modal-one-click-buy__right">
             <div class="title title-h3">Купить в 1 клик</div>
 
-            <form class="js-validation-form">
-                {% include '@components/forms/input.twig' with {
-                    label: 'Ваше имя *',
-                    type: 'text',
-                    id: 'one_click_name',
-                    name: 'name',
-                    required: true
-                } %}
-
-                {% include '@components/forms/input.twig' with {
-                    label: 'Телефон *',
-                    type: 'text',
-                    id: 'one_click_phone',
-                    name: 'phone',
-                    required: true,
-                    class: 'phone'
-                } %}
-
-                {% include '@components/forms/input.twig' with {
-                    label: 'Email *',
-                    type: 'email',
-                    id: 'one_click_email',
-                    name: 'email',
-                    required: true,
-                } %}
-
-                {% include '@components/forms/textarea.twig' with {
-                    label: 'Комментарий к заказу',
-                    id: 'one_click_comment',
-                    name: 'comment',
-                    placeholder: 'Введите ваш комментарий...',
-                    rows: 4,
-                    size: 'lg'
-                } %}
-
-                <div class="checkout-page__checkboxes">
-                    {% include '@components/forms/checkbox.twig' with { label: 'Я согласен(а) с условиями обработки персональных данных', id: 'prop-new', checked: true } %}
-                    {% include '@components/forms/checkbox.twig' with { label: 'Я согласен(а) с условиями обработки персональных данных', id: 'prop-new', checked: true } %}
-                    {% include '@components/forms/checkbox.twig' with { label: 'Я согласен(а) с условиями обработки персональных данных', id: 'prop-new', checked: true } %}
+            <form class="js-validation-form row g-4">
+                <div class="col-12">
+                    {% include '@components/forms/input.twig' with {
+                        label: 'Ваше имя *',
+                        type: 'text',
+                        id: 'one_click_name',
+                        name: 'name',
+                        required: true
+                    } %}
                 </div>
 
-                <button type="submit" class="button button-default button-block button-lg">
-                    Зарегистрироваться
-                </button>
+                <div class="col-12">
+                    {% include '@components/forms/input.twig' with {
+                        label: 'Телефон *',
+                        type: 'text',
+                        id: 'one_click_phone',
+                        name: 'phone',
+                        required: true,
+                        class: 'phone'
+                    } %}
+                </div>
+
+                <div class="col-12">
+                    {% include '@components/forms/input.twig' with {
+                        label: 'Email *',
+                        type: 'email',
+                        id: 'one_click_email',
+                        name: 'email',
+                        required: true,
+                    } %}
+                </div>
+
+                <div class="col-12">
+                    {% include '@components/forms/textarea.twig' with {
+                        label: 'Комментарий к заказу',
+                        id: 'one_click_comment',
+                        name: 'comment',
+                        placeholder: 'Введите ваш комментарий...',
+                        rows: 4,
+                        size: 'lg'
+                    } %}
+                </div>
+
+                <div class="col-12">
+                    <div class="row g-3">
+                        <div class="col-12">
+                            {% include '@components/forms/checkbox.twig' with { label: 'Я согласен(а) с условиями обработки персональных данных', id: 'prop-new', checked: true } %}
+                        </div>
+
+                        <div class="col-12">
+                            {% include '@components/forms/checkbox.twig' with { label: 'Я согласен(а) с условиями обработки персональных данных', id: 'prop-new', checked: true } %}
+                        </div>
+
+                        <div class="col-12">
+                            {% include '@components/forms/checkbox.twig' with { label: 'Я согласен(а) с условиями обработки персональных данных', id: 'prop-new', checked: true } %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <button type="submit" class="button button-default button-block button-lg">
+                        Отправить
+                    </button>
+                </div>
             </form>
         </div>
     </div>
