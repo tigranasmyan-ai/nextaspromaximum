@@ -23,15 +23,17 @@
                     <form class="js-validation-form">
                         {% include '@components/forms/input.twig' with {
                             label: 'Логин *',
-                            type: 'email',
-                            id: 'LoginPageEmail',
+                            type: 'text',
+                            id: 'login_username',
+                            name: 'login',
                             required: true
                         } %}
 
                         {% include '@components/forms/input.twig' with {
                             label: 'Пароль *',
                             type: 'password',
-                            id: 'LoginPagePassword',
+                            id: 'login_password',
+                            name: 'password',
                             required: true,
                         } %}
 

@@ -106,7 +106,27 @@
 
   .product-full-gallery {
     & > div {
-      top: 0;
+      top: 25px;
     }
+  }
+}
+
+.modal-one-click-buy {
+  &__row {
+    display: flex;
+  }
+
+  &__left {
+    flex: 0 0 328px;
+  }
+
+  &__right {
+    flex-grow: 1;
+    margin-top: -32px;
+    margin-bottom: -32px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    padding-left: 32px;
+    border-left: 1px solid rgb(var(--stroke_black));
   }
 }

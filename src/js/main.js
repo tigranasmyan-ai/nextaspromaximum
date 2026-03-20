@@ -311,6 +311,31 @@ $(document).ready(function () {
     });
 
 
+    /**
+     * Validation localization
+     */
+    if ($.validator) {
+        $.extend($.validator.messages, {
+            required: "Это поле обязательно для заполнения.",
+            remote: "Пожалуйста, введите правильное значение.",
+            email: "Пожалуйста, введите корректный адрес электронной почты.",
+            url: "Пожалуйста, введите корректный URL.",
+            date: "Пожалуйста, введите корректную дату.",
+            dateISO: "Пожалуйста, введите корректную дату в формате ISO.",
+            number: "Пожалуйста, введите число.",
+            digits: "Пожалуйста, введите только цифры.",
+            creditcard: "Пожалуйста, введите правильный номер кредитной карты.",
+            equalTo: "Пожалуйста, введите такое же значение ещё раз.",
+            extension: "Пожалуйста, выберите файл с правильным расширением.",
+            maxlength: $.validator.format("Пожалуйста, введите не больше {0} символов."),
+            minlength: $.validator.format("Пожалуйста, введите не меньше {0} символов."),
+            rangelength: $.validator.format("Пожалуйста, введите значение длиной от {0} до {1} символов."),
+            range: $.validator.format("Пожалуйста, введите число от {0} до {1}."),
+            max: $.validator.format("Пожалуйста, введите число, меньшее или равное {0}."),
+            min: $.validator.format("Пожалуйста, введите число, большее или равное {0}.")
+        });
+    }
+
     $('.js-validation-form').each(function () {
         $(this).validate({
             errorPlacement: function (error, element) {
@@ -555,5 +580,23 @@ $(document).ready(function () {
         thumbs: {
             swiper: thumbs,
         },
+    });
+
+    /**
+     * Radio box
+     */
+    $(document).on('click', '.radio-box', function () {
+        const $box = $(this);
+        const $input = $box.find('input[type="radio"]');
+        const name = $input.attr('name');
+
+        if (name) {
+            $(`.radio-box:has(input[name="${name}"])`).removeClass('active');
+        } else {
+            $box.siblings('.radio-box').removeClass('active');
+        }
+
+        $box.addClass('active');
+        $input.prop('checked', true).trigger('change');
     });
 });

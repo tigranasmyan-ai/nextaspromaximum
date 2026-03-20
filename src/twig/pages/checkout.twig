@@ -16,59 +16,81 @@
                     Оформление заказа
                 </h1>
 
-                <div class="checkout-page__wrapper">
+                <form class="checkout-page__wrapper js-validation-form">
                     <div class="checkout-page__content">
                         <div class="checkout-page__panel">
                             <div class="checkout-page-panel__head">
                                 <div class="title title-h4">Покупатель</div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-4">
+                            <div class="row g-4">
+                                <div class="col-md-4">
                                     {% include '@components/forms/input.twig' with {
                                         label: 'Имя *',
-                                        type: 'email',
-                                        id: 'LoginModalEmail',
+                                        type: 'text',
+                                        id: 'checkout_first_name',
+                                        name: 'first_name',
                                         required: true
                                     } %}
                                 </div>
 
-                                <div class="col-4">
+                                <div class="col-md-4">
                                     {% include '@components/forms/input.twig' with {
                                         label: 'Фамилия *',
-                                        type: 'email',
-                                        id: 'LoginModalEmail',
+                                        type: 'text',
+                                        id: 'checkout_last_name',
+                                        name: 'last_name',
                                         required: true
                                     } %}
                                 </div>
 
-                                <div class="col-4">
+                                <div class="col-md-4">
                                     {% include '@components/forms/input.twig' with {
                                         label: 'Отчество *',
-                                        type: 'email',
-                                        id: 'LoginModalEmail',
+                                        type: 'text',
+                                        id: 'checkout_middle_name',
+                                        name: 'middle_name',
                                         required: true
                                     } %}
                                 </div>
 
-                                <div class="col-6">
+                                <div class="col-md-6">
                                     {% include '@components/forms/input.twig' with {
                                         label: 'Email *',
                                         type: 'email',
-                                        id: 'LoginModalEmail',
+                                        id: 'checkout_email',
+                                        name: 'email',
                                         required: true
                                     } %}
                                 </div>
 
-                                <div class="col-6">
+                                <div class="col-md-6">
                                     {% include '@components/forms/input.twig' with {
                                         label: 'Телефон *',
                                         type: 'text',
-                                        id: 'RegistrationPagePhone',
+                                        id: 'checkout_phone',
+                                        name: 'phone',
                                         required: true,
                                         class: 'phone'
                                     } %}
                                 </div>
+
+                                <div class="col-12">
+                                    <button class="button button-default button-lg" type="button">Продолжить</button>
+                                </div>
+                            </div>
+
+                            <br>
+                            <br>
+                            <br>
+
+                            <div class="checkout-page-final">
+                                {% for item in 1..4 %}
+                                    <div>
+                                        <span>Индекс</span>
+                                        <span>454000</span>
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
 
@@ -79,29 +101,88 @@
                                 <a href="" class="button button-default">Изменить</a>
                             </div>
 
-                            <div class="row g-3">
-                                {% for item in 1..4 %}
-                                    <div class="col-6">
-                                        <div class="radio-box {{ loop.first ? 'active' : '' }}">
-                                            <div class="radio-box__check"></div>
+                            <div class="checkout-page-panel__radios">
+                                <div class="row g-3">
+                                    {% for item in 1..4 %}
+                                        <div class="col-md-6">
+                                            <div class="radio-box {{ loop.first ? 'active' : '' }}">
+                                                <div class="radio-box__check"></div>
 
-                                            <div class="radio-box__content">
-                                                <div class="radio-box__head">
-                                                    <div class="radio-box__title title title-h6">Самовывоз</div>
+                                                <div class="radio-box__content">
+                                                    <div class="radio-box__head">
+                                                        <div class="radio-box__title title title-h6">Самовывоз</div>
 
-                                                    <span class="radio-box__price">500 ₽</span>
+                                                        <span class="radio-box__price">500 ₽</span>
+                                                    </div>
+
+                                                    <img class="radio-box__image" src="https://placehold.co/80x40"
+                                                         alt="">
+
+
+                                                    <div class="radio-box__info">
+                                                        Доставка осуществляется в течение дня в удобное для вас время.
+                                                    </div>
+
+                                                    <input type="radio" name="checkout-delivery"
+                                                           id="checkout-delivery-{{ item }}">
                                                 </div>
-
-                                                <img class="radio-box__image" src="https://placehold.co/80x40" alt="">
-
-
-                                                <div class="radio-box__info">
-                                                    Доставка осуществляется в течение дня в удобное для вас время.
-                                                </div>
-
-                                                <input type="radio" name="checkout-delivery" id="checkout-delivery-{{ item }}">
                                             </div>
                                         </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <div class="checkout-page-panel__form">
+
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <div class="title title-h6">Выберите адрес доставки</div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        {% include '@components/forms/input.twig' with {
+                                            label: 'Адрес доставки *',
+                                            type: 'text',
+                                            id: 'checkout_address',
+                                            name: 'address',
+                                            required: true
+                                        } %}
+                                    </div>
+
+                                    <div class="col-12">
+                                        {% include '@components/forms/input.twig' with {
+                                            label: 'Индекс *',
+                                            type: 'text',
+                                            id: 'checkout_zip',
+                                            name: 'zip',
+                                            required: true
+                                        } %}
+                                    </div>
+
+                                    <div class="col-12">
+                                        {% include '@components/forms/textarea.twig' with {
+                                            label: 'Комментарии к заказу:',
+                                            id: 'checkout_comment',
+                                            name: 'comment',
+                                            rows: 3
+                                        } %}
+                                    </div>
+
+                                    <div class="col-12">
+                                        <button class="button button-default button-lg" type="button">Продолжить</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br>
+                            <br>
+                            <br>
+
+                            <div class="checkout-page-final">
+                                {% for item in 1..4 %}
+                                    <div>
+                                        <span>Индекс</span>
+                                        <span>454000</span>
                                     </div>
                                 {% endfor %}
                             </div>
@@ -113,67 +194,121 @@
 
                                 <a href="" class="button button-default">Изменить</a>
                             </div>
+
+                            <div class="checkout-page-panel__radios">
+                                <div class="row g-3">
+                                    {% for item in 1..4 %}
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="radio-box {{ loop.first ? 'active' : '' }}">
+                                                <div class="radio-box__check"></div>
+
+                                                <div class="radio-box__content">
+                                                    <div class="radio-box__head">
+                                                        <div class="radio-box__title title title-h6">Самовывоз</div>
+                                                    </div>
+
+                                                    <img class="radio-box__image" src="https://placehold.co/80x40"
+                                                         alt="">
+
+                                                    <input type="radio" name="checkout-payment"
+                                                           id="checkout-payment-{{ item }}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+
+                            <button class="button button-default button-lg" type="button">Продолжить</button>
+
+                            <br>
+                            <br>
+                            <br>
+
+                            <div class="checkout-page-final">
+                                {% for item in 1..4 %}
+                                    <div>
+                                        <span>Индекс</span>
+                                        <span>454000</span>
+                                    </div>
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
 
                     <div class="checkout-page__aside">
-                        <div class="checkout-page__panel checkout-page-total">
-                            <div class="checkout-page-total__head">
-                                <div class="title title-h2">Итого</div>
+                        <div>
+                            <div class="checkout-page__panel checkout-page-total">
+                                <div class="row g-4">
+                                    <div class="col-12">
+                                        <div class="checkout-page-total__head">
+                                            <div class="title title-h2">Итого</div>
 
-                                <div>
-                                    {% include '@components/@shop/price.twig' with {
-                                        price_size: 'xl',
-                                    } %}
+                                            <div>
+                                                {% include '@components/@shop/price.twig' with {
+                                                    price_size: 'xl',
+                                                } %}
 
-                                    {% include '@components/@shop/cashback.twig' %}
-                                </div>
-                            </div>
-
-                            <div class="checkout-page-total-list">
-                                {% for item in 1..3 %}
-                                    <div class="checkout-page-total-list__item">
-                                        <span>НДС (22%, включен в цену):</span>
-                                        <span class="{{ loop.last ? 'green' : '' }}">23 500 ₽</span>
+                                                {% include '@components/@shop/cashback.twig' %}
+                                            </div>
+                                        </div>
                                     </div>
-                                {% endfor %}
-                            </div>
 
-                            {% include '@components/forms/input.twig' with {
-                                type: 'text',
-                                icon_right: 'arrow-end',
-                                id: 'LoginModalPassword',
-                                required: true,
-                                size: 'sm',
-                                placeholder: 'Есть промокод?',
-                            } %}
+                                    <div class="col-12">
+                                        <div class="checkout-page-total-list">
+                                            {% for item in 1..3 %}
+                                                <div class="checkout-page-total-list__item">
+                                                    <span>НДС (22%, включен в цену):</span>
+                                                    <span class="{{ loop.last ? 'green' : '' }}">23 500 ₽</span>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
 
-                            <div class="checkout-page-total__links">
-                                <div>
-                                    <span>Доставка:</span>
+                                    <div class="col-12">
+                                        {% include '@components/forms/input.twig' with {
+                                            type: 'text',
+                                            icon_right: 'arrow-end',
+                                            id: 'checkout_promo_code',
+                                            name: 'promo_code',
+                                            required: true,
+                                            size: 'sm',
+                                            placeholder: 'Есть промокод?',
+                                        } %}
+                                    </div>
 
-                                    <a href="">Доставка курьером</a>
+                                    <div class="col-12">
+                                        <div class="checkout-page-total__links">
+                                            <div>
+                                                <span>Доставка:</span>
+
+                                                <a href="">Доставка курьером</a>
+                                            </div>
+
+                                            <div>
+                                                <span>Оплата:</span>
+
+                                                <a href="">Яндекс.Деньги</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="checkout-page-total__button">
+                                            <button type="submit" class="button button-default button-block button-lg">Оформить заказ</button>
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <div>
-                                    <span>Оплата:</span>
-
-                                    <a href="">Яндекс.Деньги</a>
-                                </div>
                             </div>
 
-                            <div class="checkout-page-total__button">
-                                <a href="" class="button button-default button-block button-lg">Оформить заказ</a>
+                            <div class="checkout-page__checkboxes">
+                                {% include '@components/forms/checkbox.twig' with { label: 'Я согласен(а) с условиями обработки персональных данных', id: 'prop-new', checked: true } %}
+                                {% include '@components/forms/checkbox.twig' with { label: 'Я согласен(а) с условиями обработки персональных данных', id: 'prop-new', checked: true } %}
+                                {% include '@components/forms/checkbox.twig' with { label: 'Я согласен(а) с условиями обработки персональных данных', id: 'prop-new', checked: true } %}
                             </div>
-                        </div>
-
-                        <div class="checkout-page__checkboxes">
-                            {% include '@components/forms/checkbox.twig' with { label: 'Я согласен(а) с условиями обработки персональных данных', id: 'prop-new', checked: true } %}
-                            {% include '@components/forms/checkbox.twig' with { label: 'Я согласен(а) с условиями обработки персональных данных', id: 'prop-new', checked: true } %}
-                            {% include '@components/forms/checkbox.twig' with { label: 'Я согласен(а) с условиями обработки персональных данных', id: 'prop-new', checked: true } %}
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </section>

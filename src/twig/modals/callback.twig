@@ -12,15 +12,17 @@
     <form class="js-validation-form">
         {% include '@components/forms/input.twig' with {
             label: 'Ваше имя *',
-            type: 'email',
-            id: 'CallbackModalEmail',
+            type: 'text',
+            id: 'callback_name',
+            name: 'name',
             required: true
         } %}
 
         {% include '@components/forms/input.twig' with {
             label: 'Телефон *',
             type: 'text',
-            id: 'CallbackModalPhone',
+            id: 'callback_phone',
+            name: 'phone',
             required: true,
             class: 'phone'
         } %}
@@ -28,7 +30,7 @@
         {% include '@components/forms/input.twig' with {
             label: 'Пароль (для проверки)',
             type: 'password',
-            id: 'CallbackModalPassword',
+            id: 'callback_password',
             name: 'password',
             required: true
         } %}

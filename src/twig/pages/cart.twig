@@ -31,41 +31,51 @@
                     <div class="cart-page__aside">
                         <div>
                             <div class="cart-page__totals">
-                                <div class="cart-page-totals__head">
-                                    <div class="title title-h3">Итого</div>
 
-                                    <div>
-                                        {% include '@components/@shop/price.twig' with {
-                                            size: 'xl',
-                                            now: '1 300 ₽/шт',
-                                            old: '1 600 ₽/шт',
-                                            class: 'price',
-                                        } %}
+                                <div class="row g-4">
+                                    <div class="col-12">
+                                        <div class="cart-page-totals__head">
+                                            <div class="title title-h3">Итого</div>
+
+                                            <div>
+                                                {% include '@components/@shop/price.twig' with {
+                                                    size: 'xl',
+                                                    now: '1 300 ₽/шт',
+                                                    old: '1 600 ₽/шт',
+                                                    class: 'price',
+                                                } %}
 
 
-                                        {% include '@components/@shop/cashback.twig' with {
-                                            class: 'cart-product__cashback'
+                                                {% include '@components/@shop/cashback.twig' with {
+                                                    class: 'cart-product__cashback'
+                                                } %}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        {% include '@components/forms/input.twig' with {
+                                            type: 'text',
+                                            icon_right: 'arrow-end',
+                                            id: 'cart_promo_code',
+                                            name: 'promo_code',
+                                            required: true,
+                                            size: 'sm',
+                                            placeholder: 'Есть промокод?',
                                         } %}
                                     </div>
+
+                                    <div class="col-12">
+                                        <a href="checkout.html"
+                                           class="button button-default button-xl button-block cart-page-totals__button">
+                                            Перейти к оформлению
+                                        </a>
+
+                                        <a href="" class="button button-solid button-lg button-block">
+                                            Купить в 1 клик
+                                        </a>
+                                    </div>
                                 </div>
-
-                                {% include '@components/forms/input.twig' with {
-                                    type: 'text',
-                                    icon_right: 'arrow-end',
-                                    id: 'LoginModalPassword',
-                                    required: true,
-                                    size: 'sm',
-                                    placeholder: 'Есть промокод?',
-                                } %}
-
-                                <a href=""
-                                   class="button button-default button-xl button-block cart-page-totals__button">
-                                    Перейти к оформлению
-                                </a>
-
-                                <a href="" class="button button-solid button-lg button-block">
-                                    Купить в 1 клик
-                                </a>
                             </div>
 
                             <a href="" class="button button-block button-link">

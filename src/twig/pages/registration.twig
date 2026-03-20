@@ -21,48 +21,64 @@
 
                 <div class="auth-page__form">
                     <form class="js-validation-form">
-                        {% include '@components/forms/input.twig' with {
-                            label: 'Логин *',
-                            type: 'email',
-                            id: 'RegistrationPageEmail',
-                            required: true
-                        } %}
+                        <div class="row g-4">
+                            <div class="col-12">
+                                {% include '@components/forms/input.twig' with {
+                                    label: 'Логин *',
+                                    type: 'text',
+                                    id: 'reg_username',
+                                    name: 'login',
+                                    required: true
+                                } %}
+                            </div>
 
-                        {% include '@components/forms/input.twig' with {
-                            label: 'Телефон *',
-                            type: 'text',
-                            id: 'RegistrationPagePhone',
-                            required: true,
-                            class: 'phone'
-                        } %}
+                            <div class="col-12">
+                                {% include '@components/forms/input.twig' with {
+                                    label: 'Телефон *',
+                                    type: 'text',
+                                    id: 'reg_phone',
+                                    name: 'phone',
+                                    required: true,
+                                    class: 'phone'
+                                } %}
+                            </div>
 
-                        {% include '@components/forms/input.twig' with {
-                            label: 'Пароль *',
-                            type: 'password',
-                            id: 'RegistrationPagePassword',
-                            required: true,
-                        } %}
+                            <div class="col-12">
+                                {% include '@components/forms/input.twig' with {
+                                    label: 'Пароль *',
+                                    type: 'password',
+                                    id: 'reg_password',
+                                    name: 'password',
+                                    required: true,
+                                } %}
+                            </div>
 
-                        {% include '@components/forms/input.twig' with {
-                            label: 'Подтверждение пароля *',
-                            type: 'password',
-                            id: 'RegistrationPagePasswordRepeat',
-                            required: true,
-                        } %}
+                            <div class="col-12">
+                                {% include '@components/forms/input.twig' with {
+                                    label: 'Подтверждение пароля *',
+                                    type: 'password',
+                                    id: 'reg_password_confirm',
+                                    name: 'password_confirm',
+                                    required: true,
+                                } %}
+                            </div>
 
-                        <div class="form-group">
-                            {% include '@components/forms/checkbox.twig' with {
-                                label: 'Я согласен(а) с условиями обработки персональных данных',
-                                id: 'RegistrationPageRemember',
-                                name: 'agreement',
-                                required: true,
-                                checked: true
-                            } %}
+                            <div class="col-12">
+                                {% include '@components/forms/checkbox.twig' with {
+                                    label: 'Я согласен(а) с условиями обработки персональных данных',
+                                    id: 'RegistrationPageRemember',
+                                    name: 'agreement',
+                                    required: true,
+                                    checked: true
+                                } %}
+                            </div>
+
+                            <div class="col-12">
+                                <button type="submit" class="button button-default button-block button-lg">
+                                    Зарегистрироваться
+                                </button>
+                            </div>
                         </div>
-
-                        <button type="submit" class="button button-default button-block button-lg">
-                            Зарегистрироваться
-                        </button>
                     </form>
                 </div>
             </div>

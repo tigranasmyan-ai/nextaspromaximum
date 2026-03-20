@@ -2,6 +2,10 @@
   &__wrapper {
     display: flex;
     gap: 32px;
+
+    @media (max-width: 1199px) {
+      flex-direction: column;
+    }
   }
 
   &__content {
@@ -15,14 +19,27 @@
     padding: 24px;
     border: 1px solid rgb(var(--stroke_black));
     border-radius: var(--settings-main-border-radius);
+
+    @media (max-width: 991px) {
+      padding: 16px;
+    }
   }
 
   &__aside {
-    flex: 0 0 400px;
-    max-width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+    position: relative;
+
+    & > div {
+      position: sticky;
+      top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    @media (min-width: 1200px) {
+      flex: 0 0 400px;
+      max-width: 400px;
+    }
   }
 
   &__checkboxes {
@@ -38,7 +55,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
 
+  &__radios {
+    margin-bottom: 24px;
+  }
+
+  &__form {
+    margin-top: 24px;
   }
 }
 
@@ -55,7 +79,6 @@
   }
 
   &__links {
-    margin-bottom: 24px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -79,8 +102,6 @@
   &__head {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 24px;
-
 
     .cashback {
       justify-content: flex-end;
@@ -100,7 +121,6 @@
   flex-direction: column;
   gap: 12px;
   font-size: 13px;
-  margin-bottom: 24px;
 
   &__item {
     display: flex;
@@ -133,6 +153,25 @@
         padding-left: 8px;
         font-weight: 500;
       }
+    }
+  }
+}
+
+.checkout-page-final {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  div {
+    display: flex;
+  }
+
+  span {
+    color: rgb(var(--basic_text_black));
+    display: block;
+
+    &:first-child {
+      width: 150px;
     }
   }
 }
