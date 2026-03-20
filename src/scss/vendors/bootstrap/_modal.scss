@@ -17,6 +17,12 @@
 .modal {
   background: rgba(var(--basic_text_black), 0.7);
 
+  &.lg {
+    .modal-dialog {
+      max-width: 970px;
+    }
+  }
+
   .close-btn {
     position: absolute;
     top: 15px;
@@ -69,8 +75,38 @@
     font-size: 14px;
 
 
-    a  {
+    a {
       @include mixins.link_decoration;
+    }
+  }
+}
+
+.modal-product {
+
+  .modal-content {
+    max-height: 90vh;
+    overflow: auto;
+    border-radius: var(--settings-main-border-radius);
+  }
+
+  &__row {
+    display: flex;
+    gap: 24px;
+  }
+
+  &__left {
+    flex: 0 0 500px;
+    min-width: initial;
+    max-width: 500px;
+  }
+
+  &__right {
+    flex-grow: 1;
+  }
+
+  .product-full-gallery {
+    & > div {
+      top: 0;
     }
   }
 }

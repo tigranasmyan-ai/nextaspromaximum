@@ -5,7 +5,31 @@
 {% block body_class %}home-page{% endblock %}
 
 {% block content %}
-    <div class="container">
+
+    <ol>
+        {% for item in [
+            { text: 'Страница товара', link: 'product-single' },
+            { text: 'Логин', link: 'login' },
+            { text: 'Сбросить пароль', link: 'reset-password' },
+            { text: 'Регистрация', link: 'registration' },
+            { text: 'Страница блога', link: 'blog-single' },
+            { text: 'Сравнение', link: 'compare' },
+            { text: 'Акции', link: 'sales' },
+            { text: 'Избранные товары', link: 'favorites' },
+            { text: 'Бренды', link: 'brands' },
+            { text: 'Категория', link: 'catalog-single' },
+            { text: 'Категория', link: 'catalog' },
+            { text: 'Корзина', link: 'cart' },
+            { text: 'Блог', link: 'blog' },
+            { text: 'Главная страница', link: 'home' },
+        ] %}
+            <li>
+                <a href="{{ item.link }}.html">{{ item.text }}</a>
+            </li>
+        {% endfor %}
+    </ol>
+
+    <div class="container" style="display: none">
         <div>
             {% for color in [
                 'default',

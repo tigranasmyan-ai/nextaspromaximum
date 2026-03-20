@@ -1,0 +1,138 @@
+.checkout-page {
+  &__wrapper {
+    display: flex;
+    gap: 32px;
+  }
+
+  &__content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  &__panel {
+    padding: 24px;
+    border: 1px solid rgb(var(--stroke_black));
+    border-radius: var(--settings-main-border-radius);
+  }
+
+  &__aside {
+    flex: 0 0 400px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+}
+
+.checkout-page-panel {
+  &__head {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+}
+
+.checkout-page-total {
+  &__button {
+    margin-left: -25px;
+    margin-right: -25px;
+    margin-bottom: -25px;
+
+    .button {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
+  &__links {
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    font-size: calc(1rem - 3px);
+    line-height: calc(1em + 5px);
+    font-weight: 500;
+
+    a {
+      text-decoration: none;
+      border-bottom: 1px dashed;
+      transition: opacity 0.2s ease;
+      margin-left: 8px;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+
+
+    .cashback {
+      justify-content: flex-end;
+      margin-top: 8px;
+    }
+
+    .price {
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.checkout-page-total-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 13px;
+  margin-bottom: 24px;
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    &:before {
+      height: 1px;
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      background: rgb(var(--stroke_black));
+    }
+
+    .green {
+      color: green;
+    }
+
+    span {
+      opacity: 0.7;
+      background: rgb(var(--black_bg_black));
+
+      &:first-child {
+        padding-right: 8px;
+      }
+
+      &:last-child {
+        padding-left: 8px;
+        font-weight: 500;
+      }
+    }
+  }
+}

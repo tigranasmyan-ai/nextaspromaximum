@@ -1,3 +1,5 @@
+@use "abstracts/mixins";
+
 .properties {
   font-size: calc(1rem - 4px);
   line-height: calc(1em + 4px);
@@ -20,6 +22,44 @@
       &:first-child {
         color: #8D8D8D;
       }
+    }
+  }
+}
+
+.properties-main {
+  &__title {
+    margin-bottom: 12px;
+  }
+
+  &__col {
+    &:last-child {
+      .properties-main {
+        background: red;
+
+        &__item {
+          border-bottom: 1px solid rgb(var(--stroke_black));
+        }
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    height: 50px;
+    border-top: 1px solid rgb(var(--stroke_black));
+    display: flex;
+    align-items: center;
+
+    font-size: calc(1rem - 1px);
+    line-height: calc(1em + 7px);
+
+    & > * {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    a  {
+      @include mixins.link_decoration;
     }
   }
 }

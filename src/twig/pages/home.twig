@@ -78,7 +78,7 @@
         <div class="section__main">
             {{ ui.home_section_head('Бренды') }}
 
-            <div class="brand-card-grid">
+            <div class="brand-card-grid is-scrollable-mobile">
                 {% for item in 1..12 %}
                     {% include 'item/brand-item.twig' %}
                 {% endfor %}
@@ -128,7 +128,7 @@
         <div class="container section__main">
             {{ ui.home_section_head('Акции') }}
 
-            <div class="sales">
+            <div class="sales is-scrollable-mobile">
                 {% for item in 1..2 %}
                     {% include 'item/sale-item.twig' %}
                 {% endfor %}

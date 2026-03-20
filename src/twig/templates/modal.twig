@@ -1,6 +1,6 @@
-<div class="modal fade" id="{% block id %}{% endblock %}" tabindex="-1" aria-labelledby="{% block id %}{% endblock %}Label" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content {% block modal_class %}{% endblock %}">
+<div class="modal fade {{ size }}" id="{% block id %}{% endblock %}" tabindex="-1" aria-labelledby="{% block id %}{% endblock %}Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered {% block modal_class %}{% endblock %}">
+        <div class="modal-content">
             {% include '@components/ui/close.twig' with {
                 dismiss: 'modal'
             } %}

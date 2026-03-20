@@ -18,6 +18,7 @@
 @use "item/product/product-item-viewed";
 @use "item/product/product-item-short";
 @use "item/product/product-full";
+@use "item/product/product-kit";
 
 // Post
 @use "item/post/post-item-bg";
@@ -80,6 +81,7 @@
 @use "components/forms/radio";
 @use "components/forms/label";
 @use "components/forms/group";
+@use "components/forms/radio-box";
 @use "components/forms/range-slider";
 
 // Pages
@@ -87,6 +89,7 @@
 @use "pages/blog-page";
 @use "pages/compare-page";
 @use "pages/brands";
+@use "pages/checkout";
 @use "pages/page";
 @use "pages/catalog";
 @use "pages/auth";

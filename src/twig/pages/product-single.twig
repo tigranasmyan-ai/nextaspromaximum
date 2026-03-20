@@ -226,7 +226,8 @@
                             <div class="product-full__helpers">
                                 <div class="status lg">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 12" fill="none">
-                                        <rect x="1.5" y="1" width="10" height="10" rx="4" fill="#32CB41" stroke="#32CB41"
+                                        <rect x="1.5" y="1" width="10" height="10" rx="4" fill="#32CB41"
+                                              stroke="#32CB41"
                                               stroke-width="2"/>
                                         <path d="M3.30469 5.80469L5.51172 8.20312L9.70312 3.80469" stroke="white"
                                               stroke-width="1.6"
@@ -238,7 +239,8 @@
 
                                 <div class="product-full__links product-full-links">
                                     <a href="" class="product-full-links__item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none" width="16"
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="none"
+                                             width="16"
                                              height="16">
                                             <path d="M1 5H12C13.6569 5 15 6.34315 15 8V12C15 13.6569 13.6569 15 12 15H4C2.34315 15 1 13.6569 1 12V5Z"
                                                   stroke-width="2" stroke-linejoin="round"/>
@@ -252,7 +254,8 @@
                                     </a>
 
                                     <a href="" class="product-full-links__item">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 17" fill="none" width="16"
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 17" fill="none"
+                                             width="16"
                                              href="16">
                                             <path d="M1 7C1 5.89543 1.89543 5 3 5H13C14.1046 5 15 5.89543 15 7V7C15 8.10457 14.1046 9 13 9H3C1.89543 9 1 8.10457 1 7V7Z"
                                                   stroke-width="2"/>
@@ -353,7 +356,71 @@
                 <span>Купить набор</span>
             </h2>
 
-            <div>asdasd</div>
+            <div class="product-kit">
+                <div class="product-kit__aside product-kit-general">
+                    <div class="product-kit-general__img">
+                        <img src="https://premier-demo.ru/upload/iblock/124/4aerrwguzei3zg2tory25gftkuetlk5q.jpg"/>
+                    </div>
+
+                    <div>
+                        <span class="product-kit-general__count">25 000 ₽ x 1 шт</span>
+
+                        <span class="product-kit-general__name">Косуха из натуральной кожи Коричневый M</span>
+                    </div>
+                </div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" id="plus" width="14" height="14">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M8 1C8 0.447715 7.55228 0 7 0C6.44772 0 6 0.447715 6 1V6H1C0.447715 6 0 6.44771 0 7C0 7.55228 0.447715 8 1 8H6V13C6 13.5523 6.44772 14 7 14C7.55228 14 8 13.5523 8 13V8H13C13.5523 8 14 7.55228 14 7C14 6.44772 13.5523 6 13 6H8V1Z"/>
+                </svg>
+
+                <div class="product-kit__list">
+                    {% for item in 1..2 %}
+                        <div class="product-kit__item product-kit-item">
+                            <a href="" class="product-kit-item__img">
+                                <img class="img-responsive image-rounded-x lazyloaded" loading="lazy" decoding="async"
+                                     src="https://premier-demo.ru//upload/resize_cache/iblock/266/48_48_1/hxl42oxlaontvtgopj9qojkzi4lqcs2v.jpg">
+                            </a>
+
+                            <div>
+                                <a href="" class="product-kit-item__title title title-h6">
+                                    Платье с цветами M
+                                </a>
+
+                                <div class="product-kit-item__price is-mobile">
+                                    3 500 ₽ x 1 шт
+                                </div>
+                            </div>
+
+                            <div class="product-kit-item__end">
+                                <div class="product-kit-item__price is-desktop">
+                                    3 500 ₽ x 1 шт
+                                </div>
+
+                                <button class="product-kit-item__delete">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="close-16-16">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                              d="M0.292893 0.292893C0.683417 -0.0976311 1.31658 -0.0976311 1.70711 0.292893L8 6.58579L14.2929 0.292893C14.6834 -0.0976311 15.3166 -0.0976311 15.7071 0.292893C16.0976 0.683417 16.0976 1.31658 15.7071 1.70711L9.41421 8L15.7071 14.2929C16.0976 14.6834 16.0976 15.3166 15.7071 15.7071C15.3166 16.0976 14.6834 16.0976 14.2929 15.7071L8 9.41421L1.70711 15.7071C1.31658 16.0976 0.683417 16.0976 0.292893 15.7071C-0.0976311 15.3166 -0.0976311 14.6834 0.292893 14.2929L6.58579 8L0.292893 1.70711C-0.0976311 1.31658 -0.0976311 0.683417 0.292893 0.292893Z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 8" id="equal" width="14" height="14">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M11 2C11.5523 2 12 1.55229 12 1C12 0.447716 11.5523 0 11 0H1C0.447716 0 0 0.447715 0 1C0 1.55228 0.447716 2 1 2L11 2ZM11 8C11.5523 8 12 7.55229 12 7C12 6.44772 11.5523 6 11 6L1 6C0.447716 6 0 6.44772 0 7C0 7.55229 0.447716 8 1 8H11Z"/>
+                </svg>
+
+                <div class="product-kit__aside">
+                    {% include '@components/@shop/price.twig' with {price_size: 'xl'} %}
+
+                    <a href="" class="button button-default button-lg">
+                        Купить набор
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -384,6 +451,24 @@
             <h2 class="title title-h3">
                 <span>Характеристики</span>
             </h2>
+
+            {% for item in 1..2 %}
+                <div class="properties-main">
+                    <div class="properties-main__title title title-h6">Общие характеристики</div>
+
+                    <div class="row">
+                        {% for item in 1..5 %}
+                            <div class="col-lg-6 properties-main__col">
+                                <div class="properties-main__item">
+                                    <span>Тип</span>
+
+                                    <a href="">Верхняя одежда</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
         </div>
     </section>
 
