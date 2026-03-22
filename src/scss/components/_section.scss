@@ -21,4 +21,26 @@
       width: 100%;
     }
   }
+
+  &__wrapper {
+    display: flex;
+    gap: 42px;
+    
+    @media (max-width: 991px) {
+      flex-direction: column;
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+  }
+
+  &__aside {
+    flex: 0 0 264px;
+    max-width: 264px;
+    
+    @media (max-width: 991px) {
+      display: none;
+    }
+  }
 }

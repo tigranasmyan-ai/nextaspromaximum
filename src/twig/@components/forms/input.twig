@@ -46,6 +46,7 @@
                 {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
                 {% if required %}required{% endif %}
                 {% if disabled %}disabled{% endif %}
+                {{ attrs|raw }}
         >
 
         {% if icon_right and type != 'password' %}

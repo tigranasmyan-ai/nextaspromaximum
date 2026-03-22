@@ -1,0 +1,117 @@
+{% extends 'templates/base.twig' %}
+
+{% set page_settings = {
+    classes: {
+        body: 'help-page',
+    },
+    breadcrumbs: [
+        { text: 'Помощь', href: 'catalog.html' },
+    ]
+} %}
+
+{% block content %}
+
+    <section class="section">
+        <div class="container">
+            <div class="section__main">
+                <div class="title title-h1">
+                    Помощь
+                </div>
+
+                <div class="section__wrapper">
+                    <div class="section__aside">
+                        {% include '@components/menu/menu-list.twig' with {
+                            items: [
+                                {text: 'Условия оплаты', href: 'account.html'},
+                                {text: 'Условия доставки', href: 'account-profiles.html'},
+                                {text: 'Вопрос-ответ'},
+                            ]
+                        } %}
+                    </div>
+
+                    <div class="section__content">
+                        <div class="text-content">
+                            <p>
+                                Ниже приведены реквизиты компании, в случае необходимости получения дополнительных
+                                документов: свидетельства о государственной регистрации, идентификационного номера
+                                налогоплательщика вы можете обратиться в бухгалтерию предприятия.
+                            </p>
+                        </div>
+
+                        {% set tabs = [
+                            { id: 'help-page-1', label: 'Вопросы о доставке', active: true },
+                            { id: 'help-page-2', label: 'Вопросы по возврату' },
+                            { id: 'help-page-3', label: 'Общие вопросы' }
+                        ] %}
+
+                        <div class="help-page__tabs">
+                            {# HEAD #}
+                            {% include '@components/ui/tab/tab-head.twig' with { tabs } %}
+
+                            {# CONTENT #}
+                            {% embed '@components/ui/tab/tab-content.twig' with { tabs } %}
+                                {% block content %}
+                                    {% if tab.id == 'help-page-1' or tab.id == 'help-page-2' or tab.id == 'help-page-3' %}
+                                        {% for x in 1..4 %}
+                                            <div class="collapse-item">
+                                                <div class="collapse-item__head collapsed" type="button"
+                                                     data-bs-toggle="collapse"
+                                                     data-bs-target="#HelpPageCollapseItem{{ x }}"
+                                                     aria-expanded="false"
+                                                     aria-controls="HelpPageCollapseItem{{ x }}">
+                                                    <div class="title title-h5">
+                                                        Возможен ли самовывоз заказанного товара?
+                                                    </div>
+
+                                                    <svg class="collapse-item__icon collapse-item__icon--end"
+                                                         width="16" height="16"
+                                                         viewBox="0 0 16 16" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M8 1V15M1 8H15" stroke="#999999"
+                                                              stroke-width="2"
+                                                              stroke-linecap="round"
+                                                              stroke-linejoin="round"></path>
+                                                    </svg>
+                                                </div>
+
+                                                <div class="collapse" id="HelpPageCollapseItem{{ x }}">
+                                                    <div class="collapse-item__content">
+                                                        Some placeholder content for the collapse component.
+                                                        This
+                                                        panel is
+                                                        hidden by default but revealed when the user activates
+                                                        the
+                                                        relevant
+                                                        trigger.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endblock %}
+                            {% endembed %}
+                        </div>
+
+                        <div class="panel help-page-widget">
+                            <div class="row gx-0 gy-4">
+                                <div class="help-page-widget__head">
+                                    <div class="title title-h3">Задать вопрос</div>
+
+                                    <a data-bs-toggle="modal" data-bs-target="#AskAQuestion" class="button button-default">Написать сообщение</a>
+                                </div>
+
+                                <div class="text-content">
+                                    <p>
+                                        Не нашли ответа на свой вопрос? Свяжитесь с нами, и мы предоставим
+                                        необходимую информацию.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

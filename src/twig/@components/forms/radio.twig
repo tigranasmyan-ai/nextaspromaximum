@@ -1,4 +1,5 @@
 {% set radio_classes = 'form-radio' %}
+{% if size %}{% set radio_classes = radio_classes ~ ' radio--' ~ size %}{% endif %}
 {% if class %}{% set radio_classes = radio_classes ~ ' ' ~ class %}{% endif %}
 
 <div class="radio-group">

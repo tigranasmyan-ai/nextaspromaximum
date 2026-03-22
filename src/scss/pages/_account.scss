@@ -1,0 +1,84 @@
+@use "abstracts/mixins";
+
+.account-page-cart {
+  $self: &;
+
+  position: relative;
+
+  &.sm {
+    justify-content: space-between;
+  }
+
+  position: relative;
+  border: 1px solid rgb(var(--stroke_black));
+  border-radius: var(--settings-main-border-radius);
+  padding: 24px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-color .2s ease, background-color .2s ease, box-shadow .2s ease;
+
+  &:hover {
+    background: rgb(var(--card_bg_black));
+    box-shadow: 0 5px 30px rgba(34, 34, 40, .08);
+    border-color: transparent;
+  }
+
+  &__chevron {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    stroke: rgb(var(--white_text_black));
+    width: 6px;
+    height: 12px;
+  }
+
+  &__link {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__contacts {
+    display: flex;
+    gap: 12px 24px;
+    font-size: calc(1rem - 3px);
+    line-height: calc(1em + 5px);
+    color: rgb(var(--secondary));
+    margin-top: auto;
+    flex-wrap: wrap;
+  }
+
+  &__description {
+    color: rgb(var(--secondary));
+    font-size: calc(1rem - 3px);
+    line-height: calc(1em + 5px);
+
+    #{$self}.sm & {
+      margin-top: 4px;
+    }
+
+    #{$self}.lg & {
+      margin-bottom: 4px;
+    }
+  }
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    fill: rgb(var(--settings-theme-primary));
+  }
+}
+
+.account-page-profiles {
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 18px;
+
+    .title {
+      @include mixins.shorted_text(1);
+    }
+  }
+}

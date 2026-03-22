@@ -1,6 +1,7 @@
 .actions-item {
   $self: &;
 
+
   border: none;
   width: 24px;
   height: 24px;
@@ -11,6 +12,10 @@
 
   &.active {
     --icon_on_card: 0, 0, 0;
+  }
+
+  [data-theme="dark"] & {
+    --white_text_black_reverse: 255, 255, 255;
   }
 
   &__icon {

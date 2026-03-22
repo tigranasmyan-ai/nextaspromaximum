@@ -1,0 +1,141 @@
+{% extends 'templates/account.twig' %}
+
+{% block account_page %}
+
+    <div class="row gx-0 gy-4">
+        {% for item in 1..4 %}
+            <form action="" class="panel js-validation-form">
+
+                <div class="row gx-0 gy-4">
+                    <div class="account-page-profiles__head">
+                        <div class="title title-h4">Аккаунт номер {{ item }}</div>
+
+                        <a data-bs-toggle="collapse" href="#AccountProfileItem{{ item }}" role="button" aria-expanded="false" aria-controls="AccountProfileItem{{ item }}" class="button button-solid button-sm">Изменить данные</a>
+                    </div>
+
+                    <div  class="collapse" id="AccountProfileItem{{ item }}">
+                        <div class="row gy-4">
+                            <div class="col-12">
+                                {% include '@components/forms/input.twig' with {
+                                    label: 'Название *',
+                                    type: 'text',
+                                    id: 'AccountPageProfilesName' ~ item,
+                                    name: 'profile-name-' ~ item,
+                                    required: true,
+                                } %}
+                            </div>
+
+                            <div class="col-12">
+                                <div class="title title-h6">Личные данные</div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="row row gx-3 gy-md-4 g-3">
+                                    <div class="col-md-4">
+                                        {% include '@components/forms/input.twig' with {
+                                            label: 'Фамилия *',
+                                            id: 'AccountPageProfilesFirstName' ~ item,
+                                            name: 'firstname',
+                                            required: true,
+                                        } %}
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        {% include '@components/forms/input.twig' with {
+                                            label: 'Имя *',
+                                            id: 'AccountPageProfilesSurrName' ~ item,
+                                            name: 'surrname',
+                                            required: true,
+                                        } %}
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        {% include '@components/forms/input.twig' with {
+                                            label: 'Отчество *',
+                                            id: 'AccountPageProfilesLastName' ~ item,
+                                            name: 'lastname',
+                                            required: true,
+                                        } %}
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        {% include '@components/forms/input.twig' with {
+                                            label: 'Телефон *',
+                                            type: 'text',
+                                            id: 'AccountPageProfilesPhone' ~ item,
+                                            name: 'phone',
+                                            required: true,
+                                            class: 'phone',
+                                            info: 'Необходим для уточнения деталей заказа'
+                                        } %}
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        {% include '@components/forms/input.twig' with {
+                                            label: 'Email *',
+                                            id: 'AccountPageProfilesEamil' ~ item,
+                                            required: true,
+                                            name: 'email',
+                                            info: 'Для отправки уведомлений о статусе заказа. Используйте как логин для входа в личный кабинет'
+                                        } %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="title title-h6">Данные для доставки</div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="row row gx-3 gy-md-4 g-3">
+                                    <div class="col-md-6">
+                                        {% include '@components/forms/input.twig' with {
+                                            label: 'Индекс *',
+                                            placeholder: '00000',
+                                            id: 'AccountPageProfilesIndex' ~ item,
+                                            name: 'index',
+                                            required: true,
+                                        } %}
+                                    </div>
+                                    <div class="col-md-6">
+                                        {% include '@components/forms/input.twig' with {
+                                            label: 'Город *',
+                                            placeholder: 'Москва',
+                                            id: 'AccountPageProfilesIndex' ~ item,
+                                            name: 'index',
+                                            required: true,
+                                        } %}
+                                    </div>
+                                    <div class="col-md-6">
+                                        {% include '@components/forms/input.twig' with {
+                                            label: 'Местоположение',
+                                            id: 'input_icon_left',
+                                            icon_left: 'search',
+                                            placeholder: 'Поиск...'
+                                        } %}
+                                    </div>
+                                    <div class="col-md-6">
+                                        {% include '@components/forms/input.twig' with {
+                                            label: 'Адрес доставки *',
+                                            placeholder: 'Город, улица, дом, квартира',
+                                            id: 'AccountPageProfilesIndex' ~ item,
+                                            name: 'index',
+                                            required: true,
+                                        } %}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <button type="submit" class="button button-lg button-default">
+                                    Сохранить
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        {% endfor %}
+    </div>
+
+{% endblock %}

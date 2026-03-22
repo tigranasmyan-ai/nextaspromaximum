@@ -1,4 +1,5 @@
 {% set switch_classes = 'form-switch' %}
+{% if size %}{% set switch_classes = switch_classes ~ ' switch--' ~ size %}{% endif %}
 {% if class %}{% set switch_classes = switch_classes ~ ' ' ~ class %}{% endif %}
 
 <div class="switch-group">

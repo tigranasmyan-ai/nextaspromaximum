@@ -9,5 +9,9 @@
 
   &-sm {
     padding: 24px;
+
+    @media (max-width: 991px) {
+      padding: 16px;
+    }
   }
 }

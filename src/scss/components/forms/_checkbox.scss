@@ -1,10 +1,11 @@
 .checkbox {
+  $self: &;
   display: flex;
   gap: 12px;
   cursor: pointer;
   user-select: none;
   align-items: center;
-  
+
   .error {
     display: none;
   }
@@ -30,7 +31,7 @@
       border-color: rgb(var(--stroke_black));
       cursor: not-allowed;
     }
-    
+
     &:disabled ~ .checkbox__text {
       color: rgb(var(--secondary));
       cursor: not-allowed;
@@ -47,6 +48,16 @@
     position: relative;
     transition: all 0.2s ease;
 
+    #{$self}--sm & {
+      width: 16px;
+      height: 16px;
+    }
+
+    #{$self}--lg & {
+      width: 24px;
+      height: 24px;
+    }
+
     &::after {
       content: "";
       position: absolute;
@@ -58,6 +69,21 @@
       border: solid white;
       border-width: 0 2px 2px 0;
       transform: rotate(45deg);
+
+      #{$self}--sm & {
+        left: 5px;
+        top: 1px;
+        width: 4px;
+        height: 9px;
+      }
+
+      #{$self}--lg & {
+        left: 8px;
+        top: 3px;
+        width: 7px;
+        height: 13px;
+        border-width: 0 3px 3px 0;
+      }
     }
   }
 
@@ -66,14 +92,30 @@
     line-height: 20px;
     color: rgb(var(--white_text_black));
 
+    #{$self}--sm & {
+      font-size: 13px;
+    }
+
+    #{$self}--lg & {
+      font-size: 16px;
+    }
+
     a {
       color: rgb(var(--settings-theme-primary));
       text-decoration: underline;
-      
+
       &:hover {
         text-decoration: none;
       }
     }
+  }
+
+  &--sm {
+    gap: 8px;
+  }
+
+  &--lg {
+    gap: 14px;
   }
 
   &:hover &__input:not(:disabled) ~ .checkbox__box {

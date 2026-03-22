@@ -1,0 +1,47 @@
+{% extends 'templates/base.twig' %}
+
+{% set page_settings = {
+    classes: {
+        body: 'account-page',
+    },
+    breadcrumbs: [
+        { text: 'Главная', href: 'index.html' },
+        { text: 'Каталог', href: 'catalog.html' },
+        { text: 'Корзина', href: 'cart.html', active: true },
+    ]
+} %}
+
+{% block content %}
+
+    <section class="section">
+        <div class="container">
+            <div class="section__main">
+                <div class="title title-h1">
+                    Профили заказов
+                </div>
+
+                <div class="section__wrapper">
+                    <div class="section__aside">
+                        {% include '@components/menu/menu-list.twig' with {
+                            items: [
+                                {text: 'Мой кабинет', href: 'account.html'},
+                                {text: 'Личные данные', href: 'account-data.html'},
+                                {text: 'Заказы'},
+                                {text: 'Профили заказов', href: 'account-profiles.html'},
+                                {text: 'Избранные товары', href: 'favorites.html'},
+                                {text: 'Помощь', href: 'help.html'},
+                                {text: 'Выйти'},
+                            ]
+                        } %}
+                    </div>
+
+                    <div class="section__content">
+                        {% block account_page %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -2,7 +2,7 @@
   width: 100%;
   height: 44px;
   padding: 0 16px;
-  border-radius: var(--settings-main-border-radius);
+  border-radius: 8px;
   border: 1px solid rgb(var(--input_border_color));
   background-color: rgb(var(--input_bg_color));
   color: rgb(var(--input_color));
@@ -155,8 +155,8 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   color: rgb(var(--secondary));
   pointer-events: none;
   z-index: 2;
@@ -249,4 +249,5 @@ label.error {
   line-height: calc(1em + 5px);
   white-space: nowrap;
   display: block;
+  white-space: break-spaces;
 }

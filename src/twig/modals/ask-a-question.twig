@@ -1,0 +1,89 @@
+{% extends 'templates/modal.twig' %}
+
+{% block id %}AskAQuestion{% endblock %}
+
+{% block content %}
+
+    <div>
+        <div class="title-h3 title">Задать вопрос</div>
+
+        <div class="text-content modal__text">
+            <p>
+                Менеджеры компании с радостью ответят на ваши вопросы и произведут расчет стоимости услуг и подготовят
+                индивидуальное коммерческое предложение.
+            </p>
+        </div>
+    </div>
+
+    <form class="js-validation-form">
+        <div class="row g-4">
+            <div class="col-12">
+                {% include '@components/forms/input.twig' with {
+                    label: 'Ваше имя *',
+                    type: 'text',
+                    id: 'AskAQuestionName',
+                    name: 'name',
+                    required: true
+                } %}
+            </div>
+
+            <div class="col-12">
+                {% include '@components/forms/input.twig' with {
+                    label: 'Телефон *',
+                    type: 'text',
+                    id: 'AskAQuestionPhone',
+                    name: 'phone',
+                    required: true,
+                    class: 'phone'
+                } %}
+            </div>
+
+            <div class="col-12">
+                {% include '@components/forms/input.twig' with {
+                    label: 'Email *',
+                    type: 'text',
+                    id: 'AskAQuestionEmail',
+                    name: 'email',
+                    required: true
+                } %}
+            </div>
+
+            <div class="col-12">
+                {% include '@components/forms/input.twig' with {
+                    label: 'Интересующий товар/услуга',
+                    type: 'text',
+                    id: 'AskAQuestionService',
+                    name: 'service',
+                    required: true
+                } %}
+            </div>
+
+            <div class="col-12">
+                {% include '@components/forms/textarea.twig' with {
+                    label: 'Сообщение',
+                    id: 'AskAQuestionComment',
+                    name: 'comment',
+                    rows: 4,
+                } %}
+            </div>
+
+            <div class="col-12">
+                {% include '@components/forms/checkbox.twig' with {
+                    label: 'Я согласен(а) с условиями обработки персональных данных',
+                    id: 'AskAQuestionRemember',
+                    name: 'agreement',
+                    required: true,
+                    checked: true
+                } %}
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="button button-default button-block button-lg">
+                    Войти
+                </button>
+            </div>
+        </div>
+    </form>
+
+{% endblock %}
+

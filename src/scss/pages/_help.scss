@@ -1,0 +1,25 @@
+@use "abstracts/mixins";
+
+.help-page {
+  &__tabs {
+    margin-top: 32px;
+    margin-bottom: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+}
+
+.help-page-widget {
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 18px;
+
+    .title {
+      @include mixins.shorted_text(1);
+    }
+  }
+}

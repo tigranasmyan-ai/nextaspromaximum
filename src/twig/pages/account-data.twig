@@ -1,0 +1,113 @@
+{% extends 'templates/account.twig' %}
+
+{% block account_page %}
+
+	<form action="#" class="js-validation-form">
+		<div class="row gx-0 gy-4">
+			<div class="panel">
+
+				<div class="row gx-0 gy-4">
+					<div class="title title-h4">Контактные данные</div>
+
+					<div>
+						<div class="row gx-3 gy-md-4 g-3">
+							<div class="col-md-4">
+								{% include '@components/forms/input.twig' with {
+									label: 'Фамилия *',
+									placeholder: 'Введите текст',
+									id: 'AccountPageDataFirstName',
+									name: 'firstname',
+									required: true,
+								} %}
+							</div>
+
+							<div class="col-md-4">
+								{% include '@components/forms/input.twig' with {
+									label: 'Имя *',
+									placeholder: 'Введите текст',
+									id: 'AccountPageDataSurrName',
+									name: 'surrname',
+									required: true,
+								} %}
+							</div>
+
+							<div class="col-md-4">
+								{% include '@components/forms/input.twig' with {
+									label: 'Отчество *',
+									placeholder: 'Введите текст',
+									id: 'AccountPageDataLastName',
+									name: 'lastname',
+									required: true,
+								} %}
+							</div>
+
+							<div class="col-md-6">
+								{% include '@components/forms/input.twig' with {
+									label: 'Телефон *',
+									type: 'text',
+									id: 'AccountPageDataPhone',
+									name: 'phone',
+									required: true,
+									class: 'phone',
+									info: 'Необходим для уточнения деталей заказа'
+								} %}
+							</div>
+
+							<div class="col-md-6">
+								{% include '@components/forms/input.twig' with {
+									label: 'Email *',
+									placeholder: 'Введите текст',
+									id: 'AccountPageDataEamil',
+									required: true,
+									name: 'email',
+									info: 'Для отправки уведомлений о статусе заказа. Используйте как логин для входа в личный кабинет'
+								} %}
+							</div>
+
+							<div class="col-12">
+								{% include '@components/forms/checkbox.twig' with { label: 'Я согласен(а) с условиями обработки персональных данных', id: 'cb_sm' } %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="panel">
+				<div class="row gx-0 gy-4">
+					<div class="title title-h4">Изменить пароль</div>
+
+					<div>
+						<div class="row gx-3 gy-md-4 g-3">
+							<div class="col-md-6">
+								{% include '@components/forms/input.twig' with {
+									label: 'Новый пароль',
+									type: 'password',
+									id: 'AccountPageDataPassword',
+									name: 'password',
+									placeholder: 'Введите пароль',
+									required: true,
+								} %}
+							</div>
+
+							<div class="col-md-6">
+								{% include '@components/forms/input.twig' with {
+									label: 'Повтор пароля',
+									type: 'password',
+									id: 'AccountPageDataConfirmPassword',
+									name: 'confirm-password',
+									placeholder: 'Введите пароль еще раз',
+									required: true,
+								} %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<button type="submit" class="button button-default button-lg">Сохранить</button>
+			</div>
+		</div>
+	</form>
+
+{% endblock %}

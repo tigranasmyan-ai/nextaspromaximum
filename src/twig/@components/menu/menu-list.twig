@@ -10,7 +10,7 @@
     <div class="menu-list__wrapper">
         {% for item in items %}
             <div class="menu-list__item menu-list-item">
-                <a href="" class="menu-list-item__link {% if sm %}sm{% endif%} {{ loop.last ? 'active' : '' }}">
+                <a href="{{ item.href }}" class="menu-list-item__link {% if sm %}sm{% endif%} {{ loop.first ? 'active' : '' }}">
                     {{ item.text }}
 
                     {% if counter %}

@@ -1,4 +1,5 @@
 {% set checkbox_classes = 'form-checkbox' %}
+{% if size %}{% set checkbox_classes = checkbox_classes ~ ' checkbox--' ~ size %}{% endif %}
 {% if class %}{% set checkbox_classes = checkbox_classes ~ ' ' ~ class %}{% endif %}
 
 <div class="checkbox-group">

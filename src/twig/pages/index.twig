@@ -2,29 +2,43 @@
 
 {% block content %}
 
-    <div class="container text-content">
-        <ol>
-            {% for item in [
-                { text: 'Страница товара', link: 'product-single' },
-                { text: 'Логин', link: 'login' },
-                { text: 'Сбросить пароль', link: 'reset-password' },
-                { text: 'Регистрация', link: 'registration' },
-                { text: 'Страница блога', link: 'blog-single' },
-                { text: 'Сравнение', link: 'compare' },
-                { text: 'Акции', link: 'sales' },
-                { text: 'Избранные товары', link: 'favorites' },
-                { text: 'Бренды', link: 'brands' },
-                { text: 'Категория', link: 'catalog-single' },
-                { text: 'Категория', link: 'catalog' },
-                { text: 'Корзина', link: 'cart' },
-                { text: 'Блог', link: 'blog' },
-                { text: 'Главная страница', link: 'home' },
-            ] %}
-                <li>
-                    <a href="{{ item.link }}.html">{{ item.text }}</a>
-                </li>
-            {% endfor %}
-        </ol>
+    <div class="container text-content py-5">
+        <h1 class="title title-h1 mb-5">Список страниц</h1>
+
+        {% set pages = [
+            { text: 'Главная страница', link: 'home' },
+            { text: 'UI Kit', link: 'ui' },
+            { text: 'Каталог (список разделов)', link: 'catalog' },
+            { text: 'Категория (список товаров)', link: 'catalog-single' },
+            { text: 'Страница товара', link: 'product-single' },
+            { text: 'Бренды', link: 'brands' },
+            { text: 'Сравнение', link: 'compare' },
+            { text: 'Избранные товары', link: 'favorites' },
+            { text: 'Корзина', link: 'cart' },
+            { text: 'Оформление заказа', link: 'checkout' },
+            { text: 'Личный кабинет (дашборд)', link: 'account' },
+            { text: 'Персональные данные', link: 'account-data' },
+            { text: 'Профили заказов', link: 'account-profiles' },
+            { text: 'Логин', link: 'login' },
+            { text: 'Регистрация', link: 'registration' },
+            { text: 'Сбросить пароль', link: 'reset-password' },
+            { text: 'Блог', link: 'blog' },
+            { text: 'Страница статьи', link: 'blog-single' },
+            { text: 'Акции', link: 'sales' },
+            { text: 'Текстовая страница', link: 'text' },
+        ] %}
+
+        <div class="row">
+            <div class="col-md-6">
+                <ol class="list-unstyled">
+                    {% for item in pages %}
+                        <li class="mb-2">
+                            <a href="{{ item.link }}.html" class="link-primary text-decoration-none">{{ item.text }}</a>
+                        </li>
+                    {% endfor %}
+                </ol>
+            </div>
+        </div>
     </div>
 
 {% endblock %}

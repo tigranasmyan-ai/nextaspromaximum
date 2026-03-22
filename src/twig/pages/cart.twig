@@ -6,8 +6,6 @@
         body: 'cart-page',
     },
     breadcrumbs: [
-        { text: 'Главная', href: 'index.html' },
-        { text: 'Каталог', href: 'catalog.html' },
         { text: 'Корзина', href: 'cart.html', active: true },
     ]
 } %}
@@ -32,48 +30,46 @@
                         <div>
                             <div class="cart-page__totals">
 
-                                <div class="row g-4">
-                                    <div class="col-12">
-                                        <div class="cart-page-totals__head">
-                                            <div class="title title-h3">Итого</div>
+                                <div class="row gy-4 gx-0">
+                                    <div class="cart-page-totals__head">
+                                        <div class="title title-h3">Итого</div>
 
-                                            <div>
-                                                {% include '@components/@shop/price.twig' with {
-                                                    size: 'xl',
-                                                    now: '1 300 ₽/шт',
-                                                    old: '1 600 ₽/шт',
-                                                    class: 'price',
-                                                } %}
+                                        <div>
+                                            {% include '@components/@shop/price.twig' with {
+                                                size: 'xl',
+                                                now: '1 300 ₽/шт',
+                                                old: '1 600 ₽/шт',
+                                                class: 'price',
+                                            } %}
 
 
-                                                {% include '@components/@shop/cashback.twig' with {
-                                                    class: 'cart-product__cashback'
-                                                } %}
-                                            </div>
+                                            {% include '@components/@shop/cashback.twig' with {
+                                                class: 'cart-product__cashback'
+                                            } %}
                                         </div>
                                     </div>
 
-                                    <div class="col-12">
-                                        {% include '@components/forms/input.twig' with {
-                                            type: 'text',
-                                            icon_right: 'arrow-end',
-                                            id: 'cart_promo_code',
-                                            name: 'promo_code',
-                                            required: true,
-                                            size: 'sm',
-                                            placeholder: 'Есть промокод?',
-                                        } %}
-                                    </div>
+                                    {% include '@components/forms/input.twig' with {
+                                        type: 'text',
+                                        icon_right: 'arrow-end',
+                                        id: 'cart_promo_code',
+                                        name: 'promo_code',
+                                        required: true,
+                                        size: 'sm',
+                                        placeholder: 'Есть промокод?',
+                                    } %}
 
-                                    <div class="col-12">
-                                        <a href="checkout.html"
-                                           class="button button-default button-xl button-block cart-page-totals__button">
-                                            Перейти к оформлению
-                                        </a>
+                                    <div>
+                                        <div class="row gy-2 gx-0">
+                                            <a href="checkout.html"
+                                               class="button button-default button-xl button-block">
+                                                Перейти к оформлению
+                                            </a>
 
-                                        <a href="" class="button button-solid button-lg button-block">
-                                            Купить в 1 клик
-                                        </a>
+                                            <a href="" class="button button-solid button-lg button-block">
+                                                Купить в 1 клик
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
